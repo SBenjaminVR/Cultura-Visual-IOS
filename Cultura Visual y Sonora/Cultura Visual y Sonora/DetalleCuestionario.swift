@@ -14,6 +14,8 @@ class DetalleCuestionario: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.title = "Cuestionario de "
     }
     
 
