@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tfUser: UITextField!
+    @IBOutlet weak var tfPassword: UITextField!
     
     
     override func viewDidLoad() {
@@ -17,6 +19,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func logIn(_ sender: UIButton) {
+        if tfUser.text == "alumno" {
+            performSegue(withIdentifier: "alumno", sender: self)
+        } else {
+            performSegue(withIdentifier: "maestro", sender: self)
+        }
+    }
+    
 
 }
 
