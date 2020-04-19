@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setBackground()
     }
 
     @IBAction func logIn(_ sender: UIButton) {
@@ -25,6 +25,13 @@ class ViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "maestro", sender: self)
         }
+    }
+    
+    func setBackground() -> Void {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background.png")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
 

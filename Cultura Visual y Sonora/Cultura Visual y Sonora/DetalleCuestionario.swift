@@ -16,6 +16,15 @@ class DetalleCuestionario: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = "Cuestionario de "
+        
+        setBackground()
+    }
+        
+    func setBackground() -> Void {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "shinyBackground")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
 
