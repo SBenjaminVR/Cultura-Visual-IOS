@@ -34,6 +34,11 @@ class ViewController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
+    
+    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
 
 }
 
