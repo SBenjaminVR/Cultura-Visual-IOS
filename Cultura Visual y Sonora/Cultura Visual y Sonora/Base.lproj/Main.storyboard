@@ -229,6 +229,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="eSK-Ux-6zp" kind="show" id="Sb0-Ju-7ka"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -315,7 +318,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3Qg-Gb-gLK" kind="show" id="BvS-kr-uzr"/>
+                                    <segue destination="eSK-Ux-6zp" kind="show" id="of2-gN-mNr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -374,6 +377,62 @@
             </objects>
             <point key="canvasLocation" x="5735" y="134"/>
         </scene>
+        <!--Detalle Nuevo Cuestionario-->
+        <scene sceneID="Ppc-nG-trI">
+            <objects>
+                <viewController id="eSK-Ux-6zp" customClass="DetalleNuevoCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YNE-Sg-1wg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Cuestionario:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-ey-fJa">
+                                <rect key="frame" x="66" y="107" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tiempo para contestar:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxt-YA-BUS">
+                                <rect key="frame" x="66" y="270" width="178" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-VF-XCV">
+                                <rect key="frame" x="66" y="136" width="244" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3k-an-PEw">
+                                <rect key="frame" x="66" y="307" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdO-wv-VgT">
+                                <rect key="frame" x="199" y="588" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Agregar Preguntas"/>
+                                <connections>
+                                    <segue destination="3Qg-Gb-gLK" kind="show" id="aRh-YB-pkX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="pjj-we-LYS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XGP-Pq-wkN"/>
+                    <connections>
+                        <outlet property="tfNombreCuest" destination="rYm-VF-XCV" id="zlA-TY-yBU"/>
+                        <outlet property="tfTiempoCuest" destination="i3k-an-PEw" id="aG9-Fx-cUx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xwj-kK-bjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3457" y="841"/>
+        </scene>
         <!--Creacion Cuestionario-->
         <scene sceneID="1Nq-yq-3Fq">
             <objects>
@@ -411,50 +470,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-hg-Giu">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-hg-Giu">
                                 <rect key="frame" x="33" y="48" width="80" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5LY-NE-PCY" appends="YES" id="7mj-b1-fXV"/>
+                                </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97h-7X-Dz8">
-                                <rect key="frame" x="11" y="151" width="125" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Carga una Imagen"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tFF-42-9X4">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="tFF-42-9X4">
                                 <rect key="frame" x="16" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1s-WJ-7VU">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="h1s-WJ-7VU">
                                 <rect key="frame" x="106" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-2D-ARj">
-                                <rect key="frame" x="36" y="533" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="R1"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5s9-ar-MbF">
-                                <rect key="frame" x="126" y="533" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="R2"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bI1-Mr-CWd">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="bI1-Mr-CWd">
                                 <rect key="frame" x="289" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4U-u4-DUt">
-                                <rect key="frame" x="215" y="533" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="R3"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0S-Bo-BXG">
-                                <rect key="frame" x="309" y="533" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="R4"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brh-bq-7IB">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Brh-bq-7IB">
                                 <rect key="frame" x="195" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Respuesta 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-an-tgD">
                                 <rect key="frame" x="11" y="290" width="93" height="21"/>
@@ -512,11 +554,17 @@
                                 <rect key="frame" x="24" y="597" width="121" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Agregar Pregunta"/>
+                                <connections>
+                                    <action selector="agregarPregunta:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="ilY-Sy-hQN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYd-M7-Bee">
                                 <rect key="frame" x="196" y="597" width="128" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Crear Cuestionario"/>
+                                <connections>
+                                    <action selector="crearCuestionario:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="A54-hI-usL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -525,21 +573,12 @@
                     <navigationItem key="navigationItem" id="bin-Y2-oiq"/>
                     <connections>
                         <outlet property="btnAgregarPregunta" destination="sR2-kY-vgT" id="YAl-ib-xOc"/>
-                        <outlet property="btnCargaraImagenPregunta" destination="97h-7X-Dz8" id="9EF-Ct-7WN"/>
                         <outlet property="btnCrearCuestionario" destination="LYd-M7-Bee" id="1jB-F7-yNn"/>
-                        <outlet property="btnR1" destination="aA6-2D-ARj" id="ew5-HA-JUd"/>
-                        <outlet property="btnR2" destination="5s9-ar-MbF" id="5dh-ia-Znh"/>
-                        <outlet property="btnR3" destination="s4U-u4-DUt" id="bh9-7B-4UZ"/>
-                        <outlet property="btnR4" destination="G0S-Bo-BXG" id="0qn-W3-nSM"/>
-                        <outlet property="imagenDeLaPregunta" destination="WvF-hg-Giu" id="X0Y-D1-oxY"/>
+                        <outlet property="imgPreg" destination="WvF-hg-Giu" id="x1T-hc-IGr"/>
                         <outlet property="imgR1" destination="tFF-42-9X4" id="noe-c0-AIJ"/>
                         <outlet property="imgR2" destination="h1s-WJ-7VU" id="BhR-ym-ihO"/>
                         <outlet property="imgR3" destination="Brh-bq-7IB" id="CZb-5T-QCF"/>
                         <outlet property="imgR4" destination="bI1-Mr-CWd" id="1ip-AK-tB6"/>
-                        <outlet property="lbRespuesta1" destination="bN4-iK-jR3" id="je1-zH-xV8"/>
-                        <outlet property="lbRespuesta2" destination="qQG-cU-hJN" id="HWr-wV-NID"/>
-                        <outlet property="lbRespuesta3" destination="JBH-bG-ob0" id="wiG-9P-evP"/>
-                        <outlet property="lbRespuesta4" destination="1fj-jp-Qvt" id="VLJ-fJ-ln1"/>
                         <outlet property="tfPregunta" destination="5xi-1Y-8dQ" id="T6w-pa-dFH"/>
                         <outlet property="tfRespuesta1" destination="bN4-iK-jR3" id="lPg-fG-YhV"/>
                         <outlet property="tfRespuesta2" destination="qQG-cU-hJN" id="x3G-Ax-hEa"/>
@@ -550,8 +589,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj6-it-KQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5LY-NE-PCY">
+                    <connections>
+                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="vD9-Dr-eu5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3456.8000000000002" y="832.53373313343332"/>
+            <point key="canvasLocation" x="4724" y="841"/>
         </scene>
         <!--Registro Usuario-->
         <scene sceneID="2wx-He-rfG">
@@ -641,11 +685,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRO-SQ-pAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4314" y="833"/>
+            <point key="canvasLocation" x="5606" y="841"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sb0-Ju-7ka"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="backgroundBotones" width="336" height="128"/>
         <image name="cuadroCafe" width="381" height="278"/>
+        <image name="default" width="500" height="500"/>
     </resources>
 </document>

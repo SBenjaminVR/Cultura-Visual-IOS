@@ -28,6 +28,7 @@
 		0F9795AF24467F2200822BA2 /* RegistroUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795AE24467F2200822BA2 /* RegistroUsuario.swift */; };
 		0F9795B124467F7500822BA2 /* CreacionCuestionario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795B024467F7500822BA2 /* CreacionCuestionario.swift */; };
 		0F9795B324467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */; };
+		0FB47EEC244CA8E500D1B48E /* DetalleNuevoCuestionario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		0F9795AE24467F2200822BA2 /* RegistroUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroUsuario.swift; sourceTree = "<group>"; };
 		0F9795B024467F7500822BA2 /* CreacionCuestionario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreacionCuestionario.swift; sourceTree = "<group>"; };
 		0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadosGeneralesAlumnos.swift; sourceTree = "<group>"; };
+		0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleNuevoCuestionario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				0F9795842446651D00822BA2 /* SceneDelegate.swift */,
 				0F9795862446651D00822BA2 /* ViewController.swift */,
 				0F9795882446651D00822BA2 /* Main.storyboard */,
+				0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */,
 				0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */,
 				0F9795B024467F7500822BA2 /* CreacionCuestionario.swift */,
 				0F9795AE24467F2200822BA2 /* RegistroUsuario.swift */,
@@ -197,6 +200,7 @@
 				0F9795A924467D5B00822BA2 /* RespondeCuestionario.swift in Sources */,
 				0F9795852446651D00822BA2 /* SceneDelegate.swift in Sources */,
 				0F9795992446657B00822BA2 /* Cuestionario.swift in Sources */,
+				0FB47EEC244CA8E500D1B48E /* DetalleNuevoCuestionario.swift in Sources */,
 				0F97959D2446659200822BA2 /* Intento.swift in Sources */,
 				0F9795A524467BC500822BA2 /* ListaCuestionariosP.swift in Sources */,
 				0F9795972446654600822BA2 /* Pregunta.swift in Sources */,
