@@ -10,14 +10,12 @@ import UIKit
 
 class Usuario: NSObject {
     var nombre : String = ""
-    var edad : Int = 0
     var tipoUsuario : String = ""
     var username : String = ""
     var password : String = ""
     
-    init(nom:String, edad:Int, tipo:String, user:String, passw:String) {
+    init(nom:String, tipo:String, user:String, passw:String) {
         self.nombre = nom
-        self.edad = edad
         self.tipoUsuario = tipo
         self.username = user
         self.password = passw

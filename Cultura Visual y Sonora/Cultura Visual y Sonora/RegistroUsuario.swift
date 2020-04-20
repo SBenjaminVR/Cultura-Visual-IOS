@@ -10,6 +10,11 @@ import UIKit
 
 class RegistroUsuario: UIViewController {
 
+    @IBOutlet weak var tfNombre: UITextField!
+    @IBOutlet weak var tfCorreo: UITextField!
+    @IBOutlet weak var tfContrasena: UITextField!
+    @IBOutlet weak var tfConfirmar: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
@@ -22,7 +27,15 @@ class RegistroUsuario: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
-
+    @IBAction func crearCuenta(_ sender: Any) {
+        
+        if ((tfNombre?.text) != nil) && ((tfCorreo?.text) != nil) && ((tfContrasena?.text) != nil) && ((tfConfirmar?.text) != nil) {
+            
+        //Falta encriptar contraseña
+            let nuevoUser = Usuario(nom: tfNombre.text!, tipo: "Alumno", user: tfCorreo.text!, passw: tfContrasena.text!)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
