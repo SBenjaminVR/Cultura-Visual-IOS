@@ -447,6 +447,9 @@
                                     <segment title="Multiple"/>
                                     <segment title="V/F"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeQuestionType:" destination="3Qg-Gb-gLK" eventType="valueChanged" id="2Je-3U-AHW"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-NG-BVB">
                                 <rect key="frame" x="211" y="105" width="159" height="32"/>
@@ -455,22 +458,18 @@
                                     <segment title="Texto"/>
                                     <segment title="Imagenes"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeAnswerType:" destination="3Qg-Gb-gLK" eventType="valueChanged" id="Fcf-5u-Y9w"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5xi-1Y-8dQ">
-                                <rect key="frame" x="33" y="237" width="272" height="34"/>
+                                <rect key="frame" x="7" y="231" width="357" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escribe la Pregunta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8k-g0-bbS">
-                                <rect key="frame" x="26" y="189" width="231" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-hg-Giu">
-                                <rect key="frame" x="33" y="48" width="80" height="88"/>
+                                <rect key="frame" x="33" y="56" width="80" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -481,21 +480,33 @@
                                 <rect key="frame" x="16" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Otu-Zz-lRf" appends="YES" id="juZ-n1-s6y"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="h1s-WJ-7VU">
                                 <rect key="frame" x="106" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WRg-he-s1D" appends="YES" id="Xmv-42-bqU"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="bI1-Mr-CWd">
                                 <rect key="frame" x="289" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4hl-Vv-LTT" appends="YES" id="3oG-20-egd"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Brh-bq-7IB">
                                 <rect key="frame" x="195" y="449" width="70" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fOj-0e-kWT" appends="YES" id="Q0V-bM-6Co"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Respuesta 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-an-tgD">
                                 <rect key="frame" x="11" y="290" width="93" height="21"/>
@@ -565,6 +576,13 @@
                                     <action selector="crearCuestionario:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="A54-hI-usL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escribe la Pregunta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8k-g0-bbS">
+                                <rect key="frame" x="11" y="189" width="231" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="UUi-G7-CMe"/>
@@ -578,6 +596,11 @@
                         <outlet property="imgR2" destination="h1s-WJ-7VU" id="BhR-ym-ihO"/>
                         <outlet property="imgR3" destination="Brh-bq-7IB" id="CZb-5T-QCF"/>
                         <outlet property="imgR4" destination="bI1-Mr-CWd" id="1ip-AK-tB6"/>
+                        <outlet property="tapFotoPreg" destination="5LY-NE-PCY" id="1hT-C0-0jR"/>
+                        <outlet property="tapFotoR1" destination="Otu-Zz-lRf" id="gUd-Mq-g8o"/>
+                        <outlet property="tapFotoR2" destination="WRg-he-s1D" id="IjW-6M-hoj"/>
+                        <outlet property="tapFotoR3" destination="fOj-0e-kWT" id="QU0-ya-Ea5"/>
+                        <outlet property="tapFotoR4" destination="4hl-Vv-LTT" id="f2G-AG-ajW"/>
                         <outlet property="tfPregunta" destination="5xi-1Y-8dQ" id="T6w-pa-dFH"/>
                         <outlet property="tfRespuesta1" destination="bN4-iK-jR3" id="lPg-fG-YhV"/>
                         <outlet property="tfRespuesta2" destination="qQG-cU-hJN" id="x3G-Ax-hEa"/>
@@ -590,11 +613,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj6-it-KQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="5LY-NE-PCY">
                     <connections>
-                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="vD9-Dr-eu5"/>
+                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="rke-uG-wtc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Otu-Zz-lRf">
+                    <connections>
+                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="XIb-qQ-eCg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WRg-he-s1D">
+                    <connections>
+                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="Wv9-RQ-PGA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fOj-0e-kWT">
+                    <connections>
+                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="gm7-qY-Ly2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="4hl-Vv-LTT">
+                    <connections>
+                        <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="Aea-Wr-RLB"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4724" y="841"/>
+            <point key="canvasLocation" x="4301.6000000000004" y="840.62968515742136"/>
         </scene>
         <!--Registro Usuario-->
         <scene sceneID="2wx-He-rfG">
@@ -706,7 +749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRO-SQ-pAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5606" y="841"/>
+            <point key="canvasLocation" x="5038" y="841"/>
         </scene>
     </scenes>
     <resources>
