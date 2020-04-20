@@ -29,11 +29,27 @@ class RegistroUsuario: UIViewController {
     
     @IBAction func crearCuenta(_ sender: Any) {
         
-        if ((tfNombre?.text) != nil) && ((tfCorreo?.text) != nil) && ((tfContrasena?.text) != nil) && ((tfConfirmar?.text) != nil) {
+        let nombre = String(tfNombre.text!)
+        let correo = String(tfCorreo.text!)
+        let contrasena = String(tfContrasena.text!)
+        let confirmar = String(tfConfirmar.text!)
+        
+        if !nombre.isEmpty && !correo.isEmpty && !contrasena.isEmpty && !confirmar.isEmpty {
             
         //Falta encriptar contraseña
-            let nuevoUser = Usuario(nom: tfNombre.text!, tipo: "Alumno", user: tfCorreo.text!, passw: tfContrasena.text!)
+            let nuevoUser = Usuario(nom: nombre, tipo: "Alumno", user: correo, passw: contrasena)
+            
+            //Guardar nuevo user en base de datos?
         }
+        else {
+            let alerta = UIAlertController(title: "Error", message: "Todos los campos deben de estar llenos", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alerta.addAction(accion)
+            
+            present(alerta, animated: true, completion: nil)
+        }
+        
     }
     
     /*
