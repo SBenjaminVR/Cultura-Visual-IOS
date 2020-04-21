@@ -12,8 +12,15 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Dummy
 
-     let Preg1 = Pregunta(desc: "Si o No", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")! )
+     let Preg1 = Pregunta(desc: "Si o No", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
     
+    let Preg2 = Pregunta(desc: "Cuarto Numero", resp: [ "1", "2", "3", "4"], correcta: 4, tipo: "multiple", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
+    
+    let Preg3 = Pregunta(desc: "Ya fue el 21?", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
+    
+    let Preg4 = Pregunta(desc: "Picaso creo el cubismo", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
+    
+    let Preg5 = Pregunta(desc: "Picaso no creo el cubismo", resp: [ "Si", "No"], correcta: 2, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
     
     
     
@@ -41,29 +48,35 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
     func createSlides() -> [Slide] {
 
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.lblNumeroPregunta.text = "Pregunta 1"
+        slide1.lblNumeroPregunta.text = Preg1.descripcion
         slide1.imgPregunta.image = UIImage(named: "Background")
+        slide1.btnRespuestaTexto1.setTitle(Preg1.respuestas[0], for: .normal)
+        slide1.btnRespuestaTexto2.setTitle(Preg1.respuestas[1], for: .normal)
         
+        if(Preg1.tipoRespuestas == "V/F"){
+            slide1.view3.isHidden = true
+            slide1.view4.isHidden = true
+        }
         
-        
+    
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.lblNumeroPregunta.text = "Pregunta 2"
+        slide2.lblNumeroPregunta.text = Preg2.descripcion
         slide2.imgPregunta.image = UIImage(named: "RedBtn")
         
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.lblNumeroPregunta.text = "Pregunta 3"
+        slide3.lblNumeroPregunta.text = Preg3.descripcion
         slide3.imgPregunta.image = UIImage(named: "Background")
         
         
         let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide4.lblNumeroPregunta.text = "Pregunta 4"
+        slide4.lblNumeroPregunta.text = Preg4.descripcion
         slide4.imgPregunta.image = UIImage(named: "RedBtn")
        
         
         
         let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.lblNumeroPregunta.text = "Pregunta 5"
+        slide5.lblNumeroPregunta.text = Preg5.descripcion
         slide5.imgPregunta.image = UIImage(named: "Background")
         
         

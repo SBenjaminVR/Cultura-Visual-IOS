@@ -19,7 +19,10 @@ class Slide: UIView {
     @IBOutlet weak var btnRespuestaTexto3: UIButton!
     @IBOutlet weak var btnRespuestaTexto4: UIButton!
 
+    //Views para hidear si la pregunta es de V/F
+    @IBOutlet weak var view3: UIView!
     
+    @IBOutlet weak var view4: UIView!
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -28,5 +31,11 @@ class Slide: UIView {
         // Drawing code
     }
     */
-
+    
+    // MARK: - Funciones de botones
+    
+    @IBAction func actionbtn1(_ sender: UIButton) {
+        print(sender.tag)
+    }
+    
 }
