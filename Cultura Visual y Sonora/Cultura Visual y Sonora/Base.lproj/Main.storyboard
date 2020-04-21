@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -337,14 +337,39 @@
                     <view key="view" contentMode="scaleToFill" id="Pvr-id-GQb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pqm-dX-JiO">
+                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-6Z-MdD">
+                                        <rect key="frame" x="160" y="485" width="54" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="currentPageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="lo9-pM-4WB"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zRO-6B-SSm"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pqm-dX-JiO" firstAttribute="bottom" secondItem="QZb-SS-lu5" secondAttribute="bottom" id="1dk-yS-yDQ"/>
+                            <constraint firstItem="pqm-dX-JiO" firstAttribute="leading" secondItem="QZb-SS-lu5" secondAttribute="leading" id="d8d-Ao-ReF"/>
+                            <constraint firstItem="pqm-dX-JiO" firstAttribute="trailing" secondItem="QZb-SS-lu5" secondAttribute="trailing" id="fr1-FE-569"/>
+                            <constraint firstItem="pqm-dX-JiO" firstAttribute="top" secondItem="QZb-SS-lu5" secondAttribute="top" id="tR0-K9-b3o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QZb-SS-lu5"/>
                     </view>
                     <navigationItem key="navigationItem" id="hdX-U8-VF2"/>
+                    <connections>
+                        <outlet property="pageControl" destination="2SM-6Z-MdD" id="jFO-4U-W53"/>
+                        <outlet property="scrollView" destination="pqm-dX-JiO" id="IHF-NO-cRt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyM-Ac-dlY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4302" y="134"/>
+            <point key="canvasLocation" x="4301.6000000000004" y="133.5832083958021"/>
         </scene>
         <!--Resultado Cuestionario-->
         <scene sceneID="DPV-Lc-kMf">
@@ -752,6 +777,9 @@
             <point key="canvasLocation" x="5038" y="841"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sb0-Ju-7ka"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Intento3" width="376" height="272"/>
         <image name="Intento3Large" width="376" height="498"/>
@@ -759,7 +787,4 @@
         <image name="backgroundBotones" width="336" height="128"/>
         <image name="default" width="500" height="500"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Sb0-Ju-7ka"/>
-    </inferredMetricsTieBreakers>
 </document>
