@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
+class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloContestaCuestionario {
     
     // MARK: - Dummy
 
@@ -30,11 +30,16 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     
     var slides:[Slide] = [];
+    var respuestasUsuario = Array(repeating: 0, count: 6) //harcodeado
+    var cantCorrectas = 0
+    let respuestasCorrectas = Array(repeating: 1, count: 6)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        
+        
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
@@ -52,6 +57,9 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
         slide1.imgPregunta.image = UIImage(named: "Background")
         slide1.btnRespuestaTexto1.setTitle(Preg1.respuestas[0], for: .normal)
         slide1.btnRespuestaTexto2.setTitle(Preg1.respuestas[1], for: .normal)
+        slide1.id = 1
+        slide1.delegado = self
+        slide1.btnEntregar.isHidden = true
         
         if(Preg1.tipoRespuestas == "V/F"){
             slide1.view3.isHidden = true
@@ -66,6 +74,9 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
         slide2.btnRespuestaTexto2.setTitle(Preg2.respuestas[1], for: .normal)
         slide2.btnRespuestaTexto3.setTitle(Preg2.respuestas[2], for: .normal)
         slide2.btnRespuestaTexto4.setTitle(Preg2.respuestas[3], for: .normal)
+        slide2.id = 2
+        slide2.delegado = self
+        slide2.btnEntregar.isHidden = true
         
     
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
@@ -73,6 +84,9 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
         slide3.imgPregunta.image = UIImage(named: "Background")
         slide3.btnRespuestaTexto1.setTitle(Preg3.respuestas[0], for: .normal)
         slide3.btnRespuestaTexto2.setTitle(Preg3.respuestas[1], for: .normal)
+        slide3.id = 3
+        slide3.delegado = self
+        slide3.btnEntregar.isHidden = true
         
         if(Preg3.tipoRespuestas == "V/F"){
             slide3.view3.isHidden = true
@@ -85,20 +99,23 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
         slide4.imgPregunta.image = UIImage(named: "RedBtn")
         slide4.btnRespuestaTexto1.setTitle(Preg4.respuestas[0], for: .normal)
         slide4.btnRespuestaTexto2.setTitle(Preg4.respuestas[1], for: .normal)
+        slide4.id = 4
+        slide4.delegado = self
+        slide4.btnEntregar.isHidden = true
         
         if(Preg4.tipoRespuestas == "V/F"){
             slide4.view3.isHidden = true
             slide4.view4.isHidden = true
         }
 
-       
-        
-        
+    
         let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide5.lblNumeroPregunta.text = Preg5.descripcion
         slide5.imgPregunta.image = UIImage(named: "Background")
         slide5.btnRespuestaTexto1.setTitle(Preg5.respuestas[0], for: .normal)
         slide5.btnRespuestaTexto2.setTitle(Preg5.respuestas[1], for: .normal)
+        slide5.id = 5
+        slide5.delegado = self
         
         if(Preg5.tipoRespuestas == "V/F"){
             slide5.view3.isHidden = true
@@ -171,18 +188,39 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
             }
         */
     
+    // MARK: - ProtocoloContestaCuestionario
+    func agregaRespuesta(resp : Int, id: Int) {
+        respuestasUsuario[id] = resp
+        
+        for i in 1...respuestasUsuario.count-1 {
+            print(respuestasUsuario[i])
+        }
+        print("-------------------")
+    }
     
+    func entregaCuestionario() {
+        for i in 1...respuestasCorrectas.count-1 {
+            if respuestasUsuario[i] == respuestasCorrectas[i] {
+                cantCorrectas += 1
+            }
+        }
+        
+        
+        self.performSegue(withIdentifier: "resultados", sender: self)
+        
+    }
     
-    
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "resultados" {
+            let viewRes = segue.destination as! ResultadoCuestionario
+            viewRes.texto = "\(cantCorrectas) / \(respuestasCorrectas.count-1)"
+        }
     }
-    */
+    
 
 }

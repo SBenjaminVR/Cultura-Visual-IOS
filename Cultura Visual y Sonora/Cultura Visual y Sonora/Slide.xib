@@ -89,10 +89,19 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJD-I1-1Th">
+                    <rect key="frame" x="300" y="121" width="59" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Entregar"/>
+                    <connections>
+                        <action selector="finishQuestionnaire:" destination="iN0-l3-epB" eventType="touchUpInside" id="F1o-Jo-Y7h"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="btnEntregar" destination="DJD-I1-1Th" id="LDd-Kb-cq8"/>
                 <outlet property="btnRespuestaTexto1" destination="9Or-Wc-ohc" id="eJZ-an-rat"/>
                 <outlet property="btnRespuestaTexto2" destination="KZJ-YZ-3OZ" id="9Gm-pV-O3f"/>
                 <outlet property="btnRespuestaTexto3" destination="JEW-TE-u5b" id="bLw-Ey-7r7"/>

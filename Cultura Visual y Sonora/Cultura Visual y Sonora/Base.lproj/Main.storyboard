@@ -365,6 +365,7 @@
                     <connections>
                         <outlet property="pageControl" destination="2SM-6Z-MdD" id="jFO-4U-W53"/>
                         <outlet property="scrollView" destination="pqm-dX-JiO" id="IHF-NO-cRt"/>
+                        <segue destination="URR-xY-w0d" kind="show" identifier="resultados" id="sam-mx-XEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyM-Ac-dlY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -376,15 +377,28 @@
             <objects>
                 <viewController id="URR-xY-w0d" customClass="ResultadoCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6do-4a-SPG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-0l-fXi">
+                                <rect key="frame" x="40" y="161" width="295" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OPd-9u-YA8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YUG-6M-xDz"/>
+                    <connections>
+                        <outlet property="lbTexto" destination="kxg-0l-fXi" id="6KB-gH-nF6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIt-lr-bzn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5039" y="134"/>
+            <point key="canvasLocation" x="5037.6000000000004" y="133.5832083958021"/>
         </scene>
         <!--Resultados Generales Cuestionarios-->
         <scene sceneID="irT-m8-gGD">

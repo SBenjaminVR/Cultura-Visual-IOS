@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol protocoloContestaCuestionario {
+    func agregaRespuesta(resp : Int, id: Int) -> Void
+    func entregaCuestionario() -> Void
+}
+
 class Slide: UIView {
     
     // MARK: - Variables
@@ -18,11 +23,16 @@ class Slide: UIView {
     @IBOutlet weak var btnRespuestaTexto2: UIButton!
     @IBOutlet weak var btnRespuestaTexto3: UIButton!
     @IBOutlet weak var btnRespuestaTexto4: UIButton!
+    @IBOutlet weak var btnEntregar: UIButton!
+    
+    var id:Int!
 
     //Views para hidear si la pregunta es de V/F
     @IBOutlet weak var view3: UIView!
     
     @IBOutlet weak var view4: UIView!
+    
+    var delegado : protocoloContestaCuestionario!
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -35,7 +45,11 @@ class Slide: UIView {
     // MARK: - Funcion de botones
     
     @IBAction func actionbtn1(_ sender: UIButton) {
-        print(sender.tag)
+        //print(sender.tag)
+        delegado.agregaRespuesta(resp: sender.tag, id: self.id)
     }
     
+    @IBAction func finishQuestionnaire(_ sender: UIButton) {
+        delegado.entregaCuestionario()
+    }
 }

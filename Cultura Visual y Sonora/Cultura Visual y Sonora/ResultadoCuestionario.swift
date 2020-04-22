@@ -10,9 +10,12 @@ import UIKit
 
 class ResultadoCuestionario: UIViewController {
 
+    
+    @IBOutlet weak var lbTexto: UILabel!
+    var texto:String!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lbTexto.text = texto
         // Do any additional setup after loading the view.
     }
     
