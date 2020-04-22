@@ -32,7 +32,7 @@ class Slide: UIView {
     }
     */
     
-    // MARK: - Funciones de botones
+    // MARK: - Funcion de botones
     
     @IBAction func actionbtn1(_ sender: UIButton) {
         print(sender.tag)

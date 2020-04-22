@@ -62,22 +62,48 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate {
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.lblNumeroPregunta.text = Preg2.descripcion
         slide2.imgPregunta.image = UIImage(named: "RedBtn")
+        slide2.btnRespuestaTexto1.setTitle(Preg2.respuestas[0], for: .normal)
+        slide2.btnRespuestaTexto2.setTitle(Preg2.respuestas[1], for: .normal)
+        slide2.btnRespuestaTexto3.setTitle(Preg2.respuestas[2], for: .normal)
+        slide2.btnRespuestaTexto4.setTitle(Preg2.respuestas[3], for: .normal)
         
-        
+    
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide3.lblNumeroPregunta.text = Preg3.descripcion
         slide3.imgPregunta.image = UIImage(named: "Background")
+        slide3.btnRespuestaTexto1.setTitle(Preg3.respuestas[0], for: .normal)
+        slide3.btnRespuestaTexto2.setTitle(Preg3.respuestas[1], for: .normal)
         
+        if(Preg3.tipoRespuestas == "V/F"){
+            slide3.view3.isHidden = true
+            slide3.view4.isHidden = true
+        }
         
+    
         let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide4.lblNumeroPregunta.text = Preg4.descripcion
         slide4.imgPregunta.image = UIImage(named: "RedBtn")
+        slide4.btnRespuestaTexto1.setTitle(Preg4.respuestas[0], for: .normal)
+        slide4.btnRespuestaTexto2.setTitle(Preg4.respuestas[1], for: .normal)
+        
+        if(Preg4.tipoRespuestas == "V/F"){
+            slide4.view3.isHidden = true
+            slide4.view4.isHidden = true
+        }
+
        
         
         
         let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide5.lblNumeroPregunta.text = Preg5.descripcion
         slide5.imgPregunta.image = UIImage(named: "Background")
+        slide5.btnRespuestaTexto1.setTitle(Preg5.respuestas[0], for: .normal)
+        slide5.btnRespuestaTexto2.setTitle(Preg5.respuestas[1], for: .normal)
+        
+        if(Preg5.tipoRespuestas == "V/F"){
+            slide5.view3.isHidden = true
+            slide5.view4.isHidden = true
+        }
         
         
         return [slide1, slide2, slide3, slide4, slide5]
