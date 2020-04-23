@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,11 +69,6 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-vZ-4T2">
-                    <rect key="frame" x="17" y="586" width="149" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Reiniciar Cuestionario"/>
-                </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULw-uV-c6y">
                     <rect key="frame" x="17" y="434" width="148" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -97,6 +92,14 @@
                         <action selector="finishQuestionnaire:" destination="iN0-l3-epB" eventType="touchUpInside" id="F1o-Jo-Y7h"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-vZ-4T2">
+                    <rect key="frame" x="213" y="218" width="149" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Reiniciar Cuestionario"/>
+                    <connections>
+                        <action selector="reiniciar:" destination="iN0-l3-epB" eventType="touchUpInside" id="FAX-DQ-KGP"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -108,6 +111,8 @@
                 <outlet property="btnRespuestaTexto4" destination="RgW-m4-ww4" id="0tr-He-i8T"/>
                 <outlet property="imgPregunta" destination="gAD-br-j3n" id="aI6-xo-vJs"/>
                 <outlet property="lblNumeroPregunta" destination="C3l-FX-Jjl" id="sfD-bu-yqu"/>
+                <outlet property="view1" destination="U6X-Jg-1KY" id="CYt-zB-aBh"/>
+                <outlet property="view2" destination="tcv-pc-Q0N" id="VKC-MO-3DD"/>
                 <outlet property="view3" destination="ULw-uV-c6y" id="l1h-YY-zCA"/>
                 <outlet property="view4" destination="n0h-wO-RdR" id="iuf-Gq-eW9"/>
             </connections>

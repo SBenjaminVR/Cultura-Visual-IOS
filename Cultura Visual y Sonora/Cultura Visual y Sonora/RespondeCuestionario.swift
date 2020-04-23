@@ -39,8 +39,6 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         
         scrollView.delegate = self
         
-        
-        
         slides = createSlides()
         setupSlideScrollView(slides: slides)
         
@@ -205,8 +203,23 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             }
         }
         
-        
         self.performSegue(withIdentifier: "resultados", sender: self)
+        
+    }
+    
+    func reiniciarCuestionario() {
+        for i in 1...respuestasUsuario.count-1 {
+            respuestasUsuario[i] = 0
+        }
+        for i in 0...slides.count-1 {
+            slides[i].view1.layer.borderWidth = 0
+            slides[i].view2.layer.borderWidth = 0
+            slides[i].view3.layer.borderWidth = 0
+            slides[i].view4.layer.borderWidth = 0
+        }
+        pageControl.currentPage = 0
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        scrollViewDidScroll(scrollView)
         
     }
     
