@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B3E2ED44-D20A-4C1E-B418-4E5C4F9A5AE3"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53447582-634C-4BD6-9B5B-29E7EEDC1676"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cultura Visual y Sonora/DetalleNuevoCuestionario.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "guardarImagen(image:cuest:i:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "53447582-634C-4BD6-9B5B-29E7EEDC1676 - c6b2610e0a0bf679"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cultura_Visual_y_Sonora.DetalleNuevoCuestionario.guardarImagen(image: Swift.Optional&lt;__C.UIImage&gt;, cuest: Cultura_Visual_y_Sonora.Cuestionario, i: Swift.Int) -&gt; ()"
+                  moduleName = "Cultura Visual y Sonora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gibrangonzalez/Documents/Moviles/Cultura-Visual-IOS/Cultura%20Visual%20y%20Sonora/Cultura%20Visual%20y%20Sonora/DetalleNuevoCuestionario.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "1632">
+               </Location>
+               <Location
+                  uuid = "53447582-634C-4BD6-9B5B-29E7EEDC1676 - 594f1ec06e2fd8e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRStorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cultura_Visual_y_Sonora.DetalleNuevoCuestionario.guardarImagen(image: Swift.Optional&lt;__C.UIImage&gt;, cuest: Cultura_Visual_y_Sonora.Cuestionario, i: Swift.Int) -&gt; ()"
+                  moduleName = "Cultura Visual y Sonora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gibrangonzalez/Documents/Moviles/Cultura-Visual-IOS/Cultura%20Visual%20y%20Sonora/Cultura%20Visual%20y%20Sonora/DetalleNuevoCuestionario.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7040D20-C927-4792-9B57-F3C8018ECD4F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cultura Visual y Sonora/DetalleNuevoCuestionario.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "guardarImagen(image:cuest:i:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

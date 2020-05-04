@@ -94,6 +94,16 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         tfRespuesta3.text = ""
         tfRespuesta4.text = ""
         
+        imgR1.isUserInteractionEnabled = false
+        imgR2.isUserInteractionEnabled = false
+        imgR3.isUserInteractionEnabled = false
+        imgR4.isUserInteractionEnabled = false
+        
+        tfRespuesta1.isEnabled = true
+        tfRespuesta2.isEnabled = true
+        tfRespuesta3.isEnabled = true
+        tfRespuesta4.isEnabled = true
+        
         imgPreg.image = UIImage(named: "default")
         imgR1.image = UIImage(named: "default")
         imgR2.image = UIImage(named: "default")

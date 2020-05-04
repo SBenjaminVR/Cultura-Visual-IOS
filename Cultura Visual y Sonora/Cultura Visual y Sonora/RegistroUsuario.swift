@@ -40,19 +40,28 @@ class RegistroUsuario: UIViewController {
         
         if !nombre.isEmpty && !correo.isEmpty && !contrasena.isEmpty && !confirmar.isEmpty {
             
-        //Falta encriptar contraseña
-            let nuevoUser = Usuario(nom: nombre, tipo: "Alumno", user: correo, passw: contrasena)
-            
-            //Guardar nuevo user en base de datos?
-            docRef = Firestore.firestore().document("Users/\(nuevoUser.username)")
-            
-            let dataToSave: [String: Any] = ["nombre": nuevoUser.nombre, "username": nuevoUser.username, "password": nuevoUser.password, "tipoUsuario": "Alumno"]
-            docRef.setData(dataToSave) { (error) in
-                if let error = error {
-                    print("Got an error: \(error.localizedDescription)")
-                } else {
-                    print("New user saved")
+            if contrasena == confirmar {
+                //Falta encriptar contraseña
+                let nuevoUser = Usuario(nom: nombre, tipo: "Alumno", user: correo, passw: contrasena)
+                
+                //Guardar nuevo user en base de datos?
+                docRef = Firestore.firestore().document("Users/\(nuevoUser.username)")
+                
+                let dataToSave: [String: Any] = ["nombre": nuevoUser.nombre, "username": nuevoUser.username, "password": nuevoUser.password, "tipoUsuario": "Alumno"]
+                docRef.setData(dataToSave) { (error) in
+                    if let error = error {
+                        print("Got an error: \(error.localizedDescription)")
+                    } else {
+                        print("New user saved")
+                    }
                 }
+            } else {
+                let alerta = UIAlertController(title: "Error", message: "Los passwords no coinciden, trate de nuevo", preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                self.present(alerta, animated: true, completion: nil)
             }
         }
         else {
