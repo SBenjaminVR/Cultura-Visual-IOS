@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,9 +29,23 @@
 		0F9795B124467F7500822BA2 /* CreacionCuestionario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795B024467F7500822BA2 /* CreacionCuestionario.swift */; };
 		0F9795B324467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */; };
 		0FB47EEC244CA8E500D1B48E /* DetalleNuevoCuestionario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */; };
+		37A2943D94D5721918514155 /* libPods-Cultura Visual y Sonora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51ECF4AD626EE69B90AB54AD /* libPods-Cultura Visual y Sonora.a */; };
 		4ECB17D9244E6D7D001B1B23 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB17D8244E6D7D001B1B23 /* Slide.swift */; };
 		4ECB17DB244E6D9C001B1B23 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB17DA244E6D9C001B1B23 /* Slide.xib */; };
+		B9D9F8C8245F5172006BCEE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B9AE0A6A245F6F7F001F575A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F97957F2446651D00822BA2 /* Cultura Visual y Sonora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cultura Visual y Sonora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,8 +72,12 @@
 		0F9795B024467F7500822BA2 /* CreacionCuestionario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreacionCuestionario.swift; sourceTree = "<group>"; };
 		0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadosGeneralesAlumnos.swift; sourceTree = "<group>"; };
 		0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleNuevoCuestionario.swift; sourceTree = "<group>"; };
+		4E18E8D3365C8C3AC2235F31 /* Pods-Cultura Visual y Sonora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cultura Visual y Sonora.release.xcconfig"; path = "Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora.release.xcconfig"; sourceTree = "<group>"; };
 		4ECB17D8244E6D7D001B1B23 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		4ECB17DA244E6D9C001B1B23 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		51ECF4AD626EE69B90AB54AD /* libPods-Cultura Visual y Sonora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cultura Visual y Sonora.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DEABFB6CBD31A9A9C8E04254 /* Pods-Cultura Visual y Sonora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cultura Visual y Sonora.debug.xcconfig"; path = "Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A2943D94D5721918514155 /* libPods-Cultura Visual y Sonora.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +101,8 @@
 				0F97959C2446659200822BA2 /* Intento.swift */,
 				0F9795812446651D00822BA2 /* Cultura Visual y Sonora */,
 				0F9795802446651D00822BA2 /* Products */,
+				6F192E41B7A4455CCAA7138D /* Pods */,
+				A9A6D64FC32665502B1C6567 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +122,7 @@
 				0F9795862446651D00822BA2 /* ViewController.swift */,
 				0F9795882446651D00822BA2 /* Main.storyboard */,
 				4ECB17D8244E6D7D001B1B23 /* Slide.swift */,
+				B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */,
 				4ECB17DA244E6D9C001B1B23 /* Slide.xib */,
 				0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */,
 				0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */,
@@ -121,6 +143,23 @@
 			path = "Cultura Visual y Sonora";
 			sourceTree = "<group>";
 		};
+		6F192E41B7A4455CCAA7138D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DEABFB6CBD31A9A9C8E04254 /* Pods-Cultura Visual y Sonora.debug.xcconfig */,
+				4E18E8D3365C8C3AC2235F31 /* Pods-Cultura Visual y Sonora.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A9A6D64FC32665502B1C6567 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51ECF4AD626EE69B90AB54AD /* libPods-Cultura Visual y Sonora.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F9795932446651E00822BA2 /* Build configuration list for PBXNativeTarget "Cultura Visual y Sonora" */;
 			buildPhases = (
+				3531458FE0C51E2CA605D8F4 /* [CP] Check Pods Manifest.lock */,
 				0F97957B2446651D00822BA2 /* Sources */,
 				0F97957C2446651D00822BA2 /* Frameworks */,
 				0F97957D2446651D00822BA2 /* Resources */,
+				B9AE0A6A245F6F7F001F575A /* CopyFiles */,
+				7B17707BBAFC8D1236279AFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,12 +223,55 @@
 			files = (
 				0F97958F2446651E00822BA2 /* LaunchScreen.storyboard in Resources */,
 				0F97958C2446651E00822BA2 /* Assets.xcassets in Resources */,
+				B9D9F8C8245F5172006BCEE8 /* GoogleService-Info.plist in Resources */,
 				0F97958A2446651D00822BA2 /* Main.storyboard in Resources */,
 				4ECB17DB244E6D9C001B1B23 /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3531458FE0C51E2CA605D8F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cultura Visual y Sonora-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B17707BBAFC8D1236279AFF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F97957B2446651D00822BA2 /* Sources */ = {
@@ -354,11 +439,13 @@
 		};
 		0F9795942446651E00822BA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEABFB6CBD31A9A9C8E04254 /* Pods-Cultura Visual y Sonora.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F383ZZ95YM;
 				INFOPLIST_FILE = "Cultura Visual y Sonora/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,11 +459,13 @@
 		};
 		0F9795952446651E00822BA2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E18E8D3365C8C3AC2235F31 /* Pods-Cultura Visual y Sonora.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F383ZZ95YM;
 				INFOPLIST_FILE = "Cultura Visual y Sonora/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

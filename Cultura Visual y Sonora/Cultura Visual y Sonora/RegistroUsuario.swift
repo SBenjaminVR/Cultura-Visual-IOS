@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistroUsuario: UIViewController {
 
@@ -15,9 +16,12 @@ class RegistroUsuario: UIViewController {
     @IBOutlet weak var tfContrasena: UITextField!
     @IBOutlet weak var tfConfirmar: UITextField!
     
+    var docRef: DocumentReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
+        
     }
     
     func setBackground() -> Void {
@@ -40,6 +44,16 @@ class RegistroUsuario: UIViewController {
             let nuevoUser = Usuario(nom: nombre, tipo: "Alumno", user: correo, passw: contrasena)
             
             //Guardar nuevo user en base de datos?
+            docRef = Firestore.firestore().document("Users/\(nuevoUser.username)")
+            
+            let dataToSave: [String: Any] = ["nombre": nuevoUser.nombre, "username": nuevoUser.username, "password": nuevoUser.password, "tipoUsuario": "Alumno"]
+            docRef.setData(dataToSave) { (error) in
+                if let error = error {
+                    print("Got an error: \(error.localizedDescription)")
+                } else {
+                    print("New user saved")
+                }
+            }
         }
         else {
             let alerta = UIAlertController(title: "Error", message: "Todos los campos deben de estar llenos", preferredStyle: .alert)

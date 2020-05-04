@@ -15,13 +15,15 @@ class Intento: NSObject {
     var aciertos : Int = 0
     var usuario : Usuario
     var cuestionario : Cuestionario
+    var respuestasUsuario : [Int]
     
-    init(fecha:Date!, cali:Double, tiempo:Double, aciertos:Int, user:Usuario, cuest:Cuestionario) {
+    init(fecha:Date!, cali:Double, tiempo:Double, aciertos:Int, user:Usuario, cuest:Cuestionario, respUser: [Int]) {
         self.fecha = fecha
         self.calificacion = cali
         self.tiempo = tiempo
         self.aciertos = aciertos
         self.usuario = user
         self.cuestionario = cuest
+        self.respuestasUsuario = respUser
     }
 }
