@@ -14,10 +14,13 @@ class Cuestionario: NSObject {
     var preguntas : [Pregunta] = []
     var tiempoCuestionario : Double = 0.0
     
-    init(nom:String, numPreg:Int, preg:[Pregunta], tiempo:Double) {
+    init(nom:String, numPreg:Int, tiempo:Double) {
         self.nombre = nom
         self.numeroDePreguntas = numPreg
-        self.preguntas = preg
         self.tiempoCuestionario = tiempo
+    }
+    
+    func addQuestions(preguntas: [Pregunta]) {
+        self.preguntas = preguntas
     }
 }

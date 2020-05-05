@@ -17,14 +17,20 @@ class Pregunta: NSObject {
     var categoria : String = ""
     var imgPregunta : UIImage!
     
-    init(desc:String, resp:[String], correcta:Int, tipo:String, imgs:[UIImage], categ:String, imgPreg:UIImage!) {
+    init(desc:String, resp:[String], correcta:Int, tipo:String, categ:String) {
         self.descripcion = desc
         self.respuestas = resp
         self.respuestaCorrecta = correcta
         self.tipoRespuestas = tipo
-        self.imagenes = imgs
         self.categoria = categ
+    }
+    
+    func setImagenPregunta(imgPreg:UIImage!) {
         self.imgPregunta = imgPreg
+    }
+    
+    func setImagenesRespuestas(imgs:[UIImage]) {
+        self.imagenes = imgs
     }
     
 }

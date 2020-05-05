@@ -79,7 +79,9 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         let fotoPreg = imgPreg.image
                 
         //Se crea el objeto Pregunta
-        let newPreg = Pregunta(desc: descrip, resp: respuestas, correcta: corr, tipo: tipoPreg, imgs: images, categ: categoria, imgPreg: fotoPreg)
+        let newPreg = Pregunta(desc: descrip, resp: respuestas, correcta: corr, tipo: tipoPreg, categ: categoria)
+        newPreg.setImagenPregunta(imgPreg: fotoPreg)
+        newPreg.setImagenesRespuestas(imgs: images)
         
         //Se actualiza el Cuestionario con la nueva pregunta
         listaPreguntas.append(newPreg)

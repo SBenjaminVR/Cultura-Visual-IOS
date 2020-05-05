@@ -23,14 +23,13 @@ class ListaCuestionariosA: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Cuestionarios"
-        obtenerCuestionarios { nom in
-            self.nombre = nom
-        }
-        print("NOMBREE '\(nombre)'")
+        obtenerCuestionarios(addCuestionario)
+        
+        
     }
     
-    //MARK: - Firebase
-    func obtenerCuestionarios(_ completion: @escaping (String)->Void) {
+    //MARK: - Save Items From Firebase
+    func obtenerCuestionarios(_ completion: @escaping ([QueryDocumentSnapshot])->Void) {
         let cuestRef = Firestore.firestore().collection("Cuestionarios")
           
         cuestRef.getDocuments(completion: { (querySnapshot, error) in
@@ -44,19 +43,85 @@ class ListaCuestionariosA: UITableViewController {
                   return
             }
             
-            var nom = ""
-              
             let documents = querySnapshot.documents
-            for document in documents {
-                nom = document["nombre"] as? String ?? "(noName)"
-                self.tiempo = document["tiempo"] as? Int ?? 0
-                self.cantPreg = document["cantPreguntas"] as? Int ?? 0
-            }
-            print("NOOOOOM \(nom)")
-            completion(nom)
+            completion(documents)
         })
     }
     
+    func addCuestionario(documents: [QueryDocumentSnapshot]) {
+        var nombre: String
+        var tiempo: Int
+        var cantPreg: Int
+        var i = 0
+        
+        for document in documents {
+            nombre = document["nombre"] as? String ?? "(noName)"
+            tiempo = document["tiempo"] as? Int ?? 0
+            cantPreg = document["cantPreguntas"] as? Int ?? 0
+            
+            self.listaCuestionarios.append(Cuestionario(nom: nombre, numPreg: cantPreg, tiempo: Double(tiempo)))
+            
+            //let callback = {self.addPreguntas(preguntas: documents, index: i)}
+            obtenerPreguntas(addPreguntas, nombre: nombre, i:i)
+            
+            i+=1
+        }
+        
+        //print(listaCuestionarios[0].preguntas[0].descripcion)
+    }
+    
+    func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], Int)->Void, nombre: String, i: Int) {
+        let pregRef = Firestore.firestore().collection("Cuestionarios").document("\(nombre)").collection("Preguntas")
+        
+        pregRef.getDocuments(completion: { (querySnapshotP, error) in
+            guard let querySnapshotP = querySnapshotP else {
+                let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            
+            let pregDocs = querySnapshotP.documents
+            print(pregDocs)
+            completion(pregDocs, i)
+        })
+    }
+
+    
+    func addPreguntas(preguntas: [QueryDocumentSnapshot], index: Int) {
+        var categoria = ""
+        var descripcion = ""
+        var respCorrecta = 0
+        var respuestas = [String]()
+        var tipoResp = ""
+        var imgPreg:UIImage!
+        var imagenes = [UIImage]()
+        var i = 0
+        
+        for pregDoc in preguntas {
+            categoria = pregDoc["categoria"] as? String ?? "noCateg"
+            descripcion = pregDoc["descripcion"] as? String ?? "noDesc"
+            respCorrecta = pregDoc["respCorrecta"] as? Int ?? 0
+            respuestas = pregDoc["respuestas"] as! [String]
+            tipoResp = pregDoc["tipoResp"] as? String ?? "noTipoRes"
+            
+            let nuevaPregunta = Pregunta(desc: descripcion, resp: respuestas, correcta: respCorrecta, tipo: tipoResp, categ: categoria)
+            
+            print("NOOOOMBREEE \(nombre)")
+            
+            listaCuestionarios[index].preguntas.append(nuevaPregunta)
+        }
+        
+        
+    }
+    
+    //MARK: - Get Items from Firebase
+    
+    
+        
     
     /*func obtenerCuestionarios() {
         let cuestRef = Firestore.firestore().collection("Cuestionarios")
@@ -167,14 +232,14 @@ class ListaCuestionariosA: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listaDatos.count
+        return listaCuestionarios.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCellCuestionario", for: indexPath)
 
-        cell.textLabel?.text = listaDatos[indexPath.row]
+        cell.textLabel?.text = listaCuestionarios[indexPath.row].nombre
         return cell
     }
     

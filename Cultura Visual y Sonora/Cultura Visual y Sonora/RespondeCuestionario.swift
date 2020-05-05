@@ -12,15 +12,11 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     
     // MARK: - Dummy
 
-     let Preg1 = Pregunta(desc: "Si o No", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
-    
-    let Preg2 = Pregunta(desc: "Cuarto Numero", resp: [ "1", "2", "3", "4"], correcta: 4, tipo: "multiple", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
-    
-    let Preg3 = Pregunta(desc: "Ya fue el 21?", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
-    
-    let Preg4 = Pregunta(desc: "Picaso creo el cubismo", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
-    
-    let Preg5 = Pregunta(desc: "Picaso no creo el cubismo", resp: [ "Si", "No"], correcta: 2, tipo: "V/F", imgs: [UIImage(named: "default")! , UIImage(named: "default")! ], categ: "texto", imgPreg: UIImage(named: "default")!)
+    let Preg1 = Pregunta(desc: "Si o No", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", categ: "texto")
+    let Preg2 = Pregunta(desc: "Cuarto Numero", resp: [ "1", "2", "3", "4"], correcta: 4, tipo: "multiple", categ: "texto")
+    let Preg3 = Pregunta(desc: "Ya fue el 21?", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", categ: "texto")
+    let Preg4 = Pregunta(desc: "Picaso creo el cubismo", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", categ: "texto")
+    let Preg5 = Pregunta(desc: "Picaso no creo el cubismo", resp: [ "Si", "No"], correcta: 2, tipo: "V/F", categ: "texto")
     
     
     
@@ -38,6 +34,21 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         super.viewDidLoad()
         
         scrollView.delegate = self
+        
+        Preg1.setImagenPregunta(imgPreg: UIImage(named: "default"))
+        Preg1.setImagenesRespuestas(imgs: [UIImage(named: "default")!])
+        
+        Preg2.setImagenPregunta(imgPreg: UIImage(named: "default"))
+        Preg2.setImagenesRespuestas(imgs:[UIImage(named: "default")! , UIImage(named: "default")! ])
+        
+        Preg3.setImagenPregunta(imgPreg: UIImage(named: "default"))
+        Preg3.setImagenesRespuestas(imgs: [UIImage(named: "default")! , UIImage(named: "default")! ])
+        
+        Preg4.setImagenPregunta(imgPreg: UIImage(named: "default"))
+        Preg4.setImagenesRespuestas(imgs: [UIImage(named: "default")! , UIImage(named: "default")! ])
+        
+        Preg5.setImagenPregunta(imgPreg: UIImage(named: "default"))
+        Preg5.setImagenesRespuestas(imgs: [UIImage(named: "default")! , UIImage(named: "default")! ])
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
@@ -153,7 +164,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             
             let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
             let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-}
+        }
             
             
             /*
@@ -235,5 +246,4 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         }
     }
     
-
 }

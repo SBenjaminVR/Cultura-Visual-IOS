@@ -31,7 +31,8 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         let nomb = tfNombreCuest.text
         let tiem:Double = (tfTiempoCuest.text! as NSString).doubleValue
         
-        let nuevoCuestionario = Cuestionario(nom: nomb!, numPreg: cantPreg, preg: listaPreguntas, tiempo: tiem)
+        let nuevoCuestionario = Cuestionario(nom: nomb!, numPreg: cantPreg, tiempo: tiem)
+        nuevoCuestionario.addQuestions(preguntas: listaPreguntas)
         
         for preg in nuevoCuestionario.preguntas {
             print(preg.descripcion)
