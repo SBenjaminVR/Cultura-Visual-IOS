@@ -48,11 +48,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         colRef.document("\(cuest.nombre)").setData([
             "nombre": cuest.nombre,
             "tiempo": cuest.tiempoCuestionario,
-            "preguntas": [],
             "cantPreguntas": cuest.preguntas.count
         ])
         
-        var i=1
+        var i=0
         //var j=0
         for preg in cuest.preguntas {
             guardarPregunta(cuest: cuest, preg: preg, i: i)
@@ -61,26 +60,20 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     }
     
     func guardarPregunta(cuest: Cuestionario, preg: Pregunta, i: Int) {
-        let cuestRef = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)")
+        let cuestRef = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)").collection("Preguntas").document("Preg\(i)")
         
-      
-        cuestRef.updateData([
-            "preguntas": FieldValue.arrayUnion([
-
-                    ["descripcion": preg.descripcion,
-                     "categoria": preg.categoria,
-                     "respuestas": [
-                        preg.respuestas[0],
-                        preg.respuestas[1],
-                        preg.respuestas[2],
-                        preg.respuestas[3]],
-                     "respCorrecta": preg.respuestaCorrecta,
-                     "imagenes": [],
-                     "imagenPreg": "",
-                     "tipoResp": preg.tipoRespuestas
-                    ]
-                
-            ])
+        cuestRef.setData([
+            "descripcion": preg.descripcion,
+            "categoria": preg.categoria,
+            "respuestas": [
+                preg.respuestas[0],
+                preg.respuestas[1],
+                preg.respuestas[2],
+                preg.respuestas[3]],
+            "respCorrecta": preg.respuestaCorrecta,
+            "imagenes": [],
+            "imagenPreg": "",
+            "tipoResp": preg.tipoRespuestas
         ])
         
         guardarImagen(image: preg.imgPregunta, cuest: cuest, i: i, tipo: 1, resp: 4)
@@ -146,10 +139,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                 
                 let urlString = url.absoluteString
                 
-                let dataReference = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)")
-                if tipo == 1{
+                let dataReference = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)").collection("Preguntas").document("Preg\(i)")
+                if tipo == 1 {
                     dataReference.updateData([
-                        "preguntas.\(i).imagenPreg": urlString
+                        "imagenPreg": imgName
                     ]) { (error) in
                         let alerta = UIAlertController(title: "Error", message: "Algo salio mal 5", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -162,7 +155,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                 }
                 else{
                     dataReference.updateData([
-                        "preguntas.\(i).imagenes": FieldValue.arrayUnion([urlString])
+                        "imagenes": FieldValue.arrayUnion([imgName])
                     ]) { (error) in
                         let alerta = UIAlertController(title: "Error", message: "Algo salio mal 5", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

@@ -42,12 +42,6 @@ class ViewController: UIViewController {
             let userType = myData!["tipoUsuario"] as? String ?? "(noType)"
             let password = myData!["password"] as? String ?? "(noPasswrd)"
             
-            print("Username \(username)")
-            print("UserText \(textUser)")
-            
-            print("Password '\(password)'")
-            print("PassText '\(textPassword)'")
-            
             if password == textPassword {
                 if userType == "Alumno" {
                     self.performSegue(withIdentifier: "alumno", sender: self)
