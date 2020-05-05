@@ -16,40 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
-            landmarkName = "guardarImagen(image:cuest:i:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "53447582-634C-4BD6-9B5B-29E7EEDC1676 - c6b2610e0a0bf679"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cultura_Visual_y_Sonora.DetalleNuevoCuestionario.guardarImagen(image: Swift.Optional&lt;__C.UIImage&gt;, cuest: Cultura_Visual_y_Sonora.Cuestionario, i: Swift.Int) -&gt; ()"
-                  moduleName = "Cultura Visual y Sonora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gibrangonzalez/Documents/Moviles/Cultura-Visual-IOS/Cultura%20Visual%20y%20Sonora/Cultura%20Visual%20y%20Sonora/DetalleNuevoCuestionario.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "1632">
-               </Location>
-               <Location
-                  uuid = "53447582-634C-4BD6-9B5B-29E7EEDC1676 - 594f1ec06e2fd8e1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRStorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cultura_Visual_y_Sonora.DetalleNuevoCuestionario.guardarImagen(image: Swift.Optional&lt;__C.UIImage&gt;, cuest: Cultura_Visual_y_Sonora.Cuestionario, i: Swift.Int) -&gt; ()"
-                  moduleName = "Cultura Visual y Sonora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gibrangonzalez/Documents/Moviles/Cultura-Visual-IOS/Cultura%20Visual%20y%20Sonora/Cultura%20Visual%20y%20Sonora/DetalleNuevoCuestionario.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
-                  offsetFromSymbolStart = "188">
-               </Location>
-            </Locations>
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,7 +32,39 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "guardarImagen(image:cuest:i:)"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0D1CC2E-00D3-4DE6-B08D-6648E85293B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cultura Visual y Sonora/ListaCuestionariosA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97720797-37B1-456E-8BE3-86BDBE2ECF79"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cultura Visual y Sonora/ListaCuestionariosA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "obtenerCuestionarios(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

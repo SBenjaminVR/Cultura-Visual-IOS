@@ -14,15 +14,50 @@ class ListaCuestionariosA: UITableViewController {
     
     var listaDatos = ["Arte", "Musica", "Arquitectura"]
     var listaCuestionarios : [Cuestionario] = [Cuestionario]()
+    
+    var nombre:String = ""
+    var tiempo = 0
+    var cantPreg = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Cuestionarios"
-        //obtenerCuestionarios()
+        obtenerCuestionarios { nom in
+            self.nombre = nom
+        }
+        print("NOMBREE '\(nombre)'")
     }
     
     //MARK: - Firebase
+    func obtenerCuestionarios(_ completion: @escaping (String)->Void) {
+        let cuestRef = Firestore.firestore().collection("Cuestionarios")
+          
+        cuestRef.getDocuments(completion: { (querySnapshot, error) in
+            guard let querySnapshot = querySnapshot else {
+                  let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                  let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                  
+                  alerta.addAction(accion)
+                  
+                  self.present(alerta, animated: true, completion: nil)
+                  return
+            }
+            
+            var nom = ""
+              
+            let documents = querySnapshot.documents
+            for document in documents {
+                nom = document["nombre"] as? String ?? "(noName)"
+                self.tiempo = document["tiempo"] as? Int ?? 0
+                self.cantPreg = document["cantPreguntas"] as? Int ?? 0
+            }
+            print("NOOOOOM \(nom)")
+            completion(nom)
+        })
+    }
+    
+    
     /*func obtenerCuestionarios() {
         let cuestRef = Firestore.firestore().collection("Cuestionarios")
             
