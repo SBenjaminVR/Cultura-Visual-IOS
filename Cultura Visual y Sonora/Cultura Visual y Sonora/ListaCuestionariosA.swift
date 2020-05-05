@@ -66,11 +66,9 @@ class ListaCuestionariosA: UITableViewController {
             
             i+=1
         }
-        
-        //print(listaCuestionarios[0].preguntas[0].descripcion)
     }
     
-    func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], Int)->Void, nombre: String, i: Int) {
+    func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], String, Int)->Void, nombre: String, i: Int) {
         let pregRef = Firestore.firestore().collection("Cuestionarios").document("\(nombre)").collection("Preguntas")
         
         pregRef.getDocuments(completion: { (querySnapshotP, error) in
@@ -86,12 +84,12 @@ class ListaCuestionariosA: UITableViewController {
             
             let pregDocs = querySnapshotP.documents
             print(pregDocs)
-            completion(pregDocs, i)
+            completion(pregDocs, nombre, i)
         })
     }
 
     
-    func addPreguntas(preguntas: [QueryDocumentSnapshot], index: Int) {
+    func addPreguntas(preguntas: [QueryDocumentSnapshot], nombre:String, index: Int) {
         var categoria = ""
         var descripcion = ""
         var respCorrecta = 0
@@ -99,7 +97,7 @@ class ListaCuestionariosA: UITableViewController {
         var tipoResp = ""
         var imgPreg:UIImage!
         var imagenes = [UIImage]()
-        var i = 0
+        var j = 0
         
         for pregDoc in preguntas {
             categoria = pregDoc["categoria"] as? String ?? "noCateg"
@@ -110,18 +108,64 @@ class ListaCuestionariosA: UITableViewController {
             
             let nuevaPregunta = Pregunta(desc: descripcion, resp: respuestas, correcta: respCorrecta, tipo: tipoResp, categ: categoria)
             
-            print("NOOOOMBREEE \(nombre)")
-            
             listaCuestionarios[index].preguntas.append(nuevaPregunta)
+            
+            obtenerImagenPregunta(addImagenPregunta, nombre: nombre, i: index, j: j)
+            
+            j += 1
         }
+    }
+    
+    //MARK: - Obtener Imagen
+    func obtenerImagenPregunta(_ completion: @escaping (UIImage,String, Int,Int)->Void, nombre: String, i: Int, j:Int) {
+        let imageRef = Storage.storage().reference().child("images/\(nombre)Preg\(i).jpeg")
         
+        imageRef.getData(maxSize: 1*10240*10240, completion: { (data, error) in
+            if let error = error {
+                let alerta = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            let imgPreg = UIImage(data: data!)
+            completion(imgPreg!, nombre, i, j)
+        })
+    }
+    
+    func addImagenPregunta(img: UIImage, nombre: String, i:Int, j:Int) {
+        listaCuestionarios[i].preguntas[j].setImagenPregunta(imgPreg: img)
+        
+        for k in 0...3 {
+            obtenerImagenRespuesta(addImagenRespuesta, nombre: nombre, i: i, j: j, k:k)
+        }
         
     }
     
-    //MARK: - Get Items from Firebase
-    
-    
+    func obtenerImagenRespuesta(_ completion: @escaping (UIImage,Int,Int)->Void, nombre: String, i: Int, j:Int, k:Int) {
+        let imageRef = Storage.storage().reference().child("images/\(nombre)Preg\(i)Resp\(k).jpeg")
         
+        imageRef.getData(maxSize: 1*10240*10240, completion: { (data, error) in
+            if let error = error {
+                let alerta = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            let imgPreg = UIImage(data: data!)
+            completion(imgPreg!, i, j)
+        })
+    }
+        
+    func addImagenRespuesta(img: UIImage, i:Int, j:Int) {
+        listaCuestionarios[i].preguntas[j].imagenes.append(img)
+        tableView.reloadData()
+    }
     
     /*func obtenerCuestionarios() {
         let cuestRef = Firestore.firestore().collection("Cuestionarios")

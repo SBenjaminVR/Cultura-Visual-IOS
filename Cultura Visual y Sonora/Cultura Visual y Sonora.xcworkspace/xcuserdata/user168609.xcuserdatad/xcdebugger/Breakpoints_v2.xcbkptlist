@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3136E217-478C-4D17-BAA6-4340BA873B06"
+            uuid = "7296AC29-D477-403D-9605-C01FDE6B0C20"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cultura Visual y Sonora/ListaCuestionariosA.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "addCuestionario(documents:)"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "addImagenRespuesta(img:i:j:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
