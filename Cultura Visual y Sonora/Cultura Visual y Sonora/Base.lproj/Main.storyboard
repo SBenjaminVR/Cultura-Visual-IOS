@@ -81,7 +81,7 @@
                     <connections>
                         <outlet property="tfPassword" destination="V8t-3W-tcB" id="9fF-fZ-34l"/>
                         <outlet property="tfUser" destination="ozl-PH-wQk" id="XUd-Hw-P8n"/>
-                        <segue destination="F32-vo-UfM" kind="show" identifier="alumno" id="n3W-gP-wIP"/>
+                        <segue destination="F32-vo-UfM" kind="presentation" identifier="alumno" modalPresentationStyle="fullScreen" id="n3W-gP-wIP"/>
                         <segue destination="G4R-9b-V5A" kind="show" identifier="maestro" id="Six-oq-TjV"/>
                     </connections>
                 </viewController>
@@ -99,7 +99,7 @@
             <objects>
                 <viewController id="F32-vo-UfM" customClass="MenuPrincipalAlumno" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tMO-XE-vPH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vFn-WJ-xcx">
@@ -114,7 +114,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="u80-Gd-AMM" kind="show" id="XDo-eg-1xF"/>
+                                    <segue destination="u80-Gd-AMM" kind="presentation" modalPresentationStyle="fullScreen" id="XDo-eg-1xF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-HS-1e6">
@@ -140,7 +140,7 @@
             <objects>
                 <tableViewController id="yzE-5B-Cjh" customClass="ListaCuestionariosA" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OLl-HZ-Wkk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -152,7 +152,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="F3O-BN-emr" kind="show" id="I2o-ql-TU9"/>
+                                    <segue destination="F3O-BN-emr" kind="presentation" id="I2o-ql-TU9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -161,7 +161,13 @@
                             <outlet property="delegate" destination="yzE-5B-Cjh" id="m1u-ZI-tJ6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="5Td-Eq-MDK"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="5Td-Eq-MDK">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Regresar" id="WlJ-Au-HPn">
+                            <connections>
+                                <action selector="regresarPantalla:" destination="yzE-5B-Cjh" id="AxW-vS-shl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKh-2A-EbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,14 +198,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zew-UB-hyc">
-                                <rect key="frame" x="74" y="160" width="226" height="59"/>
+                                <rect key="frame" x="74" y="174" width="226" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Iniciar " backgroundImage="backgroundBotones">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PWl-se-bDO" kind="show" id="bDP-Vk-IEI"/>
+                                    <segue destination="PWl-se-bDO" kind="presentation" id="bDP-Vk-IEI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,7 +273,7 @@
                 <navigationController id="u80-Gd-AMM" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="MDP-S1-8ne"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hef-jT-Pod">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -365,7 +371,7 @@
                     <connections>
                         <outlet property="pageControl" destination="2SM-6Z-MdD" id="jFO-4U-W53"/>
                         <outlet property="scrollView" destination="pqm-dX-JiO" id="IHF-NO-cRt"/>
-                        <segue destination="URR-xY-w0d" kind="show" identifier="resultados" id="sam-mx-XEU"/>
+                        <segue destination="URR-xY-w0d" kind="presentation" identifier="resultados" id="sam-mx-XEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyM-Ac-dlY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

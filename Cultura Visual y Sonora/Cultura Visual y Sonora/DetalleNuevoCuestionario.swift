@@ -143,7 +143,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                 let dataReference = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)").collection("Preguntas").document("Preg\(i)")
                 if tipo == 1 {
                     dataReference.updateData([
-                        "imagenPreg": imgName
+                        "imagenPreg": urlString
                     ]) { (error) in
                         let alerta = UIAlertController(title: "Error", message: "Algo salio mal 5", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -156,7 +156,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                 }
                 else{
                     dataReference.updateData([
-                        "imagenes": FieldValue.arrayUnion([imgName])
+                        "imagenes": FieldValue.arrayUnion([urlString])
                     ]) { (error) in
                         let alerta = UIAlertController(title: "Error", message: "Algo salio mal 5", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

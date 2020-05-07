@@ -9,13 +9,15 @@
 import UIKit
 
 class DetalleCuestionario: UIViewController {
+    
+    var cuestionarioSeleccionado : Cuestionario!
+    	
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        self.title = "Cuestionario de "
+        self.title = "\(cuestionarioSeleccionado.nombre)"
         
         setBackground()
     }
