@@ -7,17 +7,49 @@
 //
 
 import UIKit
+import Charts
 
 class ResultadoCuestionario: UIViewController {
 
     
+    @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var lbTexto: UILabel!
     var texto:String!
+    
+    var correctasDataEntry = PieChartDataEntry(value: 0)
+    var incorrectasDataEntry = PieChartDataEntry(value: 0)
+    
+    var dataEntries = [PieChartDataEntry]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lbTexto.text = texto
-        // Do any additional setup after loading the view.
+        
+        pieChart.chartDescription?.text = ""
+        correctasDataEntry.value = 3
+        correctasDataEntry.label = "Correctas"
+        incorrectasDataEntry.value = 2
+        incorrectasDataEntry.label = "Incorrectas"
+        
+        dataEntries = [correctasDataEntry, incorrectasDataEntry]
+        
+        updateChartData()
     }
+    
+    func updateChartData() {
+        let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        
+        let colors = [UIColor.blue, UIColor.red]
+        
+        chartDataSet.colors = colors as! [NSUIColor]
+        
+        pieChart.data = chartData
+        
+        
+    }
+    
+    
     
 
     /*
