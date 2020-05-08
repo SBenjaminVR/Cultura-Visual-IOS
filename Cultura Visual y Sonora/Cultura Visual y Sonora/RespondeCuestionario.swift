@@ -9,15 +9,7 @@
 import UIKit
 
 class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloContestaCuestionario {
-    
-    // MARK: - Dummy
-
-    let Preg1 = Pregunta(desc: "Si o No", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", categ: "texto")
-    let Preg2 = Pregunta(desc: "Cuarto Numero", resp: [ "1", "2", "3", "4"], correcta: 4, tipo: "multiple", categ: "texto")
-    let Preg3 = Pregunta(desc: "Ya fue el 21?", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", categ: "texto")
-    let Preg4 = Pregunta(desc: "Picaso creo el cubismo", resp: [ "Si", "No"], correcta: 1, tipo: "V/F", categ: "texto")
-    let Preg5 = Pregunta(desc: "Picaso no creo el cubismo", resp: [ "Si", "No"], correcta: 2, tipo: "V/F", categ: "texto")
-    
+        
     
     
     // MARK: - Variables
@@ -34,26 +26,14 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(cuestionarioACargar != nil){
+       /* if(cuestionarioACargar != nil){
             print("Se mando")
         }
+         */
         
         scrollView.delegate = self
         
-        Preg1.setImagenPregunta(imgPreg: UIImage(named: "default"))
-        Preg1.setImagenesRespuestas(imgs: [UIImage(named: "default")!])
-        
-        Preg2.setImagenPregunta(imgPreg: UIImage(named: "default"))
-        Preg2.setImagenesRespuestas(imgs:[UIImage(named: "default")! , UIImage(named: "default")! ])
-        
-        Preg3.setImagenPregunta(imgPreg: UIImage(named: "default"))
-        Preg3.setImagenesRespuestas(imgs: [UIImage(named: "default")! , UIImage(named: "default")! ])
-        
-        Preg4.setImagenPregunta(imgPreg: UIImage(named: "default"))
-        Preg4.setImagenesRespuestas(imgs: [UIImage(named: "default")! , UIImage(named: "default")! ])
-        
-        Preg5.setImagenPregunta(imgPreg: UIImage(named: "default"))
-        Preg5.setImagenesRespuestas(imgs: [UIImage(named: "default")! , UIImage(named: "default")! ])
+
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
@@ -77,16 +57,10 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             //Checa si son de V/F
             if cuestionarioACargar.preguntas[i].tipoRespuestas == "V/F"{
                 //Checa si son respuestas de tipo Imagen
-                if cuestionarioACargar.preguntas[i].categoria == "imagenes" {
-                    //Si son imagenes , y son de V/F Carga las dos imagenes en la pregunta
-                    slideTmp.btnRespuestaTexto1.setImage(cuestionarioACargar.preguntas[i].imagenes[0], for: .normal)
-                    slideTmp.btnRespuestaTexto2.setImage(cuestionarioACargar.preguntas[i].imagenes[1], for: .normal)
-                }
-                //Si no, carga el texto que puedan traer
-                else{
-                    slideTmp.btnRespuestaTexto1.setTitle(cuestionarioACargar.preguntas[i].respuestas[0], for: .normal)
-                    slideTmp.btnRespuestaTexto2.setTitle(cuestionarioACargar.preguntas[i].respuestas[1], for: .normal)
-                }
+
+                slideTmp.btnRespuestaTexto1.setTitle(cuestionarioACargar.preguntas[i].respuestas[0], for: .normal)
+                slideTmp.btnRespuestaTexto2.setTitle(cuestionarioACargar.preguntas[i].respuestas[1], for: .normal)
+                
                 
                 slideTmp.view3.isHidden = true
                 slideTmp.view4.isHidden = true
@@ -96,9 +70,19 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
                 if cuestionarioACargar.preguntas[i].categoria == "imagenes" {
                     //Si son imagenes, y son de tipo multiple
                     slideTmp.btnRespuestaTexto1.setImage(cuestionarioACargar.preguntas[i].imagenes[0], for: .normal)
+                    slideTmp.btnRespuestaTexto1.imageView?.contentMode = .scaleAspectFit
                     slideTmp.btnRespuestaTexto2.setImage(cuestionarioACargar.preguntas[i].imagenes[1], for: .normal)
+                    slideTmp.btnRespuestaTexto2.imageView?.contentMode = .scaleAspectFit
                     slideTmp.btnRespuestaTexto3.setImage(cuestionarioACargar.preguntas[i].imagenes[2], for: .normal)
+                    slideTmp.btnRespuestaTexto3.imageView?.contentMode = .scaleAspectFit
                     slideTmp.btnRespuestaTexto4.setImage(cuestionarioACargar.preguntas[i].imagenes[3], for: .normal)
+                    slideTmp.btnRespuestaTexto4.imageView?.contentMode = .scaleAspectFit
+                    
+                    slideTmp.view1.backgroundColor = .white
+                    slideTmp.view2.backgroundColor = .white
+                    slideTmp.view3.backgroundColor = .white
+                    slideTmp.view4.backgroundColor = .white
+                    
                 }
                 //Si no, carga el texto que puedan traer
                 else{
