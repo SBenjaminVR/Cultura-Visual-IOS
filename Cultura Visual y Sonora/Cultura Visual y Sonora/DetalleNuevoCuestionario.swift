@@ -15,8 +15,6 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     @IBOutlet weak var tfNombreCuest: UITextField!
     @IBOutlet weak var tfTiempoCuest: UITextField!
     
-    
-
     var listaPreguntas:[Pregunta] = [Pregunta]()
     var cantPreg : Int = 0
     
@@ -25,9 +23,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+}
     
     func creaCuestionario() {
+        
         let nomb = tfNombreCuest.text
         let tiem:Double = (tfTiempoCuest.text! as NSString).doubleValue
         
@@ -39,7 +38,6 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         }
         
         guardarCuestionario(cuest: nuevoCuestionario)
-        
     }
     
     //MARK: - Firebase
@@ -175,6 +173,31 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     }
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let tiem = Double(tfTiempoCuest.text!) {
+            if tfNombreCuest.text != "" {
+                return true
+            } else {
+                let alerta = UIAlertController(title: "Error", message: "Los campos debe estar llenos, trate de nuevo.", preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                self.present(alerta, animated: true, completion: nil)
+                return false
+            }
+            
+        } else {
+            let alerta = UIAlertController(title: "Error", message: "Tiempo debe ser un valor numerico, trate de nuevo.", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alerta.addAction(accion)
+            
+            self.present(alerta, animated: true, completion: nil)
+            return false
+        }
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -185,6 +208,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     func agregaPreguntas(pregs: [Pregunta]) {
         listaPreguntas = pregs
         creaCuestionario()
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
     }
 
 }

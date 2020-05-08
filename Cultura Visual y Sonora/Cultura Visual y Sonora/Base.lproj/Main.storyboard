@@ -67,7 +67,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="No tienes cuenta? Regístrate"/>
                                 <connections>
-                                    <segue destination="qMi-Y9-Pog" kind="show" id="080-El-GdO"/>
+                                    <segue destination="qMi-Y9-Pog" kind="presentation" modalPresentationStyle="fullScreen" id="080-El-GdO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,7 +82,7 @@
                         <outlet property="tfPassword" destination="V8t-3W-tcB" id="9fF-fZ-34l"/>
                         <outlet property="tfUser" destination="ozl-PH-wQk" id="XUd-Hw-P8n"/>
                         <segue destination="F32-vo-UfM" kind="presentation" identifier="alumno" modalPresentationStyle="fullScreen" id="n3W-gP-wIP"/>
-                        <segue destination="G4R-9b-V5A" kind="show" identifier="maestro" id="Six-oq-TjV"/>
+                        <segue destination="G4R-9b-V5A" kind="presentation" identifier="maestro" modalPresentationStyle="fullScreen" id="Six-oq-TjV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,7 +152,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="F3O-BN-emr" kind="presentation" id="I2o-ql-TU9"/>
+                                    <segue destination="F3O-BN-emr" kind="presentation" modalPresentationStyle="fullScreen" id="I2o-ql-TU9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -178,7 +178,7 @@
             <objects>
                 <viewController id="F3O-BN-emr" customClass="DetalleCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAs-pe-Qlm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL0-ve-xkH">
@@ -205,7 +205,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PWl-se-bDO" kind="presentation" identifier="iniciarCuestionario" id="bDP-Vk-IEI"/>
+                                    <segue destination="PWl-se-bDO" kind="presentation" identifier="iniciarCuestionario" modalPresentationStyle="fullScreen" id="bDP-Vk-IEI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -223,7 +223,7 @@
             <objects>
                 <tableViewController id="lkK-f5-DkE" customClass="ListaCuestionariosP" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qBs-LJ-DV2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -235,7 +235,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="eSK-Ux-6zp" kind="show" id="Sb0-Ju-7ka"/>
+                                    <segue destination="eSK-Ux-6zp" kind="presentation" modalPresentationStyle="fullScreen" id="Sb0-Ju-7ka"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -256,7 +256,7 @@
                 <navigationController id="dxZ-NH-r32" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XSd-mz-rn3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CkN-do-sgE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -289,7 +289,7 @@
             <objects>
                 <viewController id="G4R-9b-V5A" customClass="MenuPrincipalProfesor" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LZF-mo-USm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-1M-CLi">
@@ -304,7 +304,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dxZ-NH-r32" kind="show" id="n52-Rx-oUt"/>
+                                    <segue destination="dxZ-NH-r32" kind="presentation" modalPresentationStyle="fullScreen" id="n52-Rx-oUt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-uz-Q4Q">
@@ -323,7 +323,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="eSK-Ux-6zp" kind="show" id="of2-gN-mNr"/>
+                                    <segue destination="eSK-Ux-6zp" kind="presentation" modalPresentationStyle="fullScreen" id="of2-gN-mNr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -341,7 +341,7 @@
             <objects>
                 <viewController id="PWl-se-bDO" customClass="RespondeCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pvr-id-GQb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pqm-dX-JiO">
@@ -371,7 +371,7 @@
                     <connections>
                         <outlet property="pageControl" destination="2SM-6Z-MdD" id="jFO-4U-W53"/>
                         <outlet property="scrollView" destination="pqm-dX-JiO" id="IHF-NO-cRt"/>
-                        <segue destination="URR-xY-w0d" kind="presentation" identifier="resultados" id="sam-mx-XEU"/>
+                        <segue destination="URR-xY-w0d" kind="presentation" identifier="resultados" modalPresentationStyle="fullScreen" id="sam-mx-XEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyM-Ac-dlY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -383,7 +383,7 @@
             <objects>
                 <viewController id="URR-xY-w0d" customClass="ResultadoCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6do-4a-SPG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-0l-fXi">
@@ -432,7 +432,7 @@
             <objects>
                 <viewController id="eSK-Ux-6zp" customClass="DetalleNuevoCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YNE-Sg-1wg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Cuestionario:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-ey-fJa">
@@ -466,7 +466,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Agregar Preguntas"/>
                                 <connections>
-                                    <segue destination="3Qg-Gb-gLK" kind="show" id="aRh-YB-pkX"/>
+                                    <segue destination="3Qg-Gb-gLK" kind="presentation" modalPresentationStyle="fullScreen" id="aRh-YB-pkX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -488,11 +488,11 @@
             <objects>
                 <viewController id="3Qg-Gb-gLK" customClass="CreacionCuestionario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iVJ-Os-Y5a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fhl-db-zdX">
-                                <rect key="frame" x="222" y="66" width="137" height="32"/>
+                                <rect key="frame" x="222" y="97" width="137" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Multiple"/>
@@ -503,7 +503,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-NG-BVB">
-                                <rect key="frame" x="211" y="105" width="159" height="32"/>
+                                <rect key="frame" x="211" y="136" width="159" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Texto"/>
@@ -520,7 +520,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-hg-Giu">
-                                <rect key="frame" x="33" y="56" width="80" height="88"/>
+                                <rect key="frame" x="33" y="87" width="80" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -638,21 +638,33 @@
                                 <rect key="frame" x="41" y="539" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Check"/>
+                                <connections>
+                                    <action selector="seleccionaRespCorrecta:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="IP9-3I-9je"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMQ-Ou-6VE">
                                 <rect key="frame" x="131" y="539" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Check"/>
+                                <state key="normal" image="Uncheck"/>
+                                <connections>
+                                    <action selector="seleccionaRespCorrecta:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="g6q-SM-EKU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKn-vd-jkh">
                                 <rect key="frame" x="220" y="539" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Check"/>
+                                <state key="normal" image="Uncheck"/>
+                                <connections>
+                                    <action selector="seleccionaRespCorrecta:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="SsH-Lj-aR8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4u-f1-MSx">
                                 <rect key="frame" x="314" y="539" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Check"/>
+                                <state key="normal" image="Uncheck"/>
+                                <connections>
+                                    <action selector="seleccionaRespCorrecta:" destination="3Qg-Gb-gLK" eventType="touchUpInside" id="zye-PO-5Lx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRe-Vs-KgA">
                                 <rect key="frame" x="20" y="539" width="13" height="21"/>
@@ -682,6 +694,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHu-cO-IUR">
+                                <rect key="frame" x="24" y="35" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;Regresar"/>
+                                <connections>
+                                    <segue destination="1HH-2q-3ty" kind="unwind" unwindAction="unwindWithSegue:" id="8oS-EK-kln"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="UUi-G7-CMe"/>
@@ -690,6 +710,10 @@
                     <connections>
                         <outlet property="btnAgregarPregunta" destination="sR2-kY-vgT" id="YAl-ib-xOc"/>
                         <outlet property="btnCrearCuestionario" destination="LYd-M7-Bee" id="1jB-F7-yNn"/>
+                        <outlet property="btnRespCorrecta1" destination="5qg-gd-gjh" id="5Qb-KL-T3M"/>
+                        <outlet property="btnRespCorrecta2" destination="IMQ-Ou-6VE" id="vOn-Nz-5eD"/>
+                        <outlet property="btnRespCorrecta3" destination="DKn-vd-jkh" id="hWJ-67-ayF"/>
+                        <outlet property="btnRespCorrecta4" destination="C4u-f1-MSx" id="p8Y-f7-Sxu"/>
                         <outlet property="imgPreg" destination="WvF-hg-Giu" id="x1T-hc-IGr"/>
                         <outlet property="imgR1" destination="tFF-42-9X4" id="noe-c0-AIJ"/>
                         <outlet property="imgR2" destination="h1s-WJ-7VU" id="BhR-ym-ihO"/>
@@ -710,6 +734,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj6-it-KQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1HH-2q-3ty" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="5LY-NE-PCY">
                     <connections>
                         <action selector="agregarFoto:" destination="3Qg-Gb-gLK" id="rke-uG-wtc"/>
@@ -743,7 +768,7 @@
             <objects>
                 <viewController id="qMi-Y9-Pog" customClass="RegistroUsuario" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sUf-yn-7xo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cIQ-Bz-7Js">
@@ -788,6 +813,7 @@
                                         <connections>
                                             <action selector="crearCuenta:" destination="qMi-Y9-Pog" eventType="touchUpInside" id="8yw-83-eyr"/>
                                             <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMi-01-6ay"/>
+                                            <segue destination="pTh-8G-TYM" kind="unwind" unwindAction="unwindWithSegue:" id="bev-Zh-x74"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmm-cP-HFl">
@@ -832,6 +858,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOS-p2-w5Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="pTh-8G-TYM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="816.34182908545733"/>
         </scene>
@@ -859,6 +886,7 @@
         <image name="Intento3" width="376" height="272"/>
         <image name="Intento3Large" width="376" height="498"/>
         <image name="RedBtn" width="201" height="90"/>
+        <image name="Uncheck" width="225" height="225"/>
         <image name="backgroundBotones" width="336" height="128"/>
         <image name="default" width="500" height="500"/>
     </resources>

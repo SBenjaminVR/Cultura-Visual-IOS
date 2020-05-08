@@ -71,6 +71,10 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
 
