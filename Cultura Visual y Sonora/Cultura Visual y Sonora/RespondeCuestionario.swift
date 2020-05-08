@@ -24,6 +24,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    var cuestionarioACargar : Cuestionario!
     
     var slides:[Slide] = [];
     var respuestasUsuario = Array(repeating: 0, count: 6) //harcodeado
@@ -32,6 +33,10 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(cuestionarioACargar != nil){
+            print("Se mando")
+        }
         
         scrollView.delegate = self
         
@@ -60,79 +65,64 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
 
     
     func createSlides() -> [Slide] {
+        
+        var arrSlides : [Slide]!
+        
+        arrSlides = []
+        
+        for i in 0...cuestionarioACargar.numeroDePreguntas-1{
+            let slideTmp:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+            slideTmp.lblNumeroPregunta.text = cuestionarioACargar.preguntas[i].descripcion
+            slideTmp.imgPregunta.image = cuestionarioACargar.preguntas[i].imgPregunta
+            //Checa si son de V/F
+            if cuestionarioACargar.preguntas[i].tipoRespuestas == "V/F"{
+                //Checa si son respuestas de tipo Imagen
+                if cuestionarioACargar.preguntas[i].categoria == "imagenes" {
+                    //Si son imagenes , y son de V/F Carga las dos imagenes en la pregunta
+                    slideTmp.btnRespuestaTexto1.setImage(cuestionarioACargar.preguntas[i].imagenes[0], for: .normal)
+                    slideTmp.btnRespuestaTexto2.setImage(cuestionarioACargar.preguntas[i].imagenes[1], for: .normal)
+                }
+                //Si no, carga el texto que puedan traer
+                else{
+                    slideTmp.btnRespuestaTexto1.setTitle(cuestionarioACargar.preguntas[i].respuestas[0], for: .normal)
+                    slideTmp.btnRespuestaTexto2.setTitle(cuestionarioACargar.preguntas[i].respuestas[1], for: .normal)
+                }
+                
+                slideTmp.view3.isHidden = true
+                slideTmp.view4.isHidden = true
+            }
+            
+            else{
+                if cuestionarioACargar.preguntas[i].categoria == "imagenes" {
+                    //Si son imagenes, y son de tipo multiple
+                    slideTmp.btnRespuestaTexto1.setImage(cuestionarioACargar.preguntas[i].imagenes[0], for: .normal)
+                    slideTmp.btnRespuestaTexto2.setImage(cuestionarioACargar.preguntas[i].imagenes[1], for: .normal)
+                    slideTmp.btnRespuestaTexto3.setImage(cuestionarioACargar.preguntas[i].imagenes[2], for: .normal)
+                    slideTmp.btnRespuestaTexto4.setImage(cuestionarioACargar.preguntas[i].imagenes[3], for: .normal)
+                }
+                //Si no, carga el texto que puedan traer
+                else{
+                    slideTmp.btnRespuestaTexto1.setTitle(cuestionarioACargar.preguntas[i].respuestas[0], for: .normal)
+                    slideTmp.btnRespuestaTexto2.setTitle(cuestionarioACargar.preguntas[i].respuestas[1], for: .normal)
+                    slideTmp.btnRespuestaTexto3.setTitle(cuestionarioACargar.preguntas[i].respuestas[2], for: .normal)
+                    slideTmp.btnRespuestaTexto4.setTitle(cuestionarioACargar.preguntas[i].respuestas[3], for: .normal)
+                }
+                
+            }
+            slideTmp.id = i
+            slideTmp.delegado = self
+            
+            let numBotonEntregar = cuestionarioACargar.numeroDePreguntas-1
+            if i != numBotonEntregar {
+                slideTmp.btnEntregar.isHidden = true
+            }
+            
+            arrSlides.append(slideTmp)
+        }
+        
 
-        let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.lblNumeroPregunta.text = Preg1.descripcion
-        slide1.imgPregunta.image = UIImage(named: "Background")
-        slide1.btnRespuestaTexto1.setTitle(Preg1.respuestas[0], for: .normal)
-        slide1.btnRespuestaTexto2.setTitle(Preg1.respuestas[1], for: .normal)
-        slide1.id = 1
-        slide1.delegado = self
-        slide1.btnEntregar.isHidden = true
-        
-        if(Preg1.tipoRespuestas == "V/F"){
-            slide1.view3.isHidden = true
-            slide1.view4.isHidden = true
-        }
-        
     
-        let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.lblNumeroPregunta.text = Preg2.descripcion
-        slide2.imgPregunta.image = UIImage(named: "RedBtn")
-        slide2.btnRespuestaTexto1.setTitle(Preg2.respuestas[0], for: .normal)
-        slide2.btnRespuestaTexto2.setTitle(Preg2.respuestas[1], for: .normal)
-        slide2.btnRespuestaTexto3.setTitle(Preg2.respuestas[2], for: .normal)
-        slide2.btnRespuestaTexto4.setTitle(Preg2.respuestas[3], for: .normal)
-        slide2.id = 2
-        slide2.delegado = self
-        slide2.btnEntregar.isHidden = true
-        
-    
-        let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.lblNumeroPregunta.text = Preg3.descripcion
-        slide3.imgPregunta.image = UIImage(named: "Background")
-        slide3.btnRespuestaTexto1.setTitle(Preg3.respuestas[0], for: .normal)
-        slide3.btnRespuestaTexto2.setTitle(Preg3.respuestas[1], for: .normal)
-        slide3.id = 3
-        slide3.delegado = self
-        slide3.btnEntregar.isHidden = true
-        
-        if(Preg3.tipoRespuestas == "V/F"){
-            slide3.view3.isHidden = true
-            slide3.view4.isHidden = true
-        }
-        
-    
-        let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide4.lblNumeroPregunta.text = Preg4.descripcion
-        slide4.imgPregunta.image = UIImage(named: "RedBtn")
-        slide4.btnRespuestaTexto1.setTitle(Preg4.respuestas[0], for: .normal)
-        slide4.btnRespuestaTexto2.setTitle(Preg4.respuestas[1], for: .normal)
-        slide4.id = 4
-        slide4.delegado = self
-        slide4.btnEntregar.isHidden = true
-        
-        if(Preg4.tipoRespuestas == "V/F"){
-            slide4.view3.isHidden = true
-            slide4.view4.isHidden = true
-        }
-
-    
-        let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.lblNumeroPregunta.text = Preg5.descripcion
-        slide5.imgPregunta.image = UIImage(named: "Background")
-        slide5.btnRespuestaTexto1.setTitle(Preg5.respuestas[0], for: .normal)
-        slide5.btnRespuestaTexto2.setTitle(Preg5.respuestas[1], for: .normal)
-        slide5.id = 5
-        slide5.delegado = self
-        
-        if(Preg5.tipoRespuestas == "V/F"){
-            slide5.view3.isHidden = true
-            slide5.view4.isHidden = true
-        }
-        
-        
-        return [slide1, slide2, slide3, slide4, slide5]
+        return arrSlides
     }
     
     func setupSlideScrollView(slides : [Slide]) {

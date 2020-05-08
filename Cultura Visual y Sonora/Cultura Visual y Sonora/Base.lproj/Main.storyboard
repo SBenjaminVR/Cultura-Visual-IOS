@@ -205,7 +205,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PWl-se-bDO" kind="presentation" id="bDP-Vk-IEI"/>
+                                    <segue destination="PWl-se-bDO" kind="presentation" identifier="iniciarCuestionario" id="bDP-Vk-IEI"/>
                                 </connections>
                             </button>
                         </subviews>
