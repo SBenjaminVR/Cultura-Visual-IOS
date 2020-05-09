@@ -14,7 +14,10 @@ class ResultadoCuestionario: UIViewController {
     
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var lbTexto: UILabel!
+    
     var texto:String!
+    var Correctas: Double!
+    var Incorrectas:Double!
     
     var correctasDataEntry = PieChartDataEntry(value: 0)
     var incorrectasDataEntry = PieChartDataEntry(value: 0)
@@ -26,9 +29,9 @@ class ResultadoCuestionario: UIViewController {
         lbTexto.text = texto
         
         pieChart.chartDescription?.text = ""
-        correctasDataEntry.value = 3
+        correctasDataEntry.value = Correctas
         correctasDataEntry.label = "Correctas"
-        incorrectasDataEntry.value = 2
+        incorrectasDataEntry.value = Incorrectas
         incorrectasDataEntry.label = "Incorrectas"
         
         dataEntries = [correctasDataEntry, incorrectasDataEntry]

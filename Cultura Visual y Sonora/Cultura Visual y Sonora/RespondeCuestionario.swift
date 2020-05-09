@@ -18,10 +18,14 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     @IBOutlet weak var pageControl: UIPageControl!
     var cuestionarioACargar : Cuestionario!
     
-    var slides:[Slide] = [];
-    var respuestasUsuario = Array(repeating: 0, count: 6) //harcodeado
+    var NumeroDeRespuestas : Int!
+    
+    var respuestasUsuario : [Int] = []
     var cantCorrectas = 0
-    let respuestasCorrectas = Array(repeating: 1, count: 6)
+    var respuestasCorrectas: [Int] = []
+    
+    var slides:[Slide] = [];
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,11 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             print("Se mando")
         }
          */
+        
+        NumeroDeRespuestas = cuestionarioACargar.numeroDePreguntas
+        
+        respuestasUsuario = Array(repeating: 0, count: NumeroDeRespuestas)        
+        respuestasCorrectas = Array(repeating: 1, count: NumeroDeRespuestas)
         
         scrollView.delegate = self
         
@@ -175,14 +184,14 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     func agregaRespuesta(resp : Int, id: Int) {
         respuestasUsuario[id] = resp
         
-        for i in 1...respuestasUsuario.count-1 {
+        for i in 0...respuestasUsuario.count-1 {
             print(respuestasUsuario[i])
         }
         print("-------------------")
     }
     
     func entregaCuestionario() {
-        for i in 1...respuestasCorrectas.count-1 {
+        for i in 0...respuestasCorrectas.count-1 {
             if respuestasUsuario[i] == respuestasCorrectas[i] {
                 cantCorrectas += 1
             }
@@ -216,7 +225,13 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         // Pass the selected object to the new view controller.
         if segue.identifier == "resultados" {
             let viewRes = segue.destination as! ResultadoCuestionario
-            viewRes.texto = "\(cantCorrectas) / \(respuestasCorrectas.count-1)"
+          
+            let cCorrectas =  Double(cantCorrectas)
+            let cIncorrectas = Double(respuestasCorrectas.count - cantCorrectas)
+            let califa = cCorrectas / Double(respuestasCorrectas.count)
+            viewRes.texto = "Calificacion: \(califa)"
+            viewRes.Correctas = cCorrectas
+            viewRes.Incorrectas = cIncorrectas
         }
     }
     
