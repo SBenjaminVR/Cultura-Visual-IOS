@@ -105,6 +105,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="btnEntregar" destination="DJD-I1-1Th" id="LDd-Kb-cq8"/>
+                <outlet property="btnReiniciar" destination="tdh-vZ-4T2" id="DmD-Rk-UNh"/>
                 <outlet property="btnRespuestaTexto1" destination="9Or-Wc-ohc" id="eJZ-an-rat"/>
                 <outlet property="btnRespuestaTexto2" destination="KZJ-YZ-3OZ" id="9Gm-pV-O3f"/>
                 <outlet property="btnRespuestaTexto3" destination="JEW-TE-u5b" id="bLw-Ey-7r7"/>

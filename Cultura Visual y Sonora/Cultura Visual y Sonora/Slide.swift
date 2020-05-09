@@ -25,6 +25,7 @@ class Slide: UIView {
     @IBOutlet weak var btnRespuestaTexto3: UIButton!
     @IBOutlet weak var btnRespuestaTexto4: UIButton!
     @IBOutlet weak var btnEntregar: UIButton!
+    @IBOutlet weak var btnReiniciar: UIButton!
     
     var id:Int!
     

@@ -228,10 +228,15 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
           
             let cCorrectas =  Double(cantCorrectas)
             let cIncorrectas = Double(respuestasCorrectas.count - cantCorrectas)
-            let califa = cCorrectas / Double(respuestasCorrectas.count)
-            viewRes.texto = "Calificacion: \(califa)"
+            var califa = cCorrectas / Double(respuestasCorrectas.count)
+            califa *= 100
+            viewRes.texto = "Calificacion: \(Int(califa)) %"
             viewRes.Correctas = cCorrectas
             viewRes.Incorrectas = cIncorrectas
+            viewRes.arrSlides2 = slides
+            viewRes.respuestasUsuario1 = respuestasUsuario
+            viewRes.respuestasCorrectas1 = respuestasCorrectas
+            
         }
     }
     
