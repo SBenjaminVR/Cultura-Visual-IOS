@@ -136,7 +136,8 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
          */
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
-            pageControl.currentPage = Int(pageIndex)
+            let paginaActual = Int(pageIndex)
+            pageControl.currentPage = paginaActual
             
             let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
             let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x

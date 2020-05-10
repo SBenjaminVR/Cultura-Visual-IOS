@@ -366,10 +366,10 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-6Z-MdD">
-                                <rect key="frame" x="160" y="550" width="54" height="37"/>
+                                <rect key="frame" x="160" y="576" width="54" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -453,17 +453,15 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-CX-AHb">
                                 <rect key="frame" x="0.0" y="56" width="375" height="591"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="G8d-wn-F5f">
-                                        <rect key="frame" x="160" y="485" width="54" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <color key="currentPageIndicatorTintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </pageControl>
-                                </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="2Hv-2e-T6p"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ahl-qq-a46"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="G8d-wn-F5f">
+                                <rect key="frame" x="160" y="586" width="54" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="bYv-gp-Sak"/>
@@ -530,6 +528,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwj-kK-bjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yBU-jr-dfj">
+                    <connections>
+                        <action selector="quitarTeclado:" destination="eSK-Ux-6zp" id="HaF-1i-HH2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3457" y="841"/>
         </scene>
@@ -784,6 +787,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj6-it-KQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4tk-vR-WXR">
+                    <connections>
+                        <action selector="quitarTeclado:" destination="3Qg-Gb-gLK" id="wUi-OE-NQ5"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <exit id="1HH-2q-3ty" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="5LY-NE-PCY">
                     <connections>
@@ -897,7 +905,11 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="RBh-OY-iKR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="db2-UL-Bbv" appends="YES" id="mv5-Hd-sfy"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="rFj-bl-InW"/>
                     <connections>
@@ -909,6 +921,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOS-p2-w5Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="pTh-8G-TYM" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="db2-UL-Bbv">
+                    <connections>
+                        <action selector="quitarTeclado:" destination="qMi-Y9-Pog" id="k09-Ni-GM5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="816.34182908545733"/>
         </scene>

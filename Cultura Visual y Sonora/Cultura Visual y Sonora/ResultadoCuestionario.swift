@@ -80,10 +80,10 @@ class ResultadoCuestionario: UIViewController {
     }
     
     @IBAction func salirCuestionario(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: {
-            let secondPresentingVC = self.presentingViewController?.presentingViewController;
-            secondPresentingVC?.dismiss(animated: true, completion: {});
-        });
+        let p = self.presentingViewController
+        self.dismiss(animated: true) {
+            p?.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

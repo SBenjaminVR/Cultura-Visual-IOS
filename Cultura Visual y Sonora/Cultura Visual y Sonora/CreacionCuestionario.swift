@@ -304,6 +304,9 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
+    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
     
     // MARK: - Navigation

@@ -75,6 +75,9 @@ class RegistroUsuario: UIViewController {
         
     }
     
+    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

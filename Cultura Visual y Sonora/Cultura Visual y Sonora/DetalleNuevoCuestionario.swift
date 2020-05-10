@@ -214,4 +214,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
