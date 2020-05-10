@@ -84,7 +84,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     
     
  func guardarImagen(image: UIImage, cuest: Cuestionario, i: Int, tipo: Int, resp: Int) {
-        guard let data = image.jpegData(compressionQuality: 1.0) else {
+        guard let data = image.jpegData(compressionQuality: 0.5) else {
             let alerta = UIAlertController(title: "Error", message: "Algo salio mal 1", preferredStyle: .alert)
             let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             

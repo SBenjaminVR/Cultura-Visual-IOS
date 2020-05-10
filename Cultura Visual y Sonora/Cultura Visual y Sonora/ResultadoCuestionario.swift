@@ -79,5 +79,11 @@ class ResultadoCuestionario: UIViewController {
         viewRes.respuestasCorrectas2 = respuestasCorrectas1
     }
     
-
+    @IBAction func salirCuestionario(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: {
+            let secondPresentingVC = self.presentingViewController?.presentingViewController;
+            secondPresentingVC?.dismiss(animated: true, completion: {});
+        });
+    }
+    
 }

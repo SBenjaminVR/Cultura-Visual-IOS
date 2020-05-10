@@ -40,5 +40,8 @@ class DetalleCuestionario: UIViewController {
         vistaDestino.cuestionarioACargar = cuestionarioSeleccionado
     }
     
-
+    @IBAction func regresarCuestionarios(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

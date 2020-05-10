@@ -239,5 +239,8 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             
         }
     }
+    @IBAction func regresarMenu(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
 }
