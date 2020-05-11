@@ -143,7 +143,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                     dataReference.updateData([
                         "imagenPreg": urlString
                     ]) { (error) in
-                        let alerta = UIAlertController(title: "Error", message: "Algo salio mal 5", preferredStyle: .alert)
+                        let alerta = UIAlertController(title: "Enhorabuena2", message: "Cuestioanrio creado exitosamente", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                         
                         alerta.addAction(accion)
@@ -156,7 +156,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                     dataReference.updateData([
                         "imagenes": FieldValue.arrayUnion([urlString])
                     ]) { (error) in
-                        let alerta = UIAlertController(title: "Error", message: "Algo salio mal 5", preferredStyle: .alert)
+                        let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario creado exitosamente", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                         
                         alerta.addAction(accion)
@@ -175,11 +175,22 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     // MARK: - Navigation
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let tiem = Double(tfTiempoCuest.text!) {
-            if tfNombreCuest.text != "" {
-                return true
+        if identifier == "agregarPreg" {
+            if let tiem = Double(tfTiempoCuest.text!) {
+                if tfNombreCuest.text != "" {
+                    return true
+                } else {
+                    let alerta = UIAlertController(title: "Error", message: "Los campos debe estar llenos, trate de nuevo.", preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                    return false
+                }
+                
             } else {
-                let alerta = UIAlertController(title: "Error", message: "Los campos debe estar llenos, trate de nuevo.", preferredStyle: .alert)
+                let alerta = UIAlertController(title: "Error", message: "Tiempo debe ser un valor numerico, trate de nuevo.", preferredStyle: .alert)
                 let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 
                 alerta.addAction(accion)
@@ -187,22 +198,17 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                 self.present(alerta, animated: true, completion: nil)
                 return false
             }
-            
-        } else {
-            let alerta = UIAlertController(title: "Error", message: "Tiempo debe ser un valor numerico, trate de nuevo.", preferredStyle: .alert)
-            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            
-            alerta.addAction(accion)
-            
-            self.present(alerta, animated: true, completion: nil)
-            return false
         }
+        return true
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewPreguntas = segue.destination as! CreacionCuestionario
-        viewPreguntas.delegado = self
+        
+        if segue.identifier == "agregarPreg" {
+            let viewPreguntas = segue.destination as! CreacionCuestionario
+            viewPreguntas.delegado = self
+        }
     }
     
     func agregaPreguntas(pregs: [Pregunta]) {
@@ -210,9 +216,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         creaCuestionario()
     }
     
-    @IBAction func unwind(segue: UIStoryboardSegue) {
+    @IBAction func regresarPantalla(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
 
     @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)

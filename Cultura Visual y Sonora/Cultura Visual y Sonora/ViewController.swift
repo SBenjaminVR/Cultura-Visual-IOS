@@ -24,39 +24,51 @@ class ViewController: UIViewController {
     @IBAction func logIn(_ sender: UIButton) {
         let textUser = self.tfUser.text!
         let textPassword = self.tfPassword.text!
-        docRef = Firestore.firestore().document("Users/\(textUser)")
         
-        docRef.getDocument(completion: { (docSnapshot, error) in
-            guard let docSnapshot = docSnapshot, docSnapshot.exists else {
-                print("No Document")
-                let alerta = UIAlertController(title: "Error", message: "Usuario no existe", preferredStyle: .alert)
-                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                
-                alerta.addAction(accion)
-                
-                self.present(alerta, animated: true, completion: nil)
-                return
-            }
-            let myData = docSnapshot.data()
-            let username = myData!["username"] as? String ?? "(noUser)"
-            let userType = myData!["tipoUsuario"] as? String ?? "(noType)"
-            let password = myData!["password"] as? String ?? "(noPasswrd)"
+        if textPassword != "" && textUser != "" {
+            tfUser.text = ""
+            tfPassword.text = ""
+            docRef = Firestore.firestore().document("Users/\(textUser)")
             
-            if password == textPassword {
-                if userType == "Alumno" {
-                    self.performSegue(withIdentifier: "alumno", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "maestro", sender: self)
+            docRef.getDocument(completion: { (docSnapshot, error) in
+                guard let docSnapshot = docSnapshot, docSnapshot.exists else {
+                    print("No Document")
+                    let alerta = UIAlertController(title: "Error", message: "Usuario no existe", preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                    return
                 }
-            } else {
-                let alerta = UIAlertController(title: "Error", message: "Los datos no son correctos", preferredStyle: .alert)
-                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                let myData = docSnapshot.data()
+                let username = myData!["username"] as? String ?? "(noUser)"
+                let userType = myData!["tipoUsuario"] as? String ?? "(noType)"
+                let password = myData!["password"] as? String ?? "(noPasswrd)"
                 
-                alerta.addAction(accion)
-                
-                self.present(alerta, animated: true, completion: nil)
-            }
-        })
+                if password == textPassword {
+                    if userType == "Alumno" {
+                        self.performSegue(withIdentifier: "alumno", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "maestro", sender: self)
+                    }
+                } else {
+                    let alerta = UIAlertController(title: "Error", message: "Los datos no son correctos", preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                }
+            })
+        } else {
+            let alerta = UIAlertController(title: "Error", message: "No puede haber campos vacios", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alerta.addAction(accion)
+            
+            self.present(alerta, animated: true, completion: nil)
+        }
     }
     
     func setBackground() -> Void {

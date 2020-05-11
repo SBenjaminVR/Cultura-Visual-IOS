@@ -74,64 +74,94 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         } else {
             tipoPreg = "V/F"
         }
-        
-        print("'\(( (imgR1.image?.isEqual(UIImage(named: "default")!))!))'")
-        
+                
         var categoria:String
         if tipoRespuestas.selectedSegmentIndex == 0 {
             categoria = "texto"
             
-            if tfPregunta.text == "" || tfRespuesta1.text == "" || tfRespuesta2.text == "" || tfRespuesta3.text == "" || tfRespuesta4.text == "" {
-                
+            if tfPregunta.text != "" {
+            
+                if (tfRespuesta1.text == "" || tfRespuesta2.text == "" || tfRespuesta3.text == "" || tfRespuesta4.text == "") && tipoPreg == "multiple" {
+                    
+                    let alerta = UIAlertController(title: "Error", message: "Se deben llenar todos los campos de texto de respuestas y llenar la pregunta.", preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                                                    
+                } else {
+                    
+                    let descrip = tfPregunta.text!
+                    let respuestas:[String] = [tfRespuesta1.text!, tfRespuesta2.text!, tfRespuesta3.text!, tfRespuesta4.text!]
+                    let images:[UIImage] = [imgR1.image!, imgR2.image!, imgR3.image!, imgR4.image!]
+                    
+                    let fotoPreg = imgPreg.image
+                    
+                    let newPreg = Pregunta(desc: descrip, resp: respuestas, correcta: corr, tipo: tipoPreg, categ: categoria)
+                    newPreg.setImagenPregunta(imgPreg: fotoPreg)
+                    newPreg.setImagenesRespuestas(imgs: images)
+                    
+                    listaPreguntas.append(newPreg)
+                    reset = true
+                }
+            } else {
                 let alerta = UIAlertController(title: "Error", message: "Se deben llenar todos los campos de texto de respuestas y llenar la pregunta.", preferredStyle: .alert)
                 let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 
                 alerta.addAction(accion)
                 
                 self.present(alerta, animated: true, completion: nil)
-                                                
-            } else {
                 
-                let descrip = tfPregunta.text!
-                let respuestas:[String] = [tfRespuesta1.text!, tfRespuesta2.text!, tfRespuesta3.text!, tfRespuesta4.text!]
-                let images:[UIImage] = [imgR1.image!, imgR2.image!, imgR3.image!, imgR4.image!]
-                
-                let fotoPreg = imgPreg.image
-                
-                let newPreg = Pregunta(desc: descrip, resp: respuestas, correcta: corr, tipo: tipoPreg, categ: categoria)
-                newPreg.setImagenPregunta(imgPreg: fotoPreg)
-                newPreg.setImagenesRespuestas(imgs: images)
-                
-                listaPreguntas.append(newPreg)
-                reset = true
             }
             
         } else {
             categoria = "imagenes"
             
-            if let imgR1 = imgR1, let imgR2=imgR2, let imgR3=imgR3, let imgR4=imgR4, ( (imgR1.image?.isEqual(UIImage(named: "default")!))! || (imgR2.image?.isEqual(UIImage(named: "default")!))! || (imgR3.image?.isEqual(UIImage(named: "default")!))! || (imgR4.image?.isEqual(UIImage(named: "default")!))! || tfPregunta.text == "")  {
+            print("ENTREEEEE")
+            
+            if tfPregunta.text != "" {
                 
-                let alerta = UIAlertController(title: "Error", message: "Se deben cambiar todas las imagenes y llenar la preugntas.", preferredStyle: .alert)
+                let dataR1 = imgR1.image?.jpegData(compressionQuality: 0.1)
+                let dataR2 = imgR2.image?.jpegData(compressionQuality: 0.1)
+                let dataR3 = imgR3.image?.jpegData(compressionQuality: 0.1)
+                let dataR4 = imgR4.image?.jpegData(compressionQuality: 0.1)
+                
+                let dataDefault = UIImage(named:"default")?.jpegData(compressionQuality: 0.1)
+            
+                if dataR1 == dataDefault || dataR2 == dataDefault || dataR3 == dataDefault || dataR4 == dataDefault  {
+                    
+                    let alerta = UIAlertController(title: "Error", message: "Se deben cambiar todas las imagenes y llenar la pregunta.", preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                                    
+                } else {
+                    
+                    print((imgR2.image?.isEqual(UIImage(named: "default")!))!)
+                    
+                    let descrip = tfPregunta.text!
+                    let respuestas:[String] = ["", "", "", ""]
+                    let images:[UIImage] = [imgR1.image!, imgR2.image!, imgR3.image!, imgR4.image!]
+                    
+                    let fotoPreg = imgPreg.image
+                    
+                    let newPreg = Pregunta(desc: descrip, resp: respuestas, correcta: corr, tipo: tipoPreg, categ: categoria)
+                    newPreg.setImagenPregunta(imgPreg: fotoPreg)
+                    newPreg.setImagenesRespuestas(imgs: images)
+                    
+                    listaPreguntas.append(newPreg)
+                    reset = true
+                }
+            } else {
+                let alerta = UIAlertController(title: "Error", message: "Se deben cambiar todas las imagenes y llenar la pregunta.", preferredStyle: .alert)
                 let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 
                 alerta.addAction(accion)
                 
                 self.present(alerta, animated: true, completion: nil)
-                                
-            } else {
-                
-                let descrip = tfPregunta.text!
-                let respuestas:[String] = ["", "", "", ""]
-                let images:[UIImage] = [imgR1.image!, imgR2.image!, imgR3.image!, imgR4.image!]
-                
-                let fotoPreg = imgPreg.image
-                
-                let newPreg = Pregunta(desc: descrip, resp: respuestas, correcta: corr, tipo: tipoPreg, categ: categoria)
-                newPreg.setImagenPregunta(imgPreg: fotoPreg)
-                newPreg.setImagenesRespuestas(imgs: images)
-                
-                listaPreguntas.append(newPreg)
-                reset = true
             }
         }
         
@@ -166,6 +196,9 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
             btnRespCorrecta2.setImage(UIImage(named: "Uncheck"), for: .normal)
             btnRespCorrecta3.setImage(UIImage(named: "Uncheck"), for: .normal)
             btnRespCorrecta4.setImage(UIImage(named: "Uncheck"), for: .normal)
+            
+            btnRespCorrecta3.isEnabled = true
+            btnRespCorrecta4.isEnabled = true
         }
     }
     
@@ -228,6 +261,8 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
             
             tfRespuesta3.isEnabled = true
             tfRespuesta4.isEnabled = true
+            btnRespCorrecta3.isEnabled = true
+            btnRespCorrecta4.isEnabled = true
         } else {
             tipoRespuestas.selectedSegmentIndex = 0
             
@@ -236,6 +271,20 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
             
             tfRespuesta3.isEnabled = false
             tfRespuesta4.isEnabled = false
+            btnRespCorrecta3.isEnabled = false
+            btnRespCorrecta4.isEnabled = false
+            
+            if corr == 3 {
+                btnRespCorrecta3.setImage(UIImage(named: "Uncheck"), for: .normal)
+                btnRespCorrecta1.setImage(UIImage(named: "Check"), for: .normal)
+                corr = 1
+            }
+            
+            if corr == 4 {
+                btnRespCorrecta4.setImage(UIImage(named: "Uncheck"), for: .normal)
+                btnRespCorrecta1.setImage(UIImage(named: "Check"), for: .normal)
+                corr = 1
+            }
             
         }
     }
@@ -307,6 +356,11 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    
+    @IBAction func regresarPant(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
     // MARK: - Navigation

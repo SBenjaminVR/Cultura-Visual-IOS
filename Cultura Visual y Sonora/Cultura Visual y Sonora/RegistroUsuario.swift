@@ -55,6 +55,8 @@ class RegistroUsuario: UIViewController {
                         print("New user saved")
                     }
                 }
+                
+                dismiss(animated: true, completion: nil)
             } else {
                 let alerta = UIAlertController(title: "Error", message: "Los passwords no coinciden, trate de nuevo", preferredStyle: .alert)
                 let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
