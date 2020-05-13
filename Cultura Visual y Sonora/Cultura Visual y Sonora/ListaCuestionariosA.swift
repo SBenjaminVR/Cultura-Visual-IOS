@@ -112,9 +112,14 @@ class ListaCuestionariosA: UITableViewController {
             let nuevaPregunta = Pregunta(desc: descripcion, resp: respuestas, correcta: respCorrecta, tipo: tipoResp, categ: categoria)
             
             sUrl = pregDoc["imagenPreg"] as? String ?? "noImgPregString"
-            url = URL(string: sUrl)
-            let imgData = NSData(contentsOf: url!)
-            nuevaPregunta.setImagenPregunta(imgPreg: UIImage(data: imgData! as Data))
+            
+            if sUrl != "" {
+                url = URL(string: sUrl)
+                let imgData = NSData(contentsOf: url!)
+                nuevaPregunta.setImagenPregunta(imgPreg: UIImage(data: imgData! as Data))
+            } else {
+                nuevaPregunta.setImagenPregunta(imgPreg: UIImage(named: "default"))
+            }
             
             let imgsArr = pregDoc["imagenes"] as? [String]
             
@@ -125,9 +130,6 @@ class ListaCuestionariosA: UITableViewController {
             }
             
             listaCuestionarios[index].preguntas.append(nuevaPregunta)
-            
-            //obtenerImagenPregunta(addImagenPregunta, nombre: nombre, i: index, j: j)
-            
             j += 1
         }
         tableView.reloadData()

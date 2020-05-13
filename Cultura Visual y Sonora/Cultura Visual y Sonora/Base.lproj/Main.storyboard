@@ -197,6 +197,9 @@
                                 <state key="normal" title="Reiniciar resultados" backgroundImage="backgroundBotones">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="reiniciaRespuestasUsuario:" destination="F3O-BN-emr" eventType="touchUpInside" id="N8L-pp-alO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BE-hS-xL6">
                                 <rect key="frame" x="74" y="425" width="226" height="59"/>

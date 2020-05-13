@@ -75,11 +75,19 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
             "tipoResp": preg.tipoRespuestas
         ])
         
+        let dataImgPreg = preg.imgPregunta.jpegData(compressionQuality: 0.1)        
+        let dataDefault = UIImage(named:"default")?.jpegData(compressionQuality: 0.1)
+        
+        if dataImgPreg != dataDefault {
         guardarImagen(image: preg.imgPregunta, cuest: cuest, i: i, tipo: 1, resp: 4)
-        guardarImagen(image: preg.imagenes[0], cuest: cuest, i: i, tipo: 0, resp: 0)
-        guardarImagen(image: preg.imagenes[1], cuest: cuest, i: i, tipo: 0, resp: 1)
-        guardarImagen(image: preg.imagenes[2], cuest: cuest, i: i, tipo: 0, resp: 2)
-        guardarImagen(image: preg.imagenes[3], cuest: cuest, i: i, tipo: 0, resp: 3)
+        }
+        
+        if preg.categoria == "imagenes" {
+            guardarImagen(image: preg.imagenes[0], cuest: cuest, i: i, tipo: 0, resp: 0)
+            guardarImagen(image: preg.imagenes[1], cuest: cuest, i: i, tipo: 0, resp: 1)
+            guardarImagen(image: preg.imagenes[2], cuest: cuest, i: i, tipo: 0, resp: 2)
+            guardarImagen(image: preg.imagenes[3], cuest: cuest, i: i, tipo: 0, resp: 3)
+        }
     }
     
     
@@ -143,7 +151,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                     dataReference.updateData([
                         "imagenPreg": urlString
                     ]) { (error) in
-                        let alerta = UIAlertController(title: "Enhorabuena2", message: "Cuestioanrio creado exitosamente", preferredStyle: .alert)
+                        let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario creado exitosamente", preferredStyle: .alert)
                         let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                         
                         alerta.addAction(accion)

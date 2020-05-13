@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol protocoloRespuestasUsuario {
+    func guardaRespuestasUsuario(resps: [Int])
+}
+
 class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloContestaCuestionario {
         
     
@@ -20,32 +24,28 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     
     var NumeroDeRespuestas : Int!
     
-    var respuestasUsuario : [Int] = []
+    var respuestasUsuario : [Int]!
     var cantCorrectas = 0
     var respuestasCorrectas: [Int] = []
     
     var slides:[Slide] = [];
+    
+    var delegado : protocoloRespuestasUsuario!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       /* if(cuestionarioACargar != nil){
-            print("Se mando")
-        }
-         */
-        
         NumeroDeRespuestas = cuestionarioACargar.numeroDePreguntas
-        
-        respuestasUsuario = Array(repeating: 0, count: NumeroDeRespuestas)        
-        respuestasCorrectas = Array(repeating: 1, count: NumeroDeRespuestas)
+            
+        respuestasCorrectas = Array(repeating: 0, count: NumeroDeRespuestas)
         
         scrollView.delegate = self
         
-
-        
         slides = createSlides()
         setupSlideScrollView(slides: slides)
+        
+        marcarCorrectas()
         
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
@@ -60,9 +60,20 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         arrSlides = []
         
         for i in 0...cuestionarioACargar.numeroDePreguntas-1{
+            respuestasCorrectas[i] = cuestionarioACargar.preguntas[i].respuestaCorrecta
+            
             let slideTmp:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
             slideTmp.lblNumeroPregunta.text = cuestionarioACargar.preguntas[i].descripcion
-            slideTmp.imgPregunta.image = cuestionarioACargar.preguntas[i].imgPregunta
+            
+            let dataImgPreg = cuestionarioACargar.preguntas[i].imgPregunta.jpegData(compressionQuality: 0.1)
+            let dataDefault = UIImage(named:"default")?.jpegData(compressionQuality: 0.1)
+            	
+            if dataImgPreg != dataDefault {
+                slideTmp.imgPregunta.image = cuestionarioACargar.preguntas[i].imgPregunta
+            } else {
+                slideTmp.imgPregunta.image = nil
+            }
+            
             //Checa si son de V/F
             if cuestionarioACargar.preguntas[i].tipoRespuestas == "V/F"{
                 //Checa si son respuestas de tipo Imagen
@@ -181,14 +192,35 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             }
         */
     
+    func marcarCorrectas(){
+        for i in 0...slides.count-1{
+            
+                 switch respuestasUsuario[i] {
+                 case 1:
+                    slides[i].view1.layer.borderWidth = 10
+                    slides[i].view1.layer.borderColor = UIColor.red.cgColor
+                     break;
+                 case 2:
+                    slides[i].view2.layer.borderWidth = 10
+                    slides[i].view2.layer.borderColor = UIColor.red.cgColor
+                     break;
+                 case 3:
+                    slides[i].view3.layer.borderWidth = 10
+                    slides[i].view3.layer.borderColor = UIColor.red.cgColor
+                     break;
+                 case 4:
+                    slides[i].view4.layer.borderWidth = 10
+                    slides[i].view4.layer.borderColor = UIColor.red.cgColor
+                     break;
+                 default:
+                     break;
+                 }
+            }
+    }
+    
     // MARK: - ProtocoloContestaCuestionario
     func agregaRespuesta(resp : Int, id: Int) {
         respuestasUsuario[id] = resp
-        
-        for i in 0...respuestasUsuario.count-1 {
-            print(respuestasUsuario[i])
-        }
-        print("-------------------")
     }
     
     func entregaCuestionario() {
@@ -203,7 +235,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     }
     
     func reiniciarCuestionario() {
-        for i in 1...respuestasUsuario.count-1 {
+        for i in 0...respuestasUsuario.count-1 {
             respuestasUsuario[i] = 0
         }
         for i in 0...slides.count-1 {
@@ -217,6 +249,42 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         scrollViewDidScroll(scrollView)
         
     }
+    
+    //MARK: - Metodos Codable
+   /* func dataFileURL(nombre : String) -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent(nombre)
+        return pathArchivo
+    }
+    
+    @IBAction func guardarNumeros() {
+        do {
+            let data = try PropertyListEncoder().encode(pickerData)
+            try data.write(to: dataFileURL(nombre: "Numeros.plist"))
+        }
+        catch {
+            print("Error al guardar numeros")
+        }
+    }
+    
+    func obtenerNumeros() {
+        pickerData.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(nombre: "Numeros.plist"))
+            pickerData = try PropertyListDecoder().decode([Numero].self, from: data)
+        }
+        catch {
+            print("Error al cargar numeros")
+        }
+        
+        if(pickerData.count > 0) {
+            selected = pickerData[pickerData.count-1].num
+            pickerData.removeLast()
+        }
+        pickerView.reloadAllComponents()
+        pickerView.selectRow(selected, inComponent: 0, animated: true)
+    }*/
     
     // MARK: - Navigation
 
@@ -241,6 +309,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         }
     }
     @IBAction func regresarMenu(_ sender: Any) {
+        delegado.guardaRespuestasUsuario(resps: respuestasUsuario)
         dismiss(animated: true, completion: nil)
     }
     

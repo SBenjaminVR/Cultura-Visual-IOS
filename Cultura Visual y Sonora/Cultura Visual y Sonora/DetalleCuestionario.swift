@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DetalleCuestionario: UIViewController {
+class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     
     var cuestionarioSeleccionado : Cuestionario!
-    	
+    var NumeroDeRespuestas:Int!
+    var respuestasUsuario : [Int]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,12 @@ class DetalleCuestionario: UIViewController {
         self.title = "\(cuestionarioSeleccionado.nombre)"
         
         setBackground()
+        
+        NumeroDeRespuestas = cuestionarioSeleccionado.numeroDePreguntas
+        
+        if respuestasUsuario == nil {
+            respuestasUsuario = Array(repeating: 0, count: NumeroDeRespuestas)
+        }
     }
         
     func setBackground() -> Void {
@@ -29,7 +36,16 @@ class DetalleCuestionario: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
+    func guardaRespuestasUsuario(resps: [Int]) {
+        respuestasUsuario = resps
+    }
+    
 
+    @IBAction func reiniciaRespuestasUsuario(_ sender: UIButton) {
+        for i in 0...respuestasUsuario.count-1 {
+            respuestasUsuario[i] = 0
+        }
+    }
     
     // MARK: - Navigation
 
@@ -38,6 +54,8 @@ class DetalleCuestionario: UIViewController {
         let vistaDestino = segue.destination as! RespondeCuestionario
         
         vistaDestino.cuestionarioACargar = cuestionarioSeleccionado
+        vistaDestino.respuestasUsuario = respuestasUsuario
+        vistaDestino.delegado = self
     }
     
     @IBAction func regresarCuestionarios(_ sender: Any) {

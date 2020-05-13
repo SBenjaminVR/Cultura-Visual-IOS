@@ -50,7 +50,7 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var btnRespCorrecta4: UIButton!
     
     var selectedTap:Int!
-    var corr:Int = 0
+    var corr:Int = 1
     
     var delegado : protocoloAgregaPreg!
     var listaPreguntas : [Pregunta] = [Pregunta]()
