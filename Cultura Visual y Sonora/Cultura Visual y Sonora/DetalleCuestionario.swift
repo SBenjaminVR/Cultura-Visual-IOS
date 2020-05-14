@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseStorage
 
 class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     
@@ -20,10 +22,76 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
         // Do any additional setup after loading the view.
         self.title = "\(cuestionarioSeleccionado.nombre)"
         
+        obtenerPreguntas(addPreguntas, nombre: cuestionarioSeleccionado.nombre)
+    }
+    
+    func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], String)->Void, nombre: String) {
+        let pregRef = Firestore.firestore().collection("Cuestionarios").document("\(nombre)").collection("Preguntas")
+        
+        pregRef.getDocuments(completion: { (querySnapshotP, error) in
+            guard let querySnapshotP = querySnapshotP else {
+                let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            
+            let pregDocs = querySnapshotP.documents
+            print(pregDocs)
+            completion(pregDocs, nombre)
+        })
+    }
+
+    
+    func addPreguntas(preguntas: [QueryDocumentSnapshot], nombre:String) {
+        var categoria = ""
+        var descripcion = ""
+        var respCorrecta = 0
+        var respuestas = [String]()
+        var tipoResp = ""
+        var imgPreg:UIImage!
+        var imagenes = [UIImage]()
+        var j = 0
+        var sUrl:String!
+        var url:URL!
+        var imgRespData:NSData!
+        
+        for pregDoc in preguntas {
+            categoria = pregDoc["categoria"] as? String ?? "noCateg"
+            descripcion = pregDoc["descripcion"] as? String ?? "noDesc"
+            respCorrecta = pregDoc["respCorrecta"] as? Int ?? 0
+            respuestas = pregDoc["respuestas"] as! [String]
+            tipoResp = pregDoc["tipoResp"] as? String ?? "noTipoRes"
+            
+            let nuevaPregunta = Pregunta(desc: descripcion, resp: respuestas, correcta: respCorrecta, tipo: tipoResp, categ: categoria)
+            
+            sUrl = pregDoc["imagenPreg"] as? String ?? "noImgPregString"
+            
+            if sUrl != "" {
+                url = URL(string: sUrl)
+                let imgData = NSData(contentsOf: url!)
+                nuevaPregunta.setImagenPregunta(imgPreg: UIImage(data: imgData! as Data))
+            } else {
+                nuevaPregunta.setImagenPregunta(imgPreg: UIImage(named: "default"))
+            }
+            
+            let imgsArr = pregDoc["imagenes"] as? [String]
+            
+            for k in 0...imgsArr!.count-1 {
+                url = URL(string: imgsArr![k])
+                imgRespData = NSData(contentsOf: url!)
+                nuevaPregunta.imagenes.append(UIImage(data: imgRespData! as Data)!)
+            }
+            
+            cuestionarioSeleccionado.preguntas.append(nuevaPregunta)
+            j += 1
+        }
+        
         setBackground()
-        
         NumeroDeRespuestas = cuestionarioSeleccionado.numeroDePreguntas
-        
         if respuestasUsuario == nil {
             respuestasUsuario = Array(repeating: 0, count: NumeroDeRespuestas)
         }
