@@ -80,10 +80,12 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             
             let imgsArr = pregDoc["imagenes"] as? [String]
             
-            for k in 0...imgsArr!.count-1 {
-                url = URL(string: imgsArr![k])
-                imgRespData = NSData(contentsOf: url!)
-                nuevaPregunta.imagenes.append(UIImage(data: imgRespData! as Data)!)
+            if imgsArr!.count != 0 {
+                for k in 0...imgsArr!.count-1 {
+                    url = URL(string: imgsArr![k])
+                    imgRespData = NSData(contentsOf: url!)
+                    nuevaPregunta.imagenes.append(UIImage(data: imgRespData! as Data)!)
+                }
             }
             
             cuestionarioSeleccionado.preguntas.append(nuevaPregunta)

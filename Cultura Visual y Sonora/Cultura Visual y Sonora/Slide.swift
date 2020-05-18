@@ -18,7 +18,7 @@ class Slide: UIView {
     
     // MARK: - Variables
     
-    @IBOutlet weak var lblNumeroPregunta: UILabel!
+    @IBOutlet weak var lblNumeroPregunta: UITextView!
     @IBOutlet weak var imgPregunta: UIImageView!
     @IBOutlet weak var btnRespuestaTexto1: UIButton!
     @IBOutlet weak var btnRespuestaTexto2: UIButton!
