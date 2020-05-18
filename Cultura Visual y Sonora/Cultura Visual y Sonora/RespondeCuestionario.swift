@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseStorage
 
 protocol protocoloRespuestasUsuario {
     func guardaRespuestasUsuario(resps: [Int])
@@ -31,8 +33,9 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     var slides:[Slide] = [];
     
     var delegado : protocoloRespuestasUsuario!
-
     
+    var nombreUsuario:String! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +76,8 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             } else {
                 slideTmp.imgPregunta.image = nil
             }
+            
+            slideTmp.nombreUsuario = nombreUsuario
             
             //Checa si son de V/F
             if cuestionarioACargar.preguntas[i].tipoRespuestas == "V/F"{
@@ -230,6 +235,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             }
         }
         
+        guardarIntento()
         self.performSegue(withIdentifier: "resultados", sender: self)
         
     }
@@ -249,6 +255,47 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         scrollViewDidScroll(scrollView)
         
     }
+    
+    func guardarIntento() {
+        let cuest = cuestionarioACargar!
+        let colRef = Firestore.firestore().collection("Intentos")
+        
+        colRef.document("\(cuest.nombre)-\(nombreUsuario!)").setData([
+            "cuestionario": cuest.nombre,
+            "usuario": nombreUsuario!,
+            "correctas": cantCorrectas,
+            "incorrectas": (cuest.numeroDePreguntas - cantCorrectas),
+            "respuestas": []
+        ])
+        
+        for i in 0...respuestasUsuario.count-1 {
+            guardarRespuestasIntento(cuest: cuest, resp: respuestasUsuario[i])
+        }
+    }
+    
+    func guardarRespuestasIntento(cuest: Cuestionario, resp: Int) {
+        let dataReference = Firestore.firestore().collection("Intentos").document("\(cuest.nombre)-\(nombreUsuario!)")
+        
+        dataReference.updateData([
+            "respuestas": FieldValue.arrayUnion([resp])
+        ]) { (error) in return }
+    }
+    
+    /*
+     let dataReference = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)").collection("Preguntas").document("Preg\(i)")
+     dataReference.updateData([
+        "imagenes": FieldValue.arrayUnion([urlString])
+    ]) { (error) in
+        let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario creado exitosamente", preferredStyle: .alert)
+        let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+             
+        alerta.addAction(accion)
+             
+        self.present(alerta, animated: true, completion: nil)
+        return
+         }
+     }
+     */
     
     //MARK: - Metodos Codable
    /* func dataFileURL(nombre : String) -> URL {

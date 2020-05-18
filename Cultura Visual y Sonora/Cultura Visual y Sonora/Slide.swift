@@ -28,6 +28,7 @@ class Slide: UIView {
     @IBOutlet weak var btnReiniciar: UIButton!
     
     var id:Int!
+    var nombreUsuario:String! = nil
     
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!

@@ -12,7 +12,7 @@ import FirebaseStorage
 
 class ListaCuestionariosA: UITableViewController {
     
-    var listaDatos = ["Arte", "Musica", "Arquitectura"]
+    var nombreUsuario:String! = nil
     var listaCuestionarios : [Cuestionario] = [Cuestionario]()
     
     var nombre:String = ""
@@ -24,10 +24,9 @@ class ListaCuestionariosA: UITableViewController {
         
         self.title = "Cuestionarios"
         obtenerCuestionarios(addCuestionario)
-        
     }
     
-    //MARK: - Save Items From Firebase
+    //MARK: - Traer cuestionarios de Firebase
     func obtenerCuestionarios(_ completion: @escaping ([QueryDocumentSnapshot])->Void) {
         let cuestRef = Firestore.firestore().collection("Cuestionarios")
           
@@ -59,8 +58,6 @@ class ListaCuestionariosA: UITableViewController {
             cantPreg = document["cantPreguntas"] as? Int ?? 0
             
             self.listaCuestionarios.append(Cuestionario(nom: nombre, numPreg: cantPreg, tiempo: Double(tiempo)))
-            
-            //obtenerPreguntas(addPreguntas, nombre: nombre, i:i)
             
             i+=1
         }
@@ -98,6 +95,7 @@ class ListaCuestionariosA: UITableViewController {
         
         let view = segue.destination as! DetalleCuestionario
         view.cuestionarioSeleccionado = listaCuestionarios[indexPath.row]
+        view.nombreUsuario = nombreUsuario
     }
     
     @IBAction func regresarPantalla(_ sender: UIBarButtonItem) {

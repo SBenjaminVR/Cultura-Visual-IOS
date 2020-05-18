@@ -33,10 +33,6 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         let nuevoCuestionario = Cuestionario(nom: nomb!, numPreg: cantPreg, tiempo: tiem)
         nuevoCuestionario.addQuestions(preguntas: listaPreguntas)
         
-        for preg in nuevoCuestionario.preguntas {
-            print(preg.descripcion)
-        }
-        
         guardarCuestionario(cuest: nuevoCuestionario)
     }
     
@@ -59,9 +55,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     }
     
     func guardarPregunta(cuest: Cuestionario, preg: Pregunta, i: Int) {
-        let cuestRef = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)").collection("Preguntas").document("Preg\(i)")
+        let pregRef = Firestore.firestore().collection("Preguntas").document("\(cuest.nombre)-\(i)")
         
-        cuestRef.setData([
+        pregRef.setData([
+            "cuestionario": cuest.nombre,
             "descripcion": preg.descripcion,
             "categoria": preg.categoria,
             "respuestas": [
@@ -146,7 +143,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                 
                 let urlString = url.absoluteString
                 
-                let dataReference = Firestore.firestore().collection("Cuestionarios").document("\(cuest.nombre)").collection("Preguntas").document("Preg\(i)")
+                let dataReference = Firestore.firestore().collection("Preguntas").document("\(cuest.nombre)-\(i)")
                 if tipo == 1 {
                     dataReference.updateData([
                         "imagenPreg": urlString
@@ -173,9 +170,6 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                         return
                     }
                 }
-                
-                
-                
             })
         }
     }

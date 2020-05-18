@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     
+    var nombreUsuario:String! = nil
     var cuestionarioSeleccionado : Cuestionario!
     var NumeroDeRespuestas:Int!
     var respuestasUsuario : [Int]!
@@ -26,7 +27,7 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     }
     
     func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], String)->Void, nombre: String) {
-        let pregRef = Firestore.firestore().collection("Cuestionarios").document("\(nombre)").collection("Preguntas")
+        let pregRef = Firestore.firestore().collection("Preguntas").whereField("cuestionario", isEqualTo: nombre)
         
         pregRef.getDocuments(completion: { (querySnapshotP, error) in
             guard let querySnapshotP = querySnapshotP else {
@@ -40,7 +41,6 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             }
             
             let pregDocs = querySnapshotP.documents
-            print(pregDocs)
             completion(pregDocs, nombre)
         })
     }
@@ -126,6 +126,7 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
         vistaDestino.cuestionarioACargar = cuestionarioSeleccionado
         vistaDestino.respuestasUsuario = respuestasUsuario
         vistaDestino.delegado = self
+        vistaDestino.nombreUsuario = nombreUsuario
     }
     
     @IBAction func regresarCuestionarios(_ sender: Any) {

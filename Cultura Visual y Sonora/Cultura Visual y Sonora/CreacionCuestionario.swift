@@ -268,6 +268,8 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
             
             tfRespuesta1.text = "Verdadero"
             tfRespuesta2.text = "Falso"
+            tfRespuesta3.text = ""
+            tfRespuesta4.text = ""
             
             tfRespuesta3.isEnabled = false
             tfRespuesta4.isEnabled = false

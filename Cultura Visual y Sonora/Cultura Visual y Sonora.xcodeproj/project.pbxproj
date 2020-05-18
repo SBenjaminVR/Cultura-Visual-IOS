@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		029AC97C247321A200210A6F /* EstadisticasAlumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029AC97B247321A200210A6F /* EstadisticasAlumno.swift */; };
 		0F9795832446651D00822BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795822446651D00822BA2 /* AppDelegate.swift */; };
 		0F9795852446651D00822BA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795842446651D00822BA2 /* SceneDelegate.swift */; };
 		0F9795872446651D00822BA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795862446651D00822BA2 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		029AC97B247321A200210A6F /* EstadisticasAlumno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadisticasAlumno.swift; sourceTree = "<group>"; };
 		0F97957F2446651D00822BA2 /* Cultura Visual y Sonora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cultura Visual y Sonora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9795822446651D00822BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F9795842446651D00822BA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				0F9795842446651D00822BA2 /* SceneDelegate.swift */,
 				0F9795862446651D00822BA2 /* ViewController.swift */,
 				0F9795882446651D00822BA2 /* Main.storyboard */,
+				029AC97B247321A200210A6F /* EstadisticasAlumno.swift */,
 				4ECB17D8244E6D7D001B1B23 /* Slide.swift */,
 				B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */,
 				4ECB17DA244E6D9C001B1B23 /* Slide.xib */,
@@ -280,6 +283,7 @@
 			files = (
 				0F9795B324467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift in Sources */,
 				0F9795AD24467EBA00822BA2 /* ResultadosGeneralesCuestionarios.swift in Sources */,
+				029AC97C247321A200210A6F /* EstadisticasAlumno.swift in Sources */,
 				0F9795872446651D00822BA2 /* ViewController.swift in Sources */,
 				0F9795A1244676F500822BA2 /* MenuPrincipalProfesor.swift in Sources */,
 				0F9795A324467B6700822BA2 /* ListaCuestionariosA.swift in Sources */,

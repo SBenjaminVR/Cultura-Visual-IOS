@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfPassword: UITextField!
     
     var docRef: DocumentReference!
+    var uName:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         let textPassword = self.tfPassword.text!
         
         if textPassword != "" && textUser != "" {
+            uName = tfUser.text!
             tfUser.text = ""
             tfPassword.text = ""
             docRef = Firestore.firestore().document("Users/\(textUser)")
@@ -87,6 +89,15 @@ class ViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "alumno" {
+            let vista = segue.destination as! MenuPrincipalAlumno
+            vista.nombreUsuario = uName!
+        }
+    }
 }
 
