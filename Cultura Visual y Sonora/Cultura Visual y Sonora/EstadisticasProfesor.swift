@@ -1,8 +1,8 @@
 //
-//  EstadisticasAlumno.swift
+//  EstadisticasProfesor.swift
 //  Cultura Visual y Sonora
 //
-//  Created by El cantu on 5/21/20.
+//  Created by Carolina Gonzalez on 5/21/20.
 //  Copyright © 2020 ITESM. All rights reserved.
 //
 
@@ -10,15 +10,15 @@ import UIKit
 import FirebaseFirestore
 import FirebaseStorage
 
-class customTableViewCell: UITableViewCell{
+class customTableViewCell2: UITableViewCell{
     @IBOutlet weak var lbCuestionario: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var lbCalifa: UILabel!
-    
+    @IBOutlet weak var lbUsuario: UILabel!
 }
 
-class EstadisticasAlumno: UITableViewController {
-    
+class EstadisticasProfesor: UITableViewController {
+
     var listaIntentos: [Intento] = [Intento]()
     var nombreUsuario: String!
 
@@ -32,7 +32,7 @@ class EstadisticasAlumno: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.title = "Mis Estadisticas"
+        self.title = "Resultados Alumnos"
         
         obtenerIntentos(addIntentos)
     }
@@ -40,8 +40,8 @@ class EstadisticasAlumno: UITableViewController {
     // MARK: - Traer Intentos de Firebase
     
     func obtenerIntentos(_ completion: @escaping ([QueryDocumentSnapshot])->Void) {
-           let cuestRef = Firestore.firestore().collection("Intentos").whereField("usuario", isEqualTo: "\(nombreUsuario!)")
-             
+           let cuestRef = Firestore.firestore().collection("Intentos")
+        
            cuestRef.getDocuments(completion: { (querySnapshot, error) in
                guard let querySnapshot = querySnapshot else {
                      let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -87,7 +87,7 @@ class EstadisticasAlumno: UITableViewController {
     @IBAction func volverAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,13 +102,15 @@ class EstadisticasAlumno: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath) as! customTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath) as! customTableViewCell2
 
         if listaIntentos[indexPath.row].cuestionario != "CuestGeneral" {
             cell.lbCuestionario.text = listaIntentos[indexPath.row].cuestionario
         } else {
             cell.lbCuestionario.text = "Cuestionario General"
         }
+        
+        cell.lbUsuario.text = "Por \(listaIntentos[indexPath.row].usuario)"
         
         let cCorrectas =  Double(listaIntentos[indexPath.row].correctas)
         let cIncorrectas = Double(listaIntentos[indexPath.row].incorrectas)
@@ -135,10 +137,9 @@ class EstadisticasAlumno: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 115.0
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
