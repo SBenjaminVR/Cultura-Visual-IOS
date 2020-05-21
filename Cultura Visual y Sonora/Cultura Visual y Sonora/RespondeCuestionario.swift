@@ -34,7 +34,11 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     
     var delegado : protocoloRespuestasUsuario!
     
-    var nombreUsuario:String! = nil
+    var nombreUsuario:String!
+    
+    var timer = Timer()
+    var timerCounter: Int = 0
+    var currProgress: Float = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +57,12 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(actualizaTimer), userInfo: nil, repeats: true)
+        timerCounter = 0
+
+        // para que al mover el scroll no se detenga el timer
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
 
     
@@ -78,6 +88,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             }
             
             slideTmp.nombreUsuario = nombreUsuario
+            slideTmp.progressView.transform = slideTmp.progressView.transform.scaledBy(x: 1, y: 3)
             
             //Checa si son de V/F
             if cuestionarioACargar.preguntas[i].tipoRespuestas == "V/F"{
@@ -229,6 +240,8 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     }
     
     func entregaCuestionario() {
+        timer.invalidate()
+        
         for i in 0...respuestasCorrectas.count-1 {
             if respuestasUsuario[i] == respuestasCorrectas[i] {
                 cantCorrectas += 1
@@ -356,8 +369,22 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         }
     }
     @IBAction func regresarMenu(_ sender: Any) {
+        timer.invalidate()
         delegado.guardaRespuestasUsuario(resps: respuestasUsuario)
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func actualizaTimer() {
+        timerCounter += 1
+        currProgress = Float(Double(timerCounter) / (cuestionarioACargar.tiempoCuestionario*60.0))
+        
+        for i in 0...slides.count-1 {
+            //slides[i].progressView.progress = currProgress
+            slides[i].progressView.setProgress(currProgress, animated: true)
+        }
+        
+        if currProgress >= 1.0 {
+            entregaCuestionario()
+        }
+    }
 }

@@ -48,13 +48,13 @@ class ListaCuestionariosA: UITableViewController {
     
     func addCuestionario(documents: [QueryDocumentSnapshot]) {
         var nombre: String
-        var tiempo: Int
+        var tiempo: Double
         var cantPreg: Int
         var i = 0
         
         for document in documents {
             nombre = document["nombre"] as? String ?? "(noName)"
-            tiempo = document["tiempo"] as? Int ?? 0
+            tiempo = document["tiempo"] as? Double ?? 0.0
             cantPreg = document["cantPreguntas"] as? Int ?? 0
             
             self.listaCuestionarios.append(Cuestionario(nom: nombre, numPreg: cantPreg, tiempo: Double(tiempo)))

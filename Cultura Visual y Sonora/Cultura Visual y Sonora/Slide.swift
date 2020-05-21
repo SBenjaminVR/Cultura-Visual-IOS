@@ -33,11 +33,11 @@ class Slide: UIView {
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     
-
     //Views para hidear si la pregunta es de V/F
     @IBOutlet weak var view3: UIView!
-    
     @IBOutlet weak var view4: UIView!
+    
+    @IBOutlet weak var progressView: UIProgressView!
     
     var delegado : protocoloContestaCuestionario!
     

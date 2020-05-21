@@ -107,7 +107,11 @@ class EstadisticasAlumno: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath) as! customTableViewCell
 
-        cell.lbCuestionario.text = listaIntentos[indexPath.row].cuestionario
+        if listaIntentos[indexPath.row].cuestionario != "CuestGeneral" {
+            cell.lbCuestionario.text = listaIntentos[indexPath.row].cuestionario
+        } else {
+            cell.lbCuestionario.text = "Cuestionario General"
+        }
         
         let cCorrectas =  Double(listaIntentos[indexPath.row].correctas)
         let cIncorrectas = Double(listaIntentos[indexPath.row].incorrectas)
