@@ -41,7 +41,8 @@ class MenuPrincipalAlumno: UIViewController, UIPopoverPresentationControllerDele
         }
         
         if segue.identifier == "estadisticas" {
-            let vista = segue.destination as! EstadisticasAlumno
+            let navController = segue.destination as! UINavigationController
+            let vista = navController.topViewController as! EstadisticasAlumno
             vista.nombreUsuario = nombreUsuario!
         }
         

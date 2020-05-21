@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		029AC97C247321A200210A6F /* EstadisticasAlumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029AC97B247321A200210A6F /* EstadisticasAlumno.swift */; };
 		0F3A7A542475E9910076083A /* CuestionarioGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A7A532475E9910076083A /* CuestionarioGeneral.swift */; };
 		0F9795832446651D00822BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795822446651D00822BA2 /* AppDelegate.swift */; };
 		0F9795852446651D00822BA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795842446651D00822BA2 /* SceneDelegate.swift */; };
@@ -31,6 +30,7 @@
 		0F9795B324467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */; };
 		0FB47EEC244CA8E500D1B48E /* DetalleNuevoCuestionario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */; };
 		37A2943D94D5721918514155 /* libPods-Cultura Visual y Sonora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51ECF4AD626EE69B90AB54AD /* libPods-Cultura Visual y Sonora.a */; };
+		4EA5D4062476C324004720DD /* EstadisticasAlumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA5D4052476C324004720DD /* EstadisticasAlumno.swift */; };
 		4ECB17D9244E6D7D001B1B23 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB17D8244E6D7D001B1B23 /* Slide.swift */; };
 		4ECB17DB244E6D9C001B1B23 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB17DA244E6D9C001B1B23 /* Slide.xib */; };
 		B9D9F8C8245F5172006BCEE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */; };
@@ -49,7 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		029AC97B247321A200210A6F /* EstadisticasAlumno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadisticasAlumno.swift; sourceTree = "<group>"; };
 		0F3A7A532475E9910076083A /* CuestionarioGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuestionarioGeneral.swift; sourceTree = "<group>"; };
 		0F97957F2446651D00822BA2 /* Cultura Visual y Sonora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cultura Visual y Sonora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9795822446651D00822BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		0F9795B224467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadosGeneralesAlumnos.swift; sourceTree = "<group>"; };
 		0FB47EEB244CA8E500D1B48E /* DetalleNuevoCuestionario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleNuevoCuestionario.swift; sourceTree = "<group>"; };
 		4E18E8D3365C8C3AC2235F31 /* Pods-Cultura Visual y Sonora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cultura Visual y Sonora.release.xcconfig"; path = "Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora.release.xcconfig"; sourceTree = "<group>"; };
+		4EA5D4052476C324004720DD /* EstadisticasAlumno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadisticasAlumno.swift; sourceTree = "<group>"; };
 		4ECB17D8244E6D7D001B1B23 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		4ECB17DA244E6D9C001B1B23 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		51ECF4AD626EE69B90AB54AD /* libPods-Cultura Visual y Sonora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cultura Visual y Sonora.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,8 +123,8 @@
 				0F9795842446651D00822BA2 /* SceneDelegate.swift */,
 				0F9795862446651D00822BA2 /* ViewController.swift */,
 				0F9795882446651D00822BA2 /* Main.storyboard */,
+				4EA5D4052476C324004720DD /* EstadisticasAlumno.swift */,
 				0F3A7A532475E9910076083A /* CuestionarioGeneral.swift */,
-				029AC97B247321A200210A6F /* EstadisticasAlumno.swift */,
 				4ECB17D8244E6D7D001B1B23 /* Slide.swift */,
 				B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */,
 				4ECB17DA244E6D9C001B1B23 /* Slide.xib */,
@@ -283,7 +283,7 @@
 			files = (
 				0F9795B324467FAA00822BA2 /* ResultadosGeneralesAlumnos.swift in Sources */,
 				0F9795AD24467EBA00822BA2 /* ResultadosGeneralesCuestionarios.swift in Sources */,
-				029AC97C247321A200210A6F /* EstadisticasAlumno.swift in Sources */,
+				4EA5D4062476C324004720DD /* EstadisticasAlumno.swift in Sources */,
 				0F9795872446651D00822BA2 /* ViewController.swift in Sources */,
 				0F9795A1244676F500822BA2 /* MenuPrincipalProfesor.swift in Sources */,
 				0F9795A324467B6700822BA2 /* ListaCuestionariosA.swift in Sources */,
