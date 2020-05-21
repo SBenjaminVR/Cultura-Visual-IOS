@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuPrincipalAlumno: UIViewController {
+class MenuPrincipalAlumno: UIViewController, UIPopoverPresentationControllerDelegate {
 
     var nombreUsuario:String! = nil
     
@@ -24,7 +24,10 @@ class MenuPrincipalAlumno: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
-
+    func adaptivePresentationStyle (for controller:
+        UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
     
     // MARK: - Navigation
 
@@ -40,6 +43,12 @@ class MenuPrincipalAlumno: UIViewController {
         if segue.identifier == "estadisticas" {
             let vista = segue.destination as! EstadisticasAlumno
             vista.nombreUsuario = nombreUsuario!
+        }
+        
+        if segue.identifier == "popOver" {
+            let vistaPopOver = segue.destination as! CuestionarioGeneral
+            vistaPopOver.popoverPresentationController!.delegate = self
+            vistaPopOver.nombreUsuario = nombreUsuario!
         }
     }
     

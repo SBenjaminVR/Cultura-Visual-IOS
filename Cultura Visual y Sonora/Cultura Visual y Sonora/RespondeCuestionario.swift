@@ -62,7 +62,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         
         arrSlides = []
         
-        for i in 0...cuestionarioACargar.numeroDePreguntas-1{
+        for i in 0...cuestionarioACargar.preguntas.count-1 {
             respuestasCorrectas[i] = cuestionarioACargar.preguntas[i].respuestaCorrecta
             
             let slideTmp:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide

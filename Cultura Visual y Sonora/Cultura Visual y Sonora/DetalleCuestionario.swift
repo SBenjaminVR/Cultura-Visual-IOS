@@ -12,7 +12,7 @@ import FirebaseStorage
 
 class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     
-    var nombreUsuario:String! = nil
+    var nombreUsuario:String!
     var cuestionarioSeleccionado : Cuestionario!
     var NumeroDeRespuestas:Int!
     var respuestasUsuario : [Int]!
@@ -27,22 +27,42 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     }
     
     func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], String)->Void, nombre: String) {
-        let pregRef = Firestore.firestore().collection("Preguntas").whereField("cuestionario", isEqualTo: nombre)
-        
-        pregRef.getDocuments(completion: { (querySnapshotP, error) in
-            guard let querySnapshotP = querySnapshotP else {
-                let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                
-                alerta.addAction(accion)
-                
-                self.present(alerta, animated: true, completion: nil)
-                return
-            }
+        let pregRef = Firestore.firestore().collection("Preguntas")
+        let cuestRef = pregRef.whereField("cuestionario", isEqualTo: nombre)
             
-            let pregDocs = querySnapshotP.documents
-            completion(pregDocs, nombre)
-        })
+        if nombre != "CuestGeneral" {
+            cuestRef.getDocuments(completion: { (querySnapshotP, error) in
+                guard let querySnapshotP = querySnapshotP else {
+                    let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                    return
+                }
+                
+                let pregDocs = querySnapshotP.documents
+                completion(pregDocs, nombre)
+            })
+        } else {
+            pregRef.getDocuments(completion: { (querySnapshotP, error) in
+                guard let querySnapshotP = querySnapshotP else {
+                    let alerta = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    
+                    alerta.addAction(accion)
+                    
+                    self.present(alerta, animated: true, completion: nil)
+                    return
+                }
+                
+                let pregDocs = querySnapshotP.documents
+                completion(pregDocs, nombre)
+            })
+        }
+        
+        
     }
 
     
@@ -92,11 +112,39 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             j += 1
         }
         
+        
+        
         setBackground()
+        
+        if cuestionarioSeleccionado.nombre == "CuestGeneral" && cuestionarioSeleccionado.numeroDePreguntas != 0 {
+            configuraPreguntasGeneral()
+        } else {
+            if cuestionarioSeleccionado.nombre == "CuestGeneral" {
+                cuestionarioSeleccionado.preguntas.shuffle()
+            }
+            cuestionarioSeleccionado.numeroDePreguntas = cuestionarioSeleccionado.preguntas.count
+        }
+        
         NumeroDeRespuestas = cuestionarioSeleccionado.numeroDePreguntas
         if respuestasUsuario == nil {
             respuestasUsuario = Array(repeating: 0, count: NumeroDeRespuestas)
         }
+    }
+    
+    func configuraPreguntasGeneral() {
+        cuestionarioSeleccionado.preguntas.shuffle()
+        
+        var tempPreg : [Pregunta] = [Pregunta]()
+        
+        for i in 0...cuestionarioSeleccionado.numeroDePreguntas-1 {
+            if i >= cuestionarioSeleccionado.preguntas.count {
+                break
+            }
+            
+            tempPreg.append(cuestionarioSeleccionado.preguntas[i])
+        }
+        
+        cuestionarioSeleccionado.addQuestions(preguntas: tempPreg)
     }
         
     func setBackground() -> Void {

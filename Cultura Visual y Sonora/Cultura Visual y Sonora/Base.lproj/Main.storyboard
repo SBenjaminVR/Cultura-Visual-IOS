@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -143,6 +143,11 @@
                                 <state key="normal" title="Cuestionario Gral." backgroundImage="backgroundBotones">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="iH3-7v-YtR" kind="popoverPresentation" identifier="popOver" popoverAnchorView="WEi-z3-3AV" id="mEe-N7-ZuK">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -249,54 +254,54 @@
             </objects>
             <point key="canvasLocation" x="3458" y="135"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="K0S-VE-4Qf">
+        <!--Cuestionario General-->
+        <scene sceneID="Yfh-jQ-QC2">
             <objects>
-                <tableViewController id="lkK-f5-DkE" customClass="ListaCuestionariosP" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qBs-LJ-DV2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="iH3-7v-YtR" customClass="CuestionarioGeneral" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9J6-EF-Lpp">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VTs-PJ-tQM">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VTs-PJ-tQM" id="fWH-jo-M1J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero de preguntas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djC-PZ-cQf">
+                                <rect key="frame" x="23" y="48" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-an-NzK">
+                                <rect key="frame" x="158" y="123" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Listo"/>
                                 <connections>
-                                    <segue destination="eSK-Ux-6zp" kind="presentation" modalPresentationStyle="fullScreen" id="Sb0-Ju-7ka"/>
+                                    <segue destination="F3O-BN-emr" kind="presentation" identifier="general" modalPresentationStyle="fullScreen" id="nQ3-Li-cLF"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lkK-f5-DkE" id="CLa-Lq-Q2P"/>
-                            <outlet property="delegate" destination="lkK-f5-DkE" id="yfA-65-QZm"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="GFl-CV-jvM"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jgA-gx-PDZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2641" y="1257"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lS4-VF-TBb">
-            <objects>
-                <navigationController id="dxZ-NH-r32" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="XSd-mz-rn3"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CkN-do-sgE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IYa-wn-chf">
+                                <rect key="frame" x="18" y="77" width="304" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="10"/>
+                                    <segment title="15"/>
+                                    <segment title="20"/>
+                                    <segment title="Todas"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setQuestionNumber:" destination="iH3-7v-YtR" eventType="valueChanged" id="H7F-Rn-qHo"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3fG-yU-R9q"/>
+                    </view>
+                    <size key="freeformSize" width="350" height="200"/>
                     <connections>
-                        <segue destination="lkK-f5-DkE" kind="relationship" relationship="rootViewController" id="fuS-KI-vzG"/>
+                        <outlet property="segmentedControl" destination="IYa-wn-chf" id="Csp-CU-VOT"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ld-mw-rGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efc-P8-GXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="1257"/>
+            <point key="canvasLocation" x="1968" y="-885.1574212893554"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4vS-QG-Ipp">
@@ -342,25 +347,6 @@
                                 <rect key="frame" x="67" y="98" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w27-N7-voh">
-                                <rect key="frame" x="74" y="381" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Editar cuestionario" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dxZ-NH-r32" kind="presentation" modalPresentationStyle="fullScreen" id="n52-Rx-oUt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-uz-Q4Q">
-                                <rect key="frame" x="74" y="485" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Ver resultados" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-JQ-EHc">
                                 <rect key="frame" x="74" y="278" width="226" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -378,6 +364,17 @@
                                 <state key="normal" title="Cerrar sesion"/>
                                 <connections>
                                     <segue destination="uia-v1-Ak9" kind="unwind" unwindAction="unwindWithSegue:" id="H4W-uy-qEj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-uz-Q4Q">
+                                <rect key="frame" x="74" y="413" width="226" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Ver resultados" backgroundImage="backgroundBotones">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GWw-j5-kWW" kind="presentation" id="g0j-PQ-8ja"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -995,7 +992,7 @@
             <objects>
                 <viewController id="GWw-j5-kWW" customClass="ResultadosGeneralesAlumnos" customModule="Cultura_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VrR-Ih-0YZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NG1-Qg-UOL"/>
@@ -1003,9 +1000,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRO-SQ-pAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5038" y="841"/>
+            <point key="canvasLocation" x="2182" y="1272"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nQ3-Li-cLF"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Check" width="225" height="225"/>
         <image name="Intento3" width="376" height="272"/>
@@ -1015,7 +1015,4 @@
         <image name="backgroundBotones" width="336" height="128"/>
         <image name="default" width="500" height="500"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="of2-gN-mNr"/>
-    </inferredMetricsTieBreakers>
 </document>
