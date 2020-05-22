@@ -54,24 +54,22 @@ class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
     
     func marcarCorrectas(){
         for i in 0...arrSlides3.count-1{
-            
-        
                  switch respuestasCorrectas2[i] {
                  case 1:
                     arrSlides3[i].view1.layer.borderWidth = 10
-                    arrSlides3[i].view1.layer.borderColor = UIColor.blue.cgColor
+                    arrSlides3[i].view1.layer.borderColor = UIColor(named: "BlueColor")?.cgColor
                      break;
                  case 2:
                     arrSlides3[i].view2.layer.borderWidth = 10
-                    arrSlides3[i].view2.layer.borderColor = UIColor.blue.cgColor
+                    arrSlides3[i].view2.layer.borderColor = UIColor(named: "BlueColor")?.cgColor
                      break;
                  case 3:
                     arrSlides3[i].view3.layer.borderWidth = 10
-                    arrSlides3[i].view3.layer.borderColor = UIColor.blue.cgColor
+                    arrSlides3[i].view3.layer.borderColor = UIColor(named: "BlueColor")?.cgColor
                      break;
                  case 4:
                     arrSlides3[i].view4.layer.borderWidth = 10
-                    arrSlides3[i].view4.layer.borderColor = UIColor.blue.cgColor
+                    arrSlides3[i].view4.layer.borderColor = UIColor(named: "BlueColor")?.cgColor
                      break;
                  default:
                      break;

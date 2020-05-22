@@ -214,19 +214,19 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
                  switch respuestasUsuario[i] {
                  case 1:
                     slides[i].view1.layer.borderWidth = 10
-                    slides[i].view1.layer.borderColor = UIColor.red.cgColor
+                    slides[i].view1.layer.borderColor = UIColor(named: "RedColor")?.cgColor
                      break;
                  case 2:
                     slides[i].view2.layer.borderWidth = 10
-                    slides[i].view2.layer.borderColor = UIColor.red.cgColor
+                    slides[i].view2.layer.borderColor = UIColor(named: "RedColor")?.cgColor
                      break;
                  case 3:
                     slides[i].view3.layer.borderWidth = 10
-                    slides[i].view3.layer.borderColor = UIColor.red.cgColor
+                    slides[i].view3.layer.borderColor = UIColor(named: "RedColor")?.cgColor
                      break;
                  case 4:
                     slides[i].view4.layer.borderWidth = 10
-                    slides[i].view4.layer.borderColor = UIColor.red.cgColor
+                    slides[i].view4.layer.borderColor = UIColor(named: "RedColor")?.cgColor
                      break;
                  default:
                      break;

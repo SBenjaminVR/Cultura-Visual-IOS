@@ -53,7 +53,7 @@ class ResultadoCuestionario: UIViewController {
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let colors = [UIColor.blue, UIColor.red]
+        let colors = [UIColor(named: "BlueColor"), UIColor(named: "RedColor")]
         
         chartDataSet.colors = colors as! [NSUIColor]
         
