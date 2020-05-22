@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
+    @IBOutlet weak var lbUsername: UILabel!
+    @IBOutlet weak var lbContrasena: UILabel!
+    @IBOutlet weak var btnCuenta: UIButton!
+    @IBOutlet weak var btnEntrar: UIButton!
     
     var docRef: DocumentReference!
     var uName:String!
@@ -20,7 +24,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
+        
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+        var maximoFont: CGFloat
+        
+        if (width > 1125) {
+            maximoFont = 30
+        }
+        else {
+            maximoFont = 17
+        }
+        let tamMax = ajustarFontSize(label: lbUsername, bold: true, maxSize: maximoFont)
+        ajustarFontSize(label: lbContrasena, bold: true, maxSize: tamMax)
+        ajustarFontSize(label: btnCuenta.titleLabel!, bold: false, maxSize: maximoFont)
+        ajustarFontSize(label: btnEntrar.titleLabel!, bold: false, maxSize: maximoFont)
     }
+    
+    func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {
+        let maxFontSize: CGFloat = maxSize
+        let minFontSize: CGFloat = 10
+
+        if bold {
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: maxFontSize)!
+        }
+        else {
+            label.font = UIFont(name: "HelveticaNeue", size: maxFontSize)!
+        }
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = minFontSize/maxFontSize
+        
+        return label.font.pointSize
+    }
+    
 
     @IBAction func logIn(_ sender: UIButton) {
         let textUser = self.tfUser.text!
