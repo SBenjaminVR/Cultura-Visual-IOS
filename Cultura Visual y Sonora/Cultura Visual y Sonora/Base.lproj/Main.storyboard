@@ -239,16 +239,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BE-hS-xL6">
-                                <rect key="frame" x="74" y="425" width="226" height="59"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcW-XM-AsG">
+                                <rect key="frame" x="16" y="20" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Ultimos resultados" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <state key="normal" title="&lt; Regresar"/>
+                                <connections>
+                                    <action selector="regresarCuestionarios:" destination="F3O-BN-emr" eventType="touchUpInside" id="pOg-rn-Z14"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zew-UB-hyc">
-                                <rect key="frame" x="74" y="174" width="226" height="59"/>
+                                <rect key="frame" x="74" y="239" width="226" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Iniciar " backgroundImage="backgroundBotones">
@@ -258,19 +258,11 @@
                                     <segue destination="PWl-se-bDO" kind="presentation" identifier="iniciarCuestionario" modalPresentationStyle="fullScreen" id="bDP-Vk-IEI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcW-XM-AsG">
-                                <rect key="frame" x="16" y="20" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt; Regresar"/>
-                                <connections>
-                                    <action selector="regresarCuestionarios:" destination="F3O-BN-emr" eventType="touchUpInside" id="pOg-rn-Z14"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL0-ve-xkH">
-                                <rect key="frame" x="74" y="304" width="226" height="59"/>
+                                <rect key="frame" x="74" y="369" width="226" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Reiniciar resultados" backgroundImage="backgroundBotones">
+                                <state key="normal" title="Reiniciar avances" backgroundImage="backgroundBotones">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>

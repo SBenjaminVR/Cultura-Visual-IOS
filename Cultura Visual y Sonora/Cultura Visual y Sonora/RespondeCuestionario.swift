@@ -11,12 +11,11 @@ import FirebaseFirestore
 import FirebaseStorage
 
 protocol protocoloRespuestasUsuario {
-    func guardaRespuestasUsuario(resps: [Int])
+    func guardaRespuestasUsuario(resps: [Int], tiempo: Int)
 }
 
 class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloContestaCuestionario {
         
-    
     
     // MARK: - Variables
     
@@ -37,7 +36,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     var nombreUsuario:String!
     
     var timer = Timer()
-    var timerCounter: Int = 0
+    var timerCounter: Int!
     var currProgress: Float = 0.0
 
     override func viewDidLoad() {
@@ -59,7 +58,9 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         view.bringSubviewToFront(pageControl)
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(actualizaTimer), userInfo: nil, repeats: true)
-        timerCounter = 0
+        if (timerCounter == nil) {
+            timerCounter = 0
+        }
 
         // para que al mover el scroll no se detenga el timer
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
@@ -177,36 +178,6 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
             let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
         }
             
-            
-            /*
-             * below code changes the background color of view on paging the scrollview
-             */
-    //        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
-            
-        
-            /*
-             * below code scales the imageview on paging the scrollview
-             
-            let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-            
-            if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-                
-                slides[0].imageView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
-                slides[1].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
-                
-            } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-                slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-                slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-                
-            } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-                slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-                slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-                
-            } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-                slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-                slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-            }
-        */
     
     func marcarCorrectas(){
         for i in 0...slides.count-1{
@@ -242,6 +213,10 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     func entregaCuestionario() {
         timer.invalidate()
         
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(false, forKey: "hasLeft")
+        userDefaults.set(0, forKey: "timer")
+        
         for i in 0...respuestasCorrectas.count-1 {
             if respuestasUsuario[i] == respuestasCorrectas[i] {
                 cantCorrectas += 1
@@ -266,6 +241,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         pageControl.currentPage = 0
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         scrollViewDidScroll(scrollView)
+        //timerCounter = 0
         
     }
     
@@ -350,8 +326,6 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "resultados" {
             let viewRes = segue.destination as! ResultadoCuestionario
           
@@ -370,7 +344,7 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
     }
     @IBAction func regresarMenu(_ sender: Any) {
         timer.invalidate()
-        delegado.guardaRespuestasUsuario(resps: respuestasUsuario)
+        delegado.guardaRespuestasUsuario(resps: respuestasUsuario, tiempo: timerCounter)
         dismiss(animated: true, completion: nil)
     }
     

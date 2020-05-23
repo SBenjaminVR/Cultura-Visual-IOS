@@ -154,12 +154,21 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
-    func guardaRespuestasUsuario(resps: [Int]) {
+    func guardaRespuestasUsuario(resps: [Int], tiempo: Int) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(nombreUsuario, forKey: "username")
+        userDefaults.set(cuestionarioSeleccionado.nombre, forKey: "cuestionario")
+        userDefaults.set(true, forKey: "hasLeft")
+        userDefaults.set(tiempo, forKey: "timer")
+        userDefaults.set(resps, forKey: "respuestas")
         respuestasUsuario = resps
     }
     
 
     @IBAction func reiniciaRespuestasUsuario(_ sender: UIButton) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(false, forKey: "hasLeft")
+        userDefaults.set(0, forKey: "timer")
         for i in 0...respuestasUsuario.count-1 {
             respuestasUsuario[i] = 0
         }
@@ -170,9 +179,21 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vistaDestino = segue.destination as! RespondeCuestionario
+            
+        let userDefaults = UserDefaults.standard
+        let hasLeft = userDefaults.bool(forKey: "hasLeft")
+        let user = userDefaults.string(forKey: "username")
+        let cuestionario = userDefaults.string(forKey: "cuestionario")
+        
+        if hasLeft && user == nombreUsuario && cuestionario == cuestionarioSeleccionado.nombre {
+            vistaDestino.timerCounter = userDefaults.integer(forKey: "timer")
+            vistaDestino.respuestasUsuario = userDefaults.array(forKey: "respuestas") as? [Int]
+        }
+        else {
+            vistaDestino.respuestasUsuario = respuestasUsuario
+        }
         
         vistaDestino.cuestionarioACargar = cuestionarioSeleccionado
-        vistaDestino.respuestasUsuario = respuestasUsuario
         vistaDestino.delegado = self
         vistaDestino.nombreUsuario = nombreUsuario
     }
