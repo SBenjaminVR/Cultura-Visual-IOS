@@ -73,7 +73,6 @@ class ResultadoCuestionario: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         let viewRes = segue.destination as! ResultadosGeneralesCuestionarios
-        
         viewRes.arrSlides3 = arrSlides2
         viewRes.respuestasUsuario2 = respuestasUsuario1
         viewRes.respuestasCorrectas2 = respuestasCorrectas1

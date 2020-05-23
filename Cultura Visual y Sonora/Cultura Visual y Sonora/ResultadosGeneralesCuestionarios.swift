@@ -11,24 +11,18 @@ import UIKit
 class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
     
     @IBOutlet weak var scrollViewRes: UIScrollView!
-    
     @IBOutlet weak var pageControl: UIPageControl!
     
     var arrSlides3 : [Slide]!
     
      var respuestasUsuario2 : [Int] = []
-    
      var respuestasCorrectas2: [Int] = []
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         scrollViewRes.delegate = self
-        
-
         
         bloquearBotones()
         setupSlideScrollView(slides: arrSlides3)
@@ -37,8 +31,6 @@ class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
         marcarCorrectas()
-        
- 
     }
     
     func bloquearBotones(){
@@ -54,6 +46,7 @@ class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
     
     func marcarCorrectas(){
         for i in 0...arrSlides3.count-1{
+            arrSlides3[i].progressView.isHidden = true;
                  switch respuestasCorrectas2[i] {
                  case 1:
                     arrSlides3[i].view1.layer.borderWidth = 10

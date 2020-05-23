@@ -58,19 +58,19 @@ class Slide: UIView {
         switch numRespuesta {
         case 1:
             view1.layer.borderWidth = 10
-            view1.layer.borderColor = UIColor.red.cgColor
+            view1.layer.borderColor = UIColor(named: "RedColor")?.cgColor
             break;
         case 2:
             view2.layer.borderWidth = 10
-            view2.layer.borderColor = UIColor.red.cgColor
+            view2.layer.borderColor = UIColor(named: "RedColor")?.cgColor
             break;
         case 3:
             view3.layer.borderWidth = 10
-            view3.layer.borderColor = UIColor.red.cgColor
+            view3.layer.borderColor = UIColor(named: "RedColor")?.cgColor
             break;
         case 4:
             view4.layer.borderWidth = 10
-            view4.layer.borderColor = UIColor.red.cgColor
+            view4.layer.borderColor = UIColor(named: "RedColor")?.cgColor
             break;
         default:
             break;
