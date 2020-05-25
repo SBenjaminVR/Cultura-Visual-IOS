@@ -184,58 +184,92 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vFn-WJ-xcx">
-                                <rect key="frame" x="67" y="68" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bq0-Gc-uMg">
-                                <rect key="frame" x="74" y="283" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Cuestionarios" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="u80-Gd-AMM" kind="presentation" identifier="cuestionarios" modalPresentationStyle="fullScreen" id="XDo-eg-1xF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-HS-1e6">
-                                <rect key="frame" x="74" y="503" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Mis Estadísticas" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="uLv-RV-ypt" kind="presentation" identifier="estadisticas" modalPresentationStyle="fullScreen" id="9vR-oL-VeL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuL-Hg-ykx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuL-Hg-ykx">
                                 <rect key="frame" x="16" y="20" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cerrar sesion"/>
                                 <connections>
                                     <segue destination="NkY-Ct-sQa" kind="unwind" unwindAction="unwindWithSegue:" id="BFr-cH-Efx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEi-z3-3AV">
-                                <rect key="frame" x="74" y="395" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Cuestionario Gral." backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="iH3-7v-YtR" kind="popoverPresentation" identifier="popOver" popoverAnchorView="WEi-z3-3AV" id="mEe-N7-ZuK">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cI5-Xw-eOc">
+                                <rect key="frame" x="47.5" y="78" width="280" height="511"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEi-z3-3AV">
+                                        <rect key="frame" x="27" y="324" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Cuestionario Gral." backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="iH3-7v-YtR" kind="popoverPresentation" identifier="popOver" popoverAnchorView="WEi-z3-3AV" id="mEe-N7-ZuK">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFn-WJ-xcx">
+                                        <rect key="frame" x="20" y="20" width="240" height="128"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bq0-Gc-uMg">
+                                        <rect key="frame" x="27" y="212" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Cuestionarios" backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="u80-Gd-AMM" kind="presentation" identifier="cuestionarios" modalPresentationStyle="fullScreen" id="XDo-eg-1xF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-HS-1e6">
+                                        <rect key="frame" x="27" y="432" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Mis Estadísticas" backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="uLv-RV-ypt" kind="presentation" identifier="estadisticas" modalPresentationStyle="fullScreen" id="9vR-oL-VeL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vFn-WJ-xcx" firstAttribute="top" secondItem="cI5-Xw-eOc" secondAttribute="top" constant="20" id="6VF-SE-fmU"/>
+                                    <constraint firstItem="WEi-z3-3AV" firstAttribute="height" secondItem="cI5-Xw-eOc" secondAttribute="height" multiplier="0.11546" id="DcW-GN-2oA"/>
+                                    <constraint firstItem="bq0-Gc-uMg" firstAttribute="width" secondItem="cI5-Xw-eOc" secondAttribute="width" multiplier="0.807143" id="M2F-Lg-YtK"/>
+                                    <constraint firstItem="bq0-Gc-uMg" firstAttribute="top" secondItem="vFn-WJ-xcx" secondAttribute="bottom" constant="64" id="OVT-0k-YeT"/>
+                                    <constraint firstItem="ijb-HS-1e6" firstAttribute="top" secondItem="WEi-z3-3AV" secondAttribute="bottom" constant="49" id="SoZ-Dj-bcT"/>
+                                    <constraint firstItem="WEi-z3-3AV" firstAttribute="width" secondItem="cI5-Xw-eOc" secondAttribute="width" multiplier="0.807143" id="ZzR-rf-T63"/>
+                                    <constraint firstItem="vFn-WJ-xcx" firstAttribute="width" secondItem="cI5-Xw-eOc" secondAttribute="width" multiplier="0.857143" id="aep-zh-o4A"/>
+                                    <constraint firstItem="vFn-WJ-xcx" firstAttribute="height" secondItem="cI5-Xw-eOc" secondAttribute="height" multiplier="0.250489" id="b0K-Sa-D3c"/>
+                                    <constraint firstItem="ijb-HS-1e6" firstAttribute="height" secondItem="cI5-Xw-eOc" secondAttribute="height" multiplier="0.11546" id="gNY-Hu-s9L"/>
+                                    <constraint firstItem="WEi-z3-3AV" firstAttribute="top" secondItem="bq0-Gc-uMg" secondAttribute="bottom" constant="53" id="hVp-iU-Q4G"/>
+                                    <constraint firstItem="bq0-Gc-uMg" firstAttribute="height" secondItem="cI5-Xw-eOc" secondAttribute="height" multiplier="0.11546" id="mt6-tc-lY4"/>
+                                    <constraint firstItem="ijb-HS-1e6" firstAttribute="width" secondItem="cI5-Xw-eOc" secondAttribute="width" multiplier="0.807143" id="uKL-F0-F9y"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GuL-Hg-ykx" firstAttribute="width" secondItem="tMO-XE-vPH" secondAttribute="width" multiplier="0.245333" id="03m-60-MxD"/>
+                            <constraint firstItem="ijb-HS-1e6" firstAttribute="centerX" secondItem="Ed2-4b-zwP" secondAttribute="centerX" id="3b1-5N-DM7"/>
+                            <constraint firstItem="cI5-Xw-eOc" firstAttribute="height" secondItem="tMO-XE-vPH" secondAttribute="height" multiplier="0.766117" id="6vF-th-9jO"/>
+                            <constraint firstItem="WEi-z3-3AV" firstAttribute="centerX" secondItem="Ed2-4b-zwP" secondAttribute="centerX" id="ML9-VU-PUO"/>
+                            <constraint firstItem="GuL-Hg-ykx" firstAttribute="height" secondItem="tMO-XE-vPH" secondAttribute="height" multiplier="0.0449775" id="OCM-rb-axd"/>
+                            <constraint firstItem="bq0-Gc-uMg" firstAttribute="centerX" secondItem="Ed2-4b-zwP" secondAttribute="centerX" id="OtR-cI-K7a"/>
+                            <constraint firstItem="GuL-Hg-ykx" firstAttribute="leading" secondItem="Ed2-4b-zwP" secondAttribute="leading" constant="16" id="cfP-nW-CFZ"/>
+                            <constraint firstItem="cI5-Xw-eOc" firstAttribute="centerY" secondItem="Ed2-4b-zwP" secondAttribute="centerY" id="dOh-4W-gX1"/>
+                            <constraint firstItem="GuL-Hg-ykx" firstAttribute="top" secondItem="Ed2-4b-zwP" secondAttribute="top" constant="20" id="rOI-AU-T9T"/>
+                            <constraint firstItem="cI5-Xw-eOc" firstAttribute="width" secondItem="tMO-XE-vPH" secondAttribute="width" multiplier="0.746667" id="uMe-18-IL0"/>
+                            <constraint firstItem="cI5-Xw-eOc" firstAttribute="centerX" secondItem="Ed2-4b-zwP" secondAttribute="centerX" id="yOh-Ae-JIw"/>
+                            <constraint firstItem="vFn-WJ-xcx" firstAttribute="centerX" secondItem="Ed2-4b-zwP" secondAttribute="centerX" id="ziF-OM-wZF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ed2-4b-zwP"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z1n-NV-eiQ"/>
+                    <connections>
+                        <outlet property="btnCerrar" destination="GuL-Hg-ykx" id="BY8-g9-Zva"/>
+                        <outlet property="btnCuestionario" destination="bq0-Gc-uMg" id="PBR-01-IdY"/>
+                        <outlet property="btnEstadisticas" destination="ijb-HS-1e6" id="1WG-cQ-muQ"/>
+                        <outlet property="btnGeneral" destination="WEi-z3-3AV" id="M7o-Sw-26B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C96-jj-eMk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NkY-Ct-sQa" userLabel="Exit" sceneMemberID="exit"/>
@@ -288,41 +322,68 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcW-XM-AsG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcW-XM-AsG">
                                 <rect key="frame" x="16" y="20" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="&lt; Regresar"/>
                                 <connections>
                                     <action selector="regresarCuestionarios:" destination="F3O-BN-emr" eventType="touchUpInside" id="pOg-rn-Z14"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zew-UB-hyc">
-                                <rect key="frame" x="74" y="239" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Iniciar " backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PWl-se-bDO" kind="presentation" identifier="iniciarCuestionario" modalPresentationStyle="fullScreen" id="bDP-Vk-IEI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL0-ve-xkH">
-                                <rect key="frame" x="74" y="369" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Reiniciar avances" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="reiniciaRespuestasUsuario:" destination="F3O-BN-emr" eventType="touchUpInside" id="N8L-pp-alO"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cga-ST-zSa">
+                                <rect key="frame" x="54.5" y="219" width="266" height="229"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zew-UB-hyc">
+                                        <rect key="frame" x="20" y="20" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Iniciar " backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="PWl-se-bDO" kind="presentation" identifier="iniciarCuestionario" modalPresentationStyle="fullScreen" id="bDP-Vk-IEI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL0-ve-xkH">
+                                        <rect key="frame" x="20" y="150" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Reiniciar avances" backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reiniciaRespuestasUsuario:" destination="F3O-BN-emr" eventType="touchUpInside" id="N8L-pp-alO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lL0-ve-xkH" secondAttribute="bottom" constant="20" id="0lz-vT-M66"/>
+                                    <constraint firstItem="Zew-UB-hyc" firstAttribute="height" secondItem="cga-ST-zSa" secondAttribute="height" multiplier="0.257642" id="GJv-KB-TG7"/>
+                                    <constraint firstItem="Zew-UB-hyc" firstAttribute="width" secondItem="cga-ST-zSa" secondAttribute="width" multiplier="0.849624" id="LM0-4b-DWI"/>
+                                    <constraint firstItem="lL0-ve-xkH" firstAttribute="width" secondItem="cga-ST-zSa" secondAttribute="width" multiplier="0.849624" id="OUY-iq-hpV"/>
+                                    <constraint firstItem="Zew-UB-hyc" firstAttribute="top" secondItem="cga-ST-zSa" secondAttribute="top" constant="20" id="S55-so-7Cu"/>
+                                    <constraint firstItem="lL0-ve-xkH" firstAttribute="height" secondItem="cga-ST-zSa" secondAttribute="height" multiplier="0.257642" id="TVy-HP-BFC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EcW-XM-AsG" firstAttribute="leading" secondItem="L1r-Yh-FIn" secondAttribute="leading" constant="16" id="88G-ge-8QM"/>
+                            <constraint firstItem="Zew-UB-hyc" firstAttribute="centerX" secondItem="L1r-Yh-FIn" secondAttribute="centerX" id="9Sj-tP-V9W"/>
+                            <constraint firstItem="EcW-XM-AsG" firstAttribute="height" secondItem="dAs-pe-Qlm" secondAttribute="height" multiplier="0.0449775" id="DJB-01-Gyz"/>
+                            <constraint firstItem="cga-ST-zSa" firstAttribute="centerX" secondItem="L1r-Yh-FIn" secondAttribute="centerX" id="EWS-Mj-gIW"/>
+                            <constraint firstItem="cga-ST-zSa" firstAttribute="centerY" secondItem="L1r-Yh-FIn" secondAttribute="centerY" id="Hp7-51-k6u"/>
+                            <constraint firstItem="EcW-XM-AsG" firstAttribute="width" secondItem="dAs-pe-Qlm" secondAttribute="width" multiplier="0.2" id="PnS-b2-aB2"/>
+                            <constraint firstItem="cga-ST-zSa" firstAttribute="height" secondItem="dAs-pe-Qlm" secondAttribute="height" multiplier="0.343328" id="WsI-TX-mY7"/>
+                            <constraint firstItem="EcW-XM-AsG" firstAttribute="top" secondItem="L1r-Yh-FIn" secondAttribute="top" constant="20" id="cSs-5D-p8y"/>
+                            <constraint firstItem="lL0-ve-xkH" firstAttribute="centerX" secondItem="L1r-Yh-FIn" secondAttribute="centerX" id="g9z-yi-AL4"/>
+                            <constraint firstItem="cga-ST-zSa" firstAttribute="width" secondItem="dAs-pe-Qlm" secondAttribute="width" multiplier="0.709333" id="kx2-sX-zpA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="L1r-Yh-FIn"/>
                     </view>
                     <navigationItem key="navigationItem" id="6Cu-nb-Hoa"/>
+                    <connections>
+                        <outlet property="btnIniciar" destination="Zew-UB-hyc" id="PdY-IB-NSh"/>
+                        <outlet property="btnRegresar" destination="EcW-XM-AsG" id="qrw-4U-zbA"/>
+                        <outlet property="btnReiniciarAvances" destination="lL0-ve-xkH" id="zbP-PY-89m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbb-Xj-hCP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -463,45 +524,75 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-1M-CLi">
-                                <rect key="frame" x="67" y="98" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-JQ-EHc">
-                                <rect key="frame" x="74" y="278" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Crear cuestionario" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="eSK-Ux-6zp" kind="presentation" identifier="crearCuest" modalPresentationStyle="fullScreen" id="of2-gN-mNr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-3S-qfE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-3S-qfE">
                                 <rect key="frame" x="16" y="20" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cerrar sesion"/>
                                 <connections>
                                     <segue destination="uia-v1-Ak9" kind="unwind" unwindAction="unwindWithSegue:" id="H4W-uy-qEj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-uz-Q4Q">
-                                <rect key="frame" x="74" y="413" width="226" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Ver resultados" backgroundImage="backgroundBotones">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="oVD-aK-e56" kind="presentation" modalPresentationStyle="fullScreen" id="0z1-UI-hbq"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uE-Iy-v1B">
+                                <rect key="frame" x="47.5" y="126.5" width="280" height="414"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-uz-Q4Q">
+                                        <rect key="frame" x="27" y="335" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Ver resultados" backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="oVD-aK-e56" kind="presentation" modalPresentationStyle="fullScreen" id="0z1-UI-hbq"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-1M-CLi">
+                                        <rect key="frame" x="20" y="20" width="240" height="128"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-JQ-EHc">
+                                        <rect key="frame" x="27" y="211" width="226" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Crear cuestionario" backgroundImage="backgroundBotones">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="eSK-Ux-6zp" kind="presentation" identifier="crearCuest" modalPresentationStyle="fullScreen" id="of2-gN-mNr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bjQ-uz-Q4Q" firstAttribute="top" secondItem="fuw-JQ-EHc" secondAttribute="bottom" constant="65" id="4ok-6W-92m"/>
+                                    <constraint firstItem="fuw-JQ-EHc" firstAttribute="top" secondItem="xTL-1M-CLi" secondAttribute="bottom" constant="63" id="5Qi-Fr-dWv"/>
+                                    <constraint firstItem="fuw-JQ-EHc" firstAttribute="height" secondItem="7uE-Iy-v1B" secondAttribute="height" multiplier="0.142512" id="FzR-wy-PiO"/>
+                                    <constraint firstItem="xTL-1M-CLi" firstAttribute="height" secondItem="7uE-Iy-v1B" secondAttribute="height" multiplier="0.309179" id="LPc-Zc-tjV"/>
+                                    <constraint firstItem="fuw-JQ-EHc" firstAttribute="centerX" secondItem="7uE-Iy-v1B" secondAttribute="centerX" id="LUH-XH-rfT"/>
+                                    <constraint firstItem="xTL-1M-CLi" firstAttribute="top" secondItem="7uE-Iy-v1B" secondAttribute="top" constant="20" id="NfW-8l-sVn"/>
+                                    <constraint firstItem="bjQ-uz-Q4Q" firstAttribute="width" secondItem="7uE-Iy-v1B" secondAttribute="width" multiplier="0.807143" id="aBD-pQ-CVR"/>
+                                    <constraint firstItem="xTL-1M-CLi" firstAttribute="centerX" secondItem="7uE-Iy-v1B" secondAttribute="centerX" id="aUv-Pq-RNs"/>
+                                    <constraint firstItem="bjQ-uz-Q4Q" firstAttribute="centerX" secondItem="7uE-Iy-v1B" secondAttribute="centerX" id="drc-VY-AgB"/>
+                                    <constraint firstItem="bjQ-uz-Q4Q" firstAttribute="height" secondItem="7uE-Iy-v1B" secondAttribute="height" multiplier="0.142512" id="v10-bE-PU2"/>
+                                    <constraint firstItem="fuw-JQ-EHc" firstAttribute="width" secondItem="7uE-Iy-v1B" secondAttribute="width" multiplier="0.807143" id="v1c-ck-t4v"/>
+                                    <constraint firstItem="xTL-1M-CLi" firstAttribute="width" secondItem="7uE-Iy-v1B" secondAttribute="width" multiplier="0.857143" id="ybR-CQ-AH3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hpv-3S-qfE" firstAttribute="leading" secondItem="hmZ-ju-0jZ" secondAttribute="leading" constant="16" id="59T-xd-vpj"/>
+                            <constraint firstItem="7uE-Iy-v1B" firstAttribute="centerY" secondItem="hmZ-ju-0jZ" secondAttribute="centerY" id="DnG-05-fWM"/>
+                            <constraint firstItem="7uE-Iy-v1B" firstAttribute="height" secondItem="LZF-mo-USm" secondAttribute="height" multiplier="0.62069" id="LYf-Eb-Ko4"/>
+                            <constraint firstItem="hpv-3S-qfE" firstAttribute="width" secondItem="LZF-mo-USm" secondAttribute="width" multiplier="0.245333" id="TLx-mR-3x9"/>
+                            <constraint firstItem="hpv-3S-qfE" firstAttribute="height" secondItem="LZF-mo-USm" secondAttribute="height" multiplier="0.0449775" id="bWc-hX-tlc"/>
+                            <constraint firstItem="hpv-3S-qfE" firstAttribute="top" secondItem="hmZ-ju-0jZ" secondAttribute="top" constant="20" id="caz-C6-SYq"/>
+                            <constraint firstItem="7uE-Iy-v1B" firstAttribute="width" secondItem="LZF-mo-USm" secondAttribute="width" multiplier="0.746667" id="dWg-dY-G0J"/>
+                            <constraint firstItem="7uE-Iy-v1B" firstAttribute="centerX" secondItem="hmZ-ju-0jZ" secondAttribute="centerX" id="hyT-CX-hvP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hmZ-ju-0jZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="V0t-R6-dWT"/>
+                    <connections>
+                        <outlet property="btnCerrar" destination="hpv-3S-qfE" id="bPi-gJ-ZYU"/>
+                        <outlet property="btnCrear" destination="fuw-JQ-EHc" id="Yhg-cA-fKA"/>
+                        <outlet property="btnVer" destination="bjQ-uz-Q4Q" id="qtI-9m-cVt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhW-28-RzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="uia-v1-Ak9" userLabel="Exit" sceneMemberID="exit"/>
@@ -517,7 +608,15 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pqm-dX-JiO">
-                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="591"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-6Z-MdD">
+                                        <rect key="frame" x="168" y="546" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
+                                </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="lo9-pM-4WB"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="zRO-6B-SSm"/>
                             </scrollView>
@@ -529,19 +628,13 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                                     <action selector="regresarMenu:" destination="PWl-se-bDO" eventType="touchUpInside" id="q16-ww-1D2"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-6Z-MdD">
-                                <rect key="frame" x="160" y="589" width="54" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="pqm-dX-JiO" firstAttribute="bottom" secondItem="QZb-SS-lu5" secondAttribute="bottom" id="1dk-yS-yDQ"/>
                             <constraint firstItem="pqm-dX-JiO" firstAttribute="leading" secondItem="QZb-SS-lu5" secondAttribute="leading" id="d8d-Ao-ReF"/>
                             <constraint firstItem="pqm-dX-JiO" firstAttribute="trailing" secondItem="QZb-SS-lu5" secondAttribute="trailing" id="fr1-FE-569"/>
-                            <constraint firstItem="pqm-dX-JiO" firstAttribute="top" secondItem="QZb-SS-lu5" secondAttribute="top" id="tR0-K9-b3o"/>
+                            <constraint firstItem="pqm-dX-JiO" firstAttribute="top" secondItem="QZb-SS-lu5" secondAttribute="top" id="lWY-Q4-eQP"/>
+                            <constraint firstItem="QZb-SS-lu5" firstAttribute="bottom" secondItem="pqm-dX-JiO" secondAttribute="bottom" id="ugJ-HM-kf7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QZb-SS-lu5"/>
                     </view>
@@ -564,29 +657,25 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oS3-Ec-evM" customClass="PieChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oS3-Ec-evM" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="16" y="78" width="343" height="336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pue-ba-VZy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pue-ba-VZy">
                                 <rect key="frame" x="252" y="600" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ver Respuestas"/>
                                 <connections>
                                     <segue destination="fqy-kP-zw3" kind="presentation" id="GLU-cE-Dl2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-0l-fXi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-0l-fXi">
                                 <rect key="frame" x="14" y="488" width="295" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Eb-z1-pUj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Eb-z1-pUj">
                                 <rect key="frame" x="16" y="20" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="&lt; Regresar"/>
                                 <connections>
                                     <action selector="salirCuestionario:" destination="URR-xY-w0d" eventType="touchUpInside" id="7l8-J8-Oc2"/>
@@ -594,6 +683,24 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4Eb-z1-pUj" firstAttribute="leading" secondItem="OPd-9u-YA8" secondAttribute="leading" constant="16" id="3qk-bm-y03"/>
+                            <constraint firstItem="kxg-0l-fXi" firstAttribute="top" secondItem="oS3-Ec-evM" secondAttribute="bottom" constant="74" id="8Ud-qN-pGa"/>
+                            <constraint firstItem="oS3-Ec-evM" firstAttribute="centerX" secondItem="OPd-9u-YA8" secondAttribute="centerX" id="AX9-Pf-f37"/>
+                            <constraint firstItem="oS3-Ec-evM" firstAttribute="top" secondItem="4Eb-z1-pUj" secondAttribute="bottom" constant="28" id="ESW-e8-zBv"/>
+                            <constraint firstItem="pue-ba-VZy" firstAttribute="width" secondItem="6do-4a-SPG" secondAttribute="width" multiplier="0.285333" id="I41-DG-5Gl"/>
+                            <constraint firstItem="kxg-0l-fXi" firstAttribute="leading" secondItem="OPd-9u-YA8" secondAttribute="leading" constant="14" id="Kid-JU-6sd"/>
+                            <constraint firstItem="kxg-0l-fXi" firstAttribute="height" secondItem="6do-4a-SPG" secondAttribute="height" multiplier="0.089955" id="TbD-l2-TSZ"/>
+                            <constraint firstItem="4Eb-z1-pUj" firstAttribute="width" secondItem="6do-4a-SPG" secondAttribute="width" multiplier="0.2" id="Vf0-ev-9aw"/>
+                            <constraint firstItem="kxg-0l-fXi" firstAttribute="width" secondItem="6do-4a-SPG" secondAttribute="width" multiplier="0.786667" id="a14-h7-JMb"/>
+                            <constraint firstItem="pue-ba-VZy" firstAttribute="top" secondItem="kxg-0l-fXi" secondAttribute="bottom" constant="52" id="cXr-qV-18b"/>
+                            <constraint firstItem="oS3-Ec-evM" firstAttribute="width" secondItem="6do-4a-SPG" secondAttribute="width" multiplier="0.914667" id="eJi-CJ-sJt"/>
+                            <constraint firstItem="OPd-9u-YA8" firstAttribute="trailing" secondItem="pue-ba-VZy" secondAttribute="trailing" constant="16" id="f3b-D9-DHA"/>
+                            <constraint firstItem="4Eb-z1-pUj" firstAttribute="height" secondItem="6do-4a-SPG" secondAttribute="height" multiplier="0.0449775" id="j5k-Pt-TYQ"/>
+                            <constraint firstItem="4Eb-z1-pUj" firstAttribute="top" secondItem="OPd-9u-YA8" secondAttribute="top" constant="20" id="lpj-Uh-O2L"/>
+                            <constraint firstItem="pue-ba-VZy" firstAttribute="height" secondItem="6do-4a-SPG" secondAttribute="height" multiplier="0.0449775" id="pGh-1t-qOR"/>
+                            <constraint firstItem="oS3-Ec-evM" firstAttribute="height" secondItem="6do-4a-SPG" secondAttribute="height" multiplier="0.503748" id="uqK-bt-JPP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OPd-9u-YA8"/>
                     </view>
                     <navigationItem key="navigationItem" id="YUG-6M-xDz"/>

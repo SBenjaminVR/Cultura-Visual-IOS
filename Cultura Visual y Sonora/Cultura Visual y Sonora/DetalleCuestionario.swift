@@ -17,16 +17,58 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     var NumeroDeRespuestas:Int!
     var respuestasUsuario : [Int]!
 
+    @IBOutlet weak var btnIniciar: UIButton!
+    @IBOutlet weak var btnReiniciarAvances: UIButton!
+    @IBOutlet weak var btnRegresar: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(cuestionarioSeleccionado.nombre)"
         
         obtenerPreguntas(addPreguntas, nombre: cuestionarioSeleccionado.nombre)
-    }
+        
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+        var maximoFont: CGFloat
+        var maximoBtnPequeno: CGFloat
+            
+        if (width > 1125) {
+            maximoFont = 44
+            maximoBtnPequeno = 28
+        }
+        else {
+            maximoFont = 24
+            maximoBtnPequeno = 16
+        }
+        ajustarFontSize(label: btnRegresar.titleLabel!, bold: false, maxSize: maximoBtnPequeno)
+        ajustarFontSize(label: btnIniciar.titleLabel!, bold: false, maxSize: maximoFont)
+        ajustarFontSize(label: btnReiniciarAvances.titleLabel!, bold: false, maxSize: maximoFont)
+        
+}
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
+        override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return UIInterfaceOrientationMask.portrait
+        }
+        
+        override var shouldAutorotate: Bool {
+            return false
+        }
+        
+        func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {
+            let maxFontSize: CGFloat = maxSize
+            let minFontSize: CGFloat = 10
+
+            if bold {
+                label.font = UIFont(name: "HelveticaNeue-Bold", size: maxFontSize)!
+            }
+            else {
+                label.font = UIFont(name: "HelveticaNeue", size: maxFontSize)!
+            }
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = minFontSize/maxFontSize
+            
+            return label.font.pointSize
+        }
     
     func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], String)->Void, nombre: String) {
         let pregRef = Firestore.firestore().collection("Preguntas")

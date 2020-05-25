@@ -11,16 +11,56 @@ import UIKit
 class MenuPrincipalAlumno: UIViewController, UIPopoverPresentationControllerDelegate {
 
     var nombreUsuario:String! = nil
+    @IBOutlet weak var btnCerrar: UIButton!
+    @IBOutlet weak var btnCuestionario: UIButton!
+    @IBOutlet weak var btnGeneral: UIButton!
+    @IBOutlet weak var btnEstadisticas: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+        var maximoFont: CGFloat
+        var maximoBtnPequeno: CGFloat
+            
+        if (width > 1125) {
+            maximoFont = 44
+            maximoBtnPequeno = 28
+        }
+        else {
+            maximoFont = 24
+            maximoBtnPequeno = 16
+        }
+        ajustarFontSize(label: btnCerrar.titleLabel!, bold: false, maxSize: maximoBtnPequeno)
+        ajustarFontSize(label: btnCuestionario.titleLabel!, bold: false, maxSize: maximoFont)
+        ajustarFontSize(label: btnGeneral.titleLabel!, bold: false, maxSize: maximoFont)
+        ajustarFontSize(label: btnEstadisticas.titleLabel!, bold: false, maxSize: maximoFont)
+        }
+        override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return UIInterfaceOrientationMask.portrait
+        }
+        
+        override var shouldAutorotate: Bool {
+            return false
+        }
+        
+        func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {
+            let maxFontSize: CGFloat = maxSize
+            let minFontSize: CGFloat = 10
+
+            if bold {
+                label.font = UIFont(name: "HelveticaNeue-Bold", size: maxFontSize)!
+            }
+            else {
+                label.font = UIFont(name: "HelveticaNeue", size: maxFontSize)!
+            }
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = minFontSize/maxFontSize
+            
+            return label.font.pointSize
+        }
+        
     func setBackground() -> Void {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "shinyBackground")

@@ -16,7 +16,6 @@ class ResultadoCuestionario: UIViewController {
     @IBOutlet weak var lbTexto: UILabel!
     
     var respuestasUsuario1 : [Int] = []
-   
     var respuestasCorrectas1: [Int] = []
     
     var texto:String!
@@ -27,8 +26,6 @@ class ResultadoCuestionario: UIViewController {
     var incorrectasDataEntry = PieChartDataEntry(value: 0)
     
     var arrSlides2 : [Slide]!
-    
-    
     
     var dataEntries = [PieChartDataEntry]()
     
@@ -47,10 +44,6 @@ class ResultadoCuestionario: UIViewController {
         updateChartData()
     }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
     func updateChartData() {
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
@@ -60,10 +53,46 @@ class ResultadoCuestionario: UIViewController {
         chartDataSet.colors = colors as! [NSUIColor]
         
         pieChart.data = chartData
+        let legend = pieChart.legend
         
-        
-    }
-    
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+        var maximoFont: CGFloat
+        var maximoBtnPequeno: CGFloat
+                    
+        if (width > 1125) {
+            maximoFont = 36
+            maximoBtnPequeno = 28
+            legend.font = UIFont(name: "Verdana", size: 26)!
+        }
+        else {
+            maximoFont = 44
+            maximoBtnPequeno = 30
+            legend.font = UIFont(name: "Verdana", size: 17)!
+        }
+                
+        }
+        override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return UIInterfaceOrientationMask.portrait
+        }
+        override var shouldAutorotate: Bool {
+            return false
+        }
+                
+        func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {
+        let maxFontSize: CGFloat = maxSize
+        let minFontSize: CGFloat = 10
+
+        if bold {
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: maxFontSize)!
+            }
+        else {
+            label.font = UIFont(name:"HelveticaNeue", size: maxFontSize)!
+            }
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = minFontSize/maxFontSize
+                return label.font.pointSize
+        }
     
     // MARK: - Navigation
 

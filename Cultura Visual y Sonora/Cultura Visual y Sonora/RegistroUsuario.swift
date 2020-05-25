@@ -72,7 +72,7 @@ class RegistroUsuario: UIViewController {
     
     func setBackground() -> Void {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "shinyBackground")
+        backgroundImage.image = UIImage(named: "Background.png")
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
