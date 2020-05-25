@@ -37,6 +37,10 @@ class EstadisticasProfesor: UITableViewController {
         obtenerIntentos(addIntentos)
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     // MARK: - Traer Intentos de Firebase
     
     func obtenerIntentos(_ completion: @escaping ([QueryDocumentSnapshot])->Void) {

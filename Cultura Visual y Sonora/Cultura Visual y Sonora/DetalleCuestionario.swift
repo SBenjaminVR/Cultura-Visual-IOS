@@ -19,11 +19,13 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         self.title = "\(cuestionarioSeleccionado.nombre)"
         
         obtenerPreguntas(addPreguntas, nombre: cuestionarioSeleccionado.nombre)
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     func obtenerPreguntas(_ completion: @escaping ([QueryDocumentSnapshot], String)->Void, nombre: String) {

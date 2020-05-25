@@ -17,6 +17,10 @@ class MenuPrincipalAlumno: UIViewController, UIPopoverPresentationControllerDele
         setBackground()
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     func setBackground() -> Void {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "shinyBackground")

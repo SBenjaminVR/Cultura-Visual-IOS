@@ -33,6 +33,7 @@
 		4EA5D4062476C324004720DD /* EstadisticasAlumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA5D4052476C324004720DD /* EstadisticasAlumno.swift */; };
 		4ECB17D9244E6D7D001B1B23 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB17D8244E6D7D001B1B23 /* Slide.swift */; };
 		4ECB17DB244E6D9C001B1B23 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB17DA244E6D9C001B1B23 /* Slide.xib */; };
+		A5442C2F247B4EBA0024FF59 /* Creditos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5442C2E247B4EBA0024FF59 /* Creditos.swift */; };
 		B9D9F8C8245F5172006BCEE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		4ECB17D8244E6D7D001B1B23 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		4ECB17DA244E6D9C001B1B23 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		51ECF4AD626EE69B90AB54AD /* libPods-Cultura Visual y Sonora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cultura Visual y Sonora.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5442C2E247B4EBA0024FF59 /* Creditos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creditos.swift; sourceTree = "<group>"; };
 		B9D9F8C7245F5171006BCEE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DEABFB6CBD31A9A9C8E04254 /* Pods-Cultura Visual y Sonora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cultura Visual y Sonora.debug.xcconfig"; path = "Target Support Files/Pods-Cultura Visual y Sonora/Pods-Cultura Visual y Sonora.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				0F9795842446651D00822BA2 /* SceneDelegate.swift */,
 				0F9795862446651D00822BA2 /* ViewController.swift */,
 				0F9795882446651D00822BA2 /* Main.storyboard */,
+				A5442C2E247B4EBA0024FF59 /* Creditos.swift */,
 				02B095F924771EE400433DA6 /* EstadisticasProfesor.swift */,
 				4EA5D4052476C324004720DD /* EstadisticasAlumno.swift */,
 				0F3A7A532475E9910076083A /* CuestionarioGeneral.swift */,
@@ -295,6 +298,7 @@
 				0F9795AB24467DCC00822BA2 /* ResultadoCuestionario.swift in Sources */,
 				0F3A7A542475E9910076083A /* CuestionarioGeneral.swift in Sources */,
 				0F9795A924467D5B00822BA2 /* RespondeCuestionario.swift in Sources */,
+				A5442C2F247B4EBA0024FF59 /* Creditos.swift in Sources */,
 				0F9795852446651D00822BA2 /* SceneDelegate.swift in Sources */,
 				0F9795992446657B00822BA2 /* Cuestionario.swift in Sources */,
 				0FB47EEC244CA8E500D1B48E /* DetalleNuevoCuestionario.swift in Sources */,

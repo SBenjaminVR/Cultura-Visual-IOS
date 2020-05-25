@@ -22,6 +22,10 @@ class MenuPrincipalProfesor: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
 
     
     // MARK: - Navigation

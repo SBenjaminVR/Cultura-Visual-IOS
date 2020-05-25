@@ -65,6 +65,10 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         // para que al mover el scroll no se detenga el timer
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     
     func createSlides() -> [Slide] {

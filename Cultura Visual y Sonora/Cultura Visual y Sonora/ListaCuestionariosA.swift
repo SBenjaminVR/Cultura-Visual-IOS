@@ -26,6 +26,10 @@ class ListaCuestionariosA: UITableViewController {
         obtenerCuestionarios(addCuestionario)
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     //MARK: - Traer cuestionarios de Firebase
     func obtenerCuestionarios(_ completion: @escaping ([QueryDocumentSnapshot])->Void) {
         let cuestRef = Firestore.firestore().collection("Cuestionarios")

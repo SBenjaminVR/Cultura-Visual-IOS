@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbContrasena: UILabel!
     @IBOutlet weak var btnCuenta: UIButton!
     @IBOutlet weak var btnEntrar: UIButton!
+    @IBOutlet weak var btnCreditos: UIButton!
     
     var docRef: DocumentReference!
     var uName:String!
@@ -39,6 +40,14 @@ class ViewController: UIViewController {
         ajustarFontSize(label: lbContrasena, bold: true, maxSize: tamMax)
         ajustarFontSize(label: btnCuenta.titleLabel!, bold: false, maxSize: maximoFont)
         ajustarFontSize(label: btnEntrar.titleLabel!, bold: false, maxSize: maximoFont)
+        ajustarFontSize(label: btnCreditos.titleLabel!, bold: false, maxSize: maximoFont)
+    }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {

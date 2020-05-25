@@ -22,8 +22,11 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-}
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
     
     func creaCuestionario() {
         

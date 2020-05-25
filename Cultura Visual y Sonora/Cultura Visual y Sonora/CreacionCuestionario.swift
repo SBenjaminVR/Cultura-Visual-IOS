@@ -63,6 +63,10 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         imgR4.isUserInteractionEnabled = false
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     // MARK: - Creacion Preguntas
     @IBAction func agregarPregunta(_ sender: UIButton) {
         

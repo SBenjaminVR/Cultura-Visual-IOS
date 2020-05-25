@@ -35,9 +35,7 @@ class ResultadoCuestionario: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lbTexto.text = texto
-        
-        
-        
+    
         pieChart.chartDescription?.text = ""
         correctasDataEntry.value = Correctas
         correctasDataEntry.label = "Correctas"
@@ -47,6 +45,10 @@ class ResultadoCuestionario: UIViewController {
         dataEntries = [correctasDataEntry, incorrectasDataEntry]
         
         updateChartData()
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     func updateChartData() {
@@ -62,9 +64,6 @@ class ResultadoCuestionario: UIViewController {
         
     }
     
-    
-    
-
     
     // MARK: - Navigation
 

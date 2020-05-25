@@ -15,6 +15,12 @@ class RegistroUsuario: UIViewController {
     @IBOutlet weak var tfCorreo: UITextField!
     @IBOutlet weak var tfContrasena: UITextField!
     @IBOutlet weak var tfConfirmar: UITextField!
+    @IBOutlet weak var btnCancelar: UIButton!
+    @IBOutlet weak var btnCrearCuenta: UIButton!
+    @IBOutlet weak var lbNombre: UILabel!
+    @IBOutlet weak var lbUsuario: UILabel!
+    @IBOutlet weak var lbContrasena: UILabel!
+    @IBOutlet weak var lbConfirmacion: UILabel!
     
     var docRef: DocumentReference!
     
@@ -22,6 +28,46 @@ class RegistroUsuario: UIViewController {
         super.viewDidLoad()
         setBackground()
         
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+        var maximoFont: CGFloat
+        
+        if (width > 1125) {
+            maximoFont = 30
+        }
+        else {
+            maximoFont = 17
+        }
+        let tamMax = ajustarFontSize(label: lbNombre, bold: true, maxSize: maximoFont)
+        ajustarFontSize(label: lbContrasena, bold: true, maxSize: tamMax)
+        ajustarFontSize(label: lbUsuario, bold: true, maxSize: tamMax)
+        ajustarFontSize(label: lbConfirmacion, bold: true, maxSize: tamMax)
+        ajustarFontSize(label: btnCancelar.titleLabel!, bold: false, maxSize: maximoFont)
+        ajustarFontSize(label: btnCrearCuenta.titleLabel!, bold: false, maxSize: maximoFont)
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {
+        let maxFontSize: CGFloat = maxSize
+        let minFontSize: CGFloat = 10
+
+        if bold {
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: maxFontSize)!
+        }
+        else {
+            label.font = UIFont(name: "HelveticaNeue", size: maxFontSize)!
+        }
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = minFontSize/maxFontSize
+        
+        return label.font.pointSize
     }
     
     func setBackground() -> Void {

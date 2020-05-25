@@ -33,6 +33,10 @@ class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
         marcarCorrectas()
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     func bloquearBotones(){
         for i in 0...arrSlides3.count-1{
             arrSlides3[i].btnRespuestaTexto1.isEnabled = false
