@@ -68,7 +68,6 @@ class ResultadoCuestionario: UIViewController {
         else {
             maximoFont = 44
             maximoBtnPequeno = 30
-            legend.font = UIFont(name: "Verdana", size: 17)!
         }
                 
         }

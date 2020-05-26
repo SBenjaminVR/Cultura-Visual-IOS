@@ -28,6 +28,10 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         return false
     }
     
+    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     func creaCuestionario() {
         
         let nomb = tfNombreCuest.text
@@ -47,7 +51,12 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
             "nombre": cuest.nombre,
             "tiempo": cuest.tiempoCuestionario,
             "cantPreguntas": cuest.preguntas.count
-        ])
+        ]){err in
+            let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario creado exitosamente", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alerta.addAction(accion)
+            self.present(alerta, animated: true, completion: nil)
+        }
         
         var i=0
         //var j=0
@@ -151,12 +160,7 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                     dataReference.updateData([
                         "imagenPreg": urlString
                     ]) { (error) in
-                        let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario creado exitosamente", preferredStyle: .alert)
-                        let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                         
-                        alerta.addAction(accion)
-                        
-                        self.present(alerta, animated: true, completion: nil)
                         return
                     }
                 }
@@ -164,12 +168,6 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
                     dataReference.updateData([
                         "imagenes": FieldValue.arrayUnion([urlString])
                     ]) { (error) in
-                        let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario creado exitosamente", preferredStyle: .alert)
-                        let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                        
-                        alerta.addAction(accion)
-                        
-                        self.present(alerta, animated: true, completion: nil)
                         return
                     }
                 }
@@ -225,8 +223,4 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
         dismiss(animated: true, completion: nil)
     }
     
-
-    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
 }

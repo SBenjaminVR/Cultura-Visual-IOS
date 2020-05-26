@@ -25,14 +25,14 @@ class CuestionarioGeneral: UIViewController {
     
     @IBAction func setQuestionNumber(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            cantPreg = 1
-            tiempo = 4.0
+            cantPreg = 5
+            tiempo = 3.0
         } else if sender.selectedSegmentIndex == 1 {
-            cantPreg = 2
-            tiempo = 8.0
+            cantPreg = 10
+            tiempo = 6.0
         } else if sender.selectedSegmentIndex == 2 {
-            cantPreg = 4
-            tiempo = 12.0
+            cantPreg = 20
+            tiempo = 10.0
         } else {
             cantPreg = 0
             tiempo = 15.0

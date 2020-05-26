@@ -111,6 +111,7 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
 
     
     func addPreguntas(preguntas: [QueryDocumentSnapshot], nombre:String) {
+        var preguntitas = [Pregunta]()
         var categoria = ""
         var descripcion = ""
         var respCorrecta = 0
@@ -152,13 +153,12 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
                 }
             }
             
-            cuestionarioSeleccionado.preguntas.append(nuevaPregunta)
+            preguntitas.append(nuevaPregunta)
             j += 1
         }
         
-        
-        
         setBackground()
+        cuestionarioSeleccionado.addQuestions(preguntas: preguntitas)
         
         if cuestionarioSeleccionado.nombre == "CuestGeneral" && cuestionarioSeleccionado.numeroDePreguntas != 0 {
             configuraPreguntasGeneral()
