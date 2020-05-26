@@ -206,7 +206,7 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                                             </segue>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFn-WJ-xcx">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagenPrincipal" translatesAutoresizingMaskIntoConstraints="NO" id="vFn-WJ-xcx">
                                         <rect key="frame" x="20" y="20" width="240" height="128"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bq0-Gc-uMg">
@@ -544,7 +544,7 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                                             <segue destination="oVD-aK-e56" kind="presentation" modalPresentationStyle="fullScreen" id="0z1-UI-hbq"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-1M-CLi">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagenPrincipal" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-1M-CLi">
                                         <rect key="frame" x="20" y="20" width="240" height="128"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-JQ-EHc">
@@ -607,9 +607,8 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-6Z-MdD">
-                                <rect key="frame" x="168" y="564" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-6Z-MdD">
+                                <rect key="frame" x="168" y="615" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -618,9 +617,8 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                                 <viewLayoutGuide key="contentLayoutGuide" id="lo9-pM-4WB"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="zRO-6B-SSm"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFH-kU-2bZ">
-                                <rect key="frame" x="16" y="20" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFH-kU-2bZ">
+                                <rect key="frame" x="16" y="7" width="75" height="30"/>
                                 <state key="normal" title="&lt; Regresar"/>
                                 <connections>
                                     <action selector="regresarMenu:" destination="PWl-se-bDO" eventType="touchUpInside" id="q16-ww-1D2"/>
@@ -629,9 +627,15 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="2SM-6Z-MdD" firstAttribute="bottom" secondItem="QZb-SS-lu5" secondAttribute="bottom" constant="-15" id="2oD-rd-cPJ"/>
+                            <constraint firstItem="2SM-6Z-MdD" firstAttribute="centerX" secondItem="QZb-SS-lu5" secondAttribute="centerX" id="CoY-c8-oGd"/>
+                            <constraint firstItem="FFH-kU-2bZ" firstAttribute="width" secondItem="Pvr-id-GQb" secondAttribute="width" multiplier="0.2" id="Iec-6w-lkP"/>
+                            <constraint firstItem="FFH-kU-2bZ" firstAttribute="top" secondItem="QZb-SS-lu5" secondAttribute="top" constant="7" id="Ojd-lj-Voc"/>
+                            <constraint firstItem="FFH-kU-2bZ" firstAttribute="leading" secondItem="QZb-SS-lu5" secondAttribute="leading" constant="16" id="ZgL-Rf-gXG"/>
                             <constraint firstItem="pqm-dX-JiO" firstAttribute="leading" secondItem="QZb-SS-lu5" secondAttribute="leading" id="d8d-Ao-ReF"/>
                             <constraint firstItem="pqm-dX-JiO" firstAttribute="trailing" secondItem="QZb-SS-lu5" secondAttribute="trailing" id="fr1-FE-569"/>
                             <constraint firstItem="pqm-dX-JiO" firstAttribute="top" secondItem="QZb-SS-lu5" secondAttribute="top" id="lWY-Q4-eQP"/>
+                            <constraint firstItem="FFH-kU-2bZ" firstAttribute="height" secondItem="Pvr-id-GQb" secondAttribute="height" multiplier="0.0449775" id="two-ms-pNP"/>
                             <constraint firstItem="pqm-dX-JiO" firstAttribute="bottom" secondItem="QZb-SS-lu5" secondAttribute="bottom" id="ugJ-HM-kf7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QZb-SS-lu5"/>
@@ -725,14 +729,17 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                                 <viewLayoutGuide key="contentLayoutGuide" id="2Hv-2e-T6p"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ahl-qq-a46"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="G8d-wn-F5f">
-                                <rect key="frame" x="160" y="588" width="54" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="G8d-wn-F5f">
+                                <rect key="frame" x="160" y="598" width="54" height="37"/>
                                 <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="G8d-wn-F5f" firstAttribute="bottom" secondItem="bYv-gp-Sak" secondAttribute="bottom" constant="-12" id="6Hr-f6-hOt"/>
+                            <constraint firstItem="G8d-wn-F5f" firstAttribute="centerX" secondItem="bYv-gp-Sak" secondAttribute="centerX" id="wEE-mm-B9M"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bYv-gp-Sak"/>
                     </view>
                     <connections>
@@ -1539,6 +1546,7 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Check" width="225" height="225"/>
+        <image name="ImagenPrincipal" width="479" height="479"/>
         <image name="Intento3" width="376" height="272"/>
         <image name="Intento3Large" width="376" height="498"/>
         <image name="RedBtn" width="201" height="90"/>
