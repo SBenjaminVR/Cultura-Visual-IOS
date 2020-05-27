@@ -11,7 +11,6 @@ import Charts
 
 class ResultadoCuestionario: UIViewController {
 
-    
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var lbTexto: UILabel!
     

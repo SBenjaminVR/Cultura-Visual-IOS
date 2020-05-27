@@ -12,7 +12,6 @@ import FirebaseStorage
 
 class customTableViewCell: UITableViewCell{
     @IBOutlet weak var lbCuestionario: UILabel!
-    @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var lbCalifa: UILabel!
     
 }
@@ -77,10 +76,7 @@ class EstadisticasAlumno: UITableViewController {
                
                i+=1
            }
-           
-           for i in 0...listaIntentos.count-1 {
-               print("INTENTO DE: \(listaIntentos[i].cuestionario)")
-           }
+        
         tableView.reloadData()
        }
     
@@ -113,29 +109,26 @@ class EstadisticasAlumno: UITableViewController {
         let cCorrectas =  Double(listaIntentos[indexPath.row].correctas)
         let cIncorrectas = Double(listaIntentos[indexPath.row].incorrectas)
         var califa = cCorrectas / (cCorrectas+cIncorrectas)
-        cell.progress.progress = Float(califa)
-        cell.progress.transform = cell.progress.transform.scaledBy(x: 1, y: 5)
+        
         if(califa >= 0.70){
-            cell.progress.progressTintColor = UIColor.green
+            cell.lbCalifa.textColor = UIColor.green
         }
         else if(califa >= 0.30 ){
-            cell.progress.progressTintColor = UIColor.yellow
+            cell.lbCalifa.textColor = UIColor(red: 254/255, green: 205/255, blue: 46/255, alpha: 1)
         }
         else{
-            cell.progress.progressTintColor = UIColor.red
+            cell.lbCalifa.textColor = UIColor.red
         }
         
         califa *= 100
 
         cell.lbCalifa.text = "\(Int(califa))%"
         
-        
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 78.0
     }
     
 

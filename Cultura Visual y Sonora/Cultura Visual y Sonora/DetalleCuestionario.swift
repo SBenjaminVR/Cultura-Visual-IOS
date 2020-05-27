@@ -199,23 +199,40 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     }
     
     func guardaRespuestasUsuario(resps: [Int], tiempo: Int) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(nombreUsuario, forKey: "username")
-        userDefaults.set(cuestionarioSeleccionado.nombre, forKey: "cuestionario")
-        userDefaults.set(true, forKey: "hasLeft")
-        userDefaults.set(tiempo, forKey: "timer")
-        userDefaults.set(resps, forKey: "respuestas")
-        respuestasUsuario = resps
+        
+        if cuestionarioSeleccionado.nombre != "CuestGeneral" {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(nombreUsuario, forKey: "username")
+            userDefaults.set(cuestionarioSeleccionado.nombre, forKey: "cuestionario")
+            userDefaults.set(true, forKey: "hasLeft")
+            userDefaults.set(tiempo, forKey: "timer")
+            userDefaults.set(resps, forKey: "respuestas")
+            respuestasUsuario = resps
+        }
     }
     
-
     @IBAction func reiniciaRespuestasUsuario(_ sender: UIButton) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(false, forKey: "hasLeft")
-        userDefaults.set(0, forKey: "timer")
-        for i in 0...respuestasUsuario.count-1 {
-            respuestasUsuario[i] = 0
+        
+        if cuestionarioSeleccionado.nombre != "CuestGeneral" {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(false, forKey: "hasLeft")
+            userDefaults.set(0, forKey: "timer")
+            for i in 0...respuestasUsuario.count-1 {
+                respuestasUsuario[i] = 0
+            }
+            
+            let alerta = UIAlertController(title: "Enhorabuena", message: "Cuestionario reiniciado correctamente", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alerta.addAction(accion)
+            self.present(alerta, animated: true, completion: nil)
+        
+        } else {
+            let alerta = UIAlertController(title: "Error", message: "No se puede reiniciar el cuestionario general", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alerta.addAction(accion)
+            self.present(alerta, animated: true, completion: nil)
         }
+        
     }
     
     // MARK: - Navigation
@@ -229,7 +246,7 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
         let user = userDefaults.string(forKey: "username")
         let cuestionario = userDefaults.string(forKey: "cuestionario")
         
-        if hasLeft && user == nombreUsuario && cuestionario == cuestionarioSeleccionado.nombre {
+        if hasLeft && user == nombreUsuario && cuestionario == cuestionarioSeleccionado.nombre && cuestionarioSeleccionado.nombre != "CuestGeneral" {
             vistaDestino.timerCounter = userDefaults.integer(forKey: "timer")
             vistaDestino.respuestasUsuario = userDefaults.array(forKey: "respuestas") as? [Int]
         }

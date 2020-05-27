@@ -209,7 +209,10 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Creacion Cuestionario
     @IBAction func crearCuestionario(_ sender: UIButton) {
         delegado.agregaPreguntas(pregs: listaPreguntas)
-        dismiss(animated: true, completion: nil)
+        let p = self.presentingViewController
+        self.dismiss(animated: true) {
+            p?.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - ImagePickerDelegate

@@ -215,6 +215,8 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
     }
     
     func agregaPreguntas(pregs: [Pregunta]) {
+        tfNombreCuest.text = ""
+        tfTiempoCuest.text = ""
         listaPreguntas = pregs
         creaCuestionario()
     }
