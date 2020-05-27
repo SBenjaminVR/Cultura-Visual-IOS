@@ -12,7 +12,7 @@ protocol protocoloAgregaPreg {
     func agregaPreguntas(pregs: [Pregunta]) -> Void
 }
 
-class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // MARK: - Variables
     
@@ -55,6 +55,8 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     var delegado : protocoloAgregaPreg!
     var listaPreguntas : [Pregunta] = [Pregunta]()
     
+    var activeField : UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imgR1.isUserInteractionEnabled = false
@@ -67,7 +69,7 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
+            if self.view.frame.origin.y == 0 && activeField != nil {
                 self.view.frame.origin.y -= keyboardSize.height
             }
         }
@@ -79,8 +81,18 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    // Each text field in the interface sets the view controller as its delegate.
+    // Therefore, when a text field becomes active, it calls these methods.
+    func textFieldDidBeginEditing (_ textField : UITextField )
+    {
+        activeField = textField
+        print(activeField)
+    }
     
-    
+    func textFieldDidEndEditing (_ textField : UITextField )
+    {
+        activeField = nil
+    }
     
     override var shouldAutorotate: Bool {
         return false
