@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RegistroUsuario: UIViewController {
+class RegistroUsuario: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfCorreo: UITextField!
@@ -23,6 +23,8 @@ class RegistroUsuario: UIViewController {
     @IBOutlet weak var lbConfirmacion: UILabel!
     
     var docRef: DocumentReference!
+    
+    var activeField : UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,37 @@ class RegistroUsuario: UIViewController {
         ajustarFontSize(label: lbConfirmacion, bold: true, maxSize: tamMax)
         ajustarFontSize(label: btnCancelar.titleLabel!, bold: false, maxSize: maximoFont)
         ajustarFontSize(label: btnCrearCuenta.titleLabel!, bold: false, maxSize: maximoFont)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 && activeField != nil {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    // Each text field in the interface sets the view controller as its delegate.
+    // Therefore, when a text field becomes active, it calls these methods.
+    func textFieldDidBeginEditing (_ textField : UITextField )
+    {
+        activeField = textField
+        print(activeField)
+    }
+    
+    func textFieldDidEndEditing (_ textField : UITextField )
+    {
+        activeField = nil
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
