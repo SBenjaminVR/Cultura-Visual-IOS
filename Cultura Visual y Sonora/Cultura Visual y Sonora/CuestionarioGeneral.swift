@@ -12,7 +12,7 @@ class CuestionarioGeneral: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var nombre:String!
-    var cantPreg:Int = 1
+    var cantPreg:Int = 5
     var tiempo:Double = 4.0
     var nombreUsuario:String!
     

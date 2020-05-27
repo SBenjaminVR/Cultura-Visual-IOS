@@ -219,10 +219,18 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
         let cuestionario = userDefaults.string(forKey: "cuestionario")
         
         if !hasLeft || user != nombreUsuario || cuestionario != cuestionarioSeleccionado.nombre || cuestionarioSeleccionado.nombre == "CuestGeneral" {
+            
+            if cuestionarioSeleccionado.nombre != "CuestGeneral" {
             let alerta = UIAlertController(title: "Error", message: "No hay avanzes en este cuestionario para reiniciar", preferredStyle: .alert)
             let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alerta.addAction(accion)
             self.present(alerta, animated: true, completion: nil)
+            } else {
+                let alerta = UIAlertController(title: "Error", message: "No se puede reiniciar el cuestionario general", preferredStyle: .alert)
+                let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alerta.addAction(accion)
+                self.present(alerta, animated: true, completion: nil)
+            }
         
         } else if cuestionarioSeleccionado.nombre != "CuestGeneral" {
             let userDefaults = UserDefaults.standard
@@ -236,13 +244,7 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alerta.addAction(accion)
             self.present(alerta, animated: true, completion: nil)
-        } else {
-            let alerta = UIAlertController(title: "Error", message: "No se puede reiniciar el cuestionario general", preferredStyle: .alert)
-            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            alerta.addAction(accion)
-            self.present(alerta, animated: true, completion: nil)
         }
-        
     }
     
     // MARK: - Navigation
