@@ -239,10 +239,20 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     
     // MARK: - Creacion Cuestionario
     @IBAction func crearCuestionario(_ sender: UIButton) {
-        delegado.agregaPreguntas(pregs: listaPreguntas)
-        let p = self.presentingViewController
-        self.dismiss(animated: true) {
-            p?.dismiss(animated: true, completion: nil)
+        if listaPreguntas.count == 0 {
+            let alerta = UIAlertController(title: "Error", message: "No se pueden crear cuestionarios sin preguntas", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alerta.addAction(accion)
+            
+            self.present(alerta, animated: true, completion: nil)
+            
+        } else {
+            delegado.agregaPreguntas(pregs: listaPreguntas)
+            let p = self.presentingViewController
+            self.dismiss(animated: true) {
+                p?.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
