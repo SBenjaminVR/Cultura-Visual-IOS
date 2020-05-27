@@ -213,7 +213,18 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
     
     @IBAction func reiniciaRespuestasUsuario(_ sender: UIButton) {
         
-        if cuestionarioSeleccionado.nombre != "CuestGeneral" {
+        let userDefaults = UserDefaults.standard
+        let hasLeft = userDefaults.bool(forKey: "hasLeft")
+        let user = userDefaults.string(forKey: "username")
+        let cuestionario = userDefaults.string(forKey: "cuestionario")
+        
+        if !hasLeft || user != nombreUsuario || cuestionario != cuestionarioSeleccionado.nombre || cuestionarioSeleccionado.nombre == "CuestGeneral" {
+            let alerta = UIAlertController(title: "Error", message: "No hay avanzes en este cuestionario para reiniciar", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alerta.addAction(accion)
+            self.present(alerta, animated: true, completion: nil)
+        
+        } else if cuestionarioSeleccionado.nombre != "CuestGeneral" {
             let userDefaults = UserDefaults.standard
             userDefaults.set(false, forKey: "hasLeft")
             userDefaults.set(0, forKey: "timer")
@@ -225,7 +236,6 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alerta.addAction(accion)
             self.present(alerta, animated: true, completion: nil)
-        
         } else {
             let alerta = UIAlertController(title: "Error", message: "No se puede reiniciar el cuestionario general", preferredStyle: .alert)
             let accion = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
