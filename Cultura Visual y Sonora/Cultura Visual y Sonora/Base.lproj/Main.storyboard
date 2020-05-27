@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -789,9 +789,8 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                                     <action selector="regresarPantalla:" destination="eSK-Ux-6zp" eventType="touchUpInside" id="SDj-jC-SWz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="minutos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LU9-y0-wmz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LU9-y0-wmz">
                                 <rect key="frame" x="171" y="313" width="62" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -800,12 +799,14 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="LU9-y0-wmz" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.165333" id="3LW-kE-gKh"/>
                             <constraint firstItem="NdO-wv-VgT" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.344" id="79Q-ZT-a6f"/>
                             <constraint firstItem="QH9-Zt-hfa" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.165333" id="FeU-dy-Otj"/>
                             <constraint firstItem="pI1-ey-fJa" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.445333" id="Gcj-2D-GUn"/>
                             <constraint firstItem="QH9-Zt-hfa" firstAttribute="top" secondItem="pjj-we-LYS" secondAttribute="top" constant="20" id="MM9-UE-Ofh"/>
                             <constraint firstItem="zxt-YA-BUS" firstAttribute="height" secondItem="YNE-Sg-1wg" secondAttribute="height" multiplier="0.0314843" id="Mfe-5l-bH3"/>
                             <constraint firstItem="rYm-VF-XCV" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.650667" id="Msg-GK-feI"/>
+                            <constraint firstItem="LU9-y0-wmz" firstAttribute="height" secondItem="YNE-Sg-1wg" secondAttribute="height" multiplier="0.0314843" id="PLM-nP-4ul"/>
                             <constraint firstItem="i3k-an-PEw" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.258667" id="PLs-Ip-drm"/>
                             <constraint firstItem="QH9-Zt-hfa" firstAttribute="leading" secondItem="pjj-we-LYS" secondAttribute="leading" constant="16" id="QCf-iD-Tfe"/>
                             <constraint firstItem="zxt-YA-BUS" firstAttribute="leading" secondItem="pjj-we-LYS" secondAttribute="leading" constant="66" id="Rc9-6B-nnN"/>
@@ -818,7 +819,9 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíb
                             <constraint firstItem="NdO-wv-VgT" firstAttribute="height" secondItem="YNE-Sg-1wg" secondAttribute="height" multiplier="0.0449775" id="bja-Lp-L4C"/>
                             <constraint firstItem="i3k-an-PEw" firstAttribute="height" secondItem="YNE-Sg-1wg" secondAttribute="height" multiplier="0.0509745" id="ddf-cu-k5b"/>
                             <constraint firstItem="pjj-we-LYS" firstAttribute="bottom" secondItem="NdO-wv-VgT" secondAttribute="bottom" constant="49" id="eWc-cI-qvG"/>
+                            <constraint firstItem="LU9-y0-wmz" firstAttribute="top" secondItem="zxt-YA-BUS" secondAttribute="bottom" constant="22" id="hxt-1s-F6Q"/>
                             <constraint firstItem="pI1-ey-fJa" firstAttribute="leading" secondItem="pjj-we-LYS" secondAttribute="leading" constant="66" id="kJa-fF-HkP"/>
+                            <constraint firstItem="LU9-y0-wmz" firstAttribute="leading" secondItem="i3k-an-PEw" secondAttribute="trailing" constant="8" id="kYq-xM-Wt3"/>
                             <constraint firstItem="i3k-an-PEw" firstAttribute="top" secondItem="zxt-YA-BUS" secondAttribute="bottom" constant="16" id="kc9-ZN-yVZ"/>
                             <constraint firstItem="QH9-Zt-hfa" firstAttribute="height" secondItem="YNE-Sg-1wg" secondAttribute="height" multiplier="0.0449775" id="m11-Fk-het"/>
                             <constraint firstItem="zxt-YA-BUS" firstAttribute="width" secondItem="YNE-Sg-1wg" secondAttribute="width" multiplier="0.474667" id="rSj-eF-LqI"/>
