@@ -66,10 +66,14 @@ class RespondeCuestionario: UIViewController, UIScrollViewDelegate, protocoloCon
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }
-
     
     func createSlides() -> [Slide] {
         

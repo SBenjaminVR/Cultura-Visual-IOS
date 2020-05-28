@@ -33,6 +33,11 @@ class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
         marcarCorrectas()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }
@@ -73,9 +78,7 @@ class ResultadosGeneralesCuestionarios: UIViewController, UIScrollViewDelegate{
                  }
             }
     }
-                
 
-    
     func setupSlideScrollView(slides : [Slide]) {
         scrollViewRes.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         scrollViewRes.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: view.frame.height)

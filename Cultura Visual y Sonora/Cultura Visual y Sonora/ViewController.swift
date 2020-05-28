@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         ajustarFontSize(label: btnCreditos.titleLabel!, bold: false, maxSize: maximoFont)
     }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
+        return UIInterfaceOrientationMask.portrait
         
     }
     

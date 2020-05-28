@@ -23,6 +23,15 @@ class CuestionarioGeneral: UIViewController {
         preferredContentSize = CGSize(width: 350, height: 200)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     @IBAction func setQuestionNumber(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             cantPreg = 5

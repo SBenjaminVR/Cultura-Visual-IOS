@@ -43,6 +43,15 @@ class ResultadoCuestionario: UIViewController {
         updateChartData()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     func updateChartData() {
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
@@ -69,12 +78,6 @@ class ResultadoCuestionario: UIViewController {
             maximoBtnPequeno = 30
         }
                 
-        }
-        override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-            return UIInterfaceOrientationMask.portrait
-        }
-        override var shouldAutorotate: Bool {
-            return false
         }
                 
         func ajustarFontSize(label: UILabel, bold: Bool, maxSize: CGFloat) -> CGFloat {

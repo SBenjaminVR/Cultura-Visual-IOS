@@ -24,6 +24,11 @@ class DetalleNuevoCuestionario: UIViewController, protocoloAgregaPreg {
 
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }

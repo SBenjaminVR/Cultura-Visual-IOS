@@ -36,6 +36,11 @@ class EstadisticasProfesor: UITableViewController {
         obtenerIntentos(addIntentos)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }

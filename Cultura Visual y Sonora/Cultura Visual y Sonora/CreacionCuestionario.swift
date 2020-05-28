@@ -94,6 +94,11 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         activeField = nil
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+        
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }
@@ -319,6 +324,8 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
             tfRespuesta3.text = ""
             tfRespuesta4.text = ""
             
+            tfRespuesta1.isEnabled = true
+            tfRespuesta2.isEnabled = true
             tfRespuesta3.isEnabled = false
             tfRespuesta4.isEnabled = false
             btnRespCorrecta3.isEnabled = false
@@ -350,6 +357,12 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
             tfRespuesta2.isEnabled = true
             tfRespuesta3.isEnabled = true
             tfRespuesta4.isEnabled = true
+            
+            imgPreg.image = UIImage(named: "default")
+            imgR1.image = UIImage(named: "default")
+            imgR2.image = UIImage(named: "default")
+            imgR3.image = UIImage(named: "default")
+            imgR4.image = UIImage(named: "default")
         } else {
             tipoPreguntas.selectedSegmentIndex = 0
             imgR1.isUserInteractionEnabled = true
