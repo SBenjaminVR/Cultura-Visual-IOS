@@ -236,6 +236,7 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             let userDefaults = UserDefaults.standard
             userDefaults.set(false, forKey: "hasLeft")
             userDefaults.set(0, forKey: "timer")
+            
             for i in 0...respuestasUsuario.count-1 {
                 respuestasUsuario[i] = 0
             }
@@ -263,6 +264,11 @@ class DetalleCuestionario: UIViewController, protocoloRespuestasUsuario {
             vistaDestino.respuestasUsuario = userDefaults.array(forKey: "respuestas") as? [Int]
         }
         else {
+            if !hasLeft {
+                for i in 0...respuestasUsuario.count-1 {
+                    respuestasUsuario[i] = 0
+                }
+            }
             vistaDestino.respuestasUsuario = respuestasUsuario
         }
         

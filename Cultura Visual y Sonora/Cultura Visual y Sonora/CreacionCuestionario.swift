@@ -86,7 +86,6 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
     func textFieldDidBeginEditing (_ textField : UITextField )
     {
         activeField = textField
-        print(activeField)
     }
     
     func textFieldDidEndEditing (_ textField : UITextField )
@@ -158,8 +157,6 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
         } else {
             categoria = "imagenes"
             
-            print("ENTREEEEE")
-            
             if tfPregunta.text != "" {
                 
                 let dataR1 = imgR1.image?.jpegData(compressionQuality: 0.1)
@@ -179,8 +176,6 @@ class CreacionCuestionario: UIViewController, UIImagePickerControllerDelegate, U
                     self.present(alerta, animated: true, completion: nil)
                                     
                 } else {
-                    
-                    print((imgR2.image?.isEqual(UIImage(named: "default")!))!)
                     
                     let descrip = tfPregunta.text!
                     let respuestas:[String] = ["", "", "", ""]
